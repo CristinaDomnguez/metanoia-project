@@ -18,16 +18,30 @@ public class ResourcesController {
     @Autowired
     private ResourcesRepository resourcesRepository;
 
-    // GET: get all resources
+    // GET: Retrieve all resources
     @GetMapping("/")
     public ResponseEntity<List<Resources>> getAllResources() {
-        List<Resources> resources = resourcesRepository.findAll(Sort.by(Sort.Order.asc("id")));
+        List<Resources> resources = resourcesRepository.findAll(Sort.by(Sort.Order.asc("title"))); // Ordenar por título
         return new ResponseEntity<>(resources, HttpStatus.OK);
     }
 
     // POST: Add a new resource
     @PostMapping("/create")
-    public ResponseEntity<Resources> createResource(@RequestBody Resources resource) {
+    public ResponseEntity<Object> createResource(@RequestBody Resources resource) {
+        // Validación básica
+        if (resource.getTitle() == null || resource.getTitle().isEmpty()) {
+            return new ResponseEntity<>("Title is required", HttpStatus.BAD_REQUEST);
+        }
+        if (resource.getType() == null || resource.getType().isEmpty()) {
+            return new ResponseEntity<>("Type is required", HttpStatus.BAD_REQUEST);
+        }
+        if (resource.getDescription() == null || resource.getDescription().isEmpty()) {
+            return new ResponseEntity<>("Description is required", HttpStatus.BAD_REQUEST);
+        }
+        if (resource.getUrl() == null || resource.getUrl().isEmpty()) {
+            return new ResponseEntity<>("URL is required", HttpStatus.BAD_REQUEST);
+        }
+
         Resources savedResource = resourcesRepository.save(resource);
         return new ResponseEntity<>(savedResource, HttpStatus.CREATED);
     }
@@ -39,9 +53,9 @@ public class ResourcesController {
 
         if (resource.isPresent()) {
             resourcesRepository.deleteById(id);
-            return new ResponseEntity<>("Resource deleted successfully", HttpStatus.OK);
+            return new ResponseEntity<>("Resource with ID " + id + " deleted successfully", HttpStatus.OK);
         } else {
-            return new ResponseEntity<>("Resource not found", HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("Resource with ID " + id + " not found", HttpStatus.NOT_FOUND);
         }
     }
 }

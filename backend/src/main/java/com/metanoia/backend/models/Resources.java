@@ -11,7 +11,15 @@ public class Resources {
     @Column(name = "id")
     private Long id;
 
-    // es un campo único
+    @Column(name = "title", nullable = false)
+    private String title;
+
+    @Column(name = "type", nullable = false)
+    private String type;
+
+    @Column(name = "description", nullable = false, columnDefinition = "TEXT")
+    private String description;
+
     @Column(name = "url", nullable = false, unique = true)
     private String url;
 
@@ -22,6 +30,30 @@ public class Resources {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getUrl() {
