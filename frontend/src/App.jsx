@@ -1,11 +1,13 @@
 import "./App.css";
+import { NavBar } from "./components/NavBar/NavBar";
 
 function App() {
   return (
-    <>
-      <h1>Hola Mundo</h1>
-    </>
+    /* Contenedor principal de la aplicación */
+    <div className="app">
+      {/* Barra de navegación */}
+      <NavBar></NavBar>
+    </div>
   );
 }
-
 export default App;
