@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap");
+
+/* Contenedor principal de la aplicación */
+.app {
+  background-color: white;
+  min-height: 100vh;
+}
+
+/* Estilo de títulos principales */
+h1 {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: 36px;
+  color: #6495ed;
+}
+
+/* Estilo de subtítulos */
+h2,
+h3 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  color: #333;
+}
+
+/* Estilo del texto general */
+p {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #444;
+}

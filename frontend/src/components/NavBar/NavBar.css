@@ -1,0 +1,61 @@
+/* Barra de navegación principal */
+.navbar {
+  background-color: #e4ccef;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+/* Grupos de navegación (contenedores de links) */
+.nav-group {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  flex: 1;
+}
+
+/* Alineación del grupo izquierdo */
+.nav-group.left {
+  justify-content: flex-end;
+}
+
+/* Alineación del grupo derecho */
+.nav-group.right {
+  justify-content: flex-start;
+}
+
+/* Estilo de los enlaces de navegación */
+.nav-link {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+/* Efecto hover de los enlaces */
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+/* Separador vertical entre enlaces */
+.separator {
+  color: rgb(0, 0, 0);
+  font-weight: 300;
+}
+
+/* Contenedor del logo */
+.logo-container {
+  padding: 0 4rem;
+}
+
+/* Dimensiones del logo */
+.logo {
+  height: 50px;
+  width: auto;
+}
