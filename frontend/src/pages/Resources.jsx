@@ -1,11 +1,9 @@
 import React from 'react'
 
-function Resources() {
+export default function Resources() {
     return (
-        <div>
-            sdfasdfasfdasfd
-        </div>
+        <>
+            <h2>Recursos</h2>
+        </>
     )
 }
-
-export default Resources
