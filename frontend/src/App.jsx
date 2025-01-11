@@ -7,6 +7,7 @@ function App() {
     <div className="app">
       {/* Barra de navegación */}
       <NavBar></NavBar>
+
     </div>
   );
 }
