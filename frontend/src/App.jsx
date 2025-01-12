@@ -1,3 +1,4 @@
+import { Home } from "./components/Home/Home";
 import "./App.css";
 import { NavBar } from "./components/NavBar/NavBar";
 
@@ -6,7 +7,8 @@ function App() {
     /* Contenedor principal de la aplicación */
     <div className="app">
       {/* Barra de navegación */}
-      <NavBar></NavBar>
+      <NavBar />
+      <Home />
     </div>
   );
 }
