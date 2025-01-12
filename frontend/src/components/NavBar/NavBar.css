@@ -14,8 +14,7 @@
 .nav-group {
   display: flex;
   align-items: center;
-  gap: 3rem;
-  flex: 1;
+  gap: 4rem;
 }
 
 /* Alineación del grupo izquierdo */
@@ -31,7 +30,7 @@
 /* Estilo de los enlaces de navegación */
 .nav-link {
   font-family: "Roboto", sans-serif;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 18px;
   color: rgb(0, 0, 0);
   text-decoration: none;
@@ -46,12 +45,13 @@
 /* Separador vertical entre enlaces */
 .separator {
   color: rgb(0, 0, 0);
-  font-weight: 300;
+  font-weight: 100;
+  font-size: 40px;
 }
 
 /* Contenedor del logo */
 .logo-container {
-  padding: 0 4rem;
+  padding: 0 5rem;
 }
 
 /* Dimensiones del logo */
