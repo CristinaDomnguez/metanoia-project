@@ -31,13 +31,14 @@
 .videos-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
+  justify-content: space-between; /* Espaciado uniforme */
+  gap: 2rem; /* Espaciado entre elementos */
   width: 100%;
   max-width: 900px;
 }
 
 .videos {
-  flex: 1 1 40%;
+  flex: 1 1 calc(50% - 1rem); /* Ajusta para que entren 2 elementos con un margen */
   padding: 1.5rem;
   background-color: #e2c1c1;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -48,24 +49,25 @@
   cursor: pointer;
 }
 
-/* Contenedor de podcasts - 3 por fila */
+/* Contenedor de podcasts - 2 por fila */
 .podcasts-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  justify-content: space-between; /* Espaciado uniforme */
+  gap: 1rem; /* Espaciado entre elementos */
   width: 100%;
   max-width: 900px; /* Igualado al contenedor de videos */
 }
 
 .podcast {
-  flex: 1 1 15%; /* Reducido para que entren 3 en el mismo ancho que los videos */
-  padding: 0.8rem;
+  flex: 1 1 calc(50% - 1rem); /* Ajusta para que entren 2 elementos con un margen */
+  padding: 1rem;
   background-color: #e2c1c1;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  min-height: 80px;
+  min-height: 100px;
 }
 
 /* Efectos hover */
@@ -74,4 +76,13 @@
   transform: translateY(-5px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   cursor: pointer;
+}
+
+/* Ajuste para scroll suave con encabezado fijo */
+/* Asegura que cuando el navegador haga scroll hacia el elemento objetivo
+se aplique un margen superior, evitando que el encabezado fijo (como el NavBar) lo tape.
+*/
+#videos-section,
+#podcasts-section {
+  scroll-margin-top: 80px;
 }

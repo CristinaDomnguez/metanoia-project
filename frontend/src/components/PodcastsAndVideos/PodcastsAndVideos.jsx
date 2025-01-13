@@ -1,11 +1,11 @@
-import React from 'react'
-import "./PodcastsAndVideos.css"
+import React from 'react';
+import "./PodcastsAndVideos.css";
 
 export default function PodcastsAndVideos() {
     return (
         <>
             {/* Sección de Vídeos */}
-            <section className="videos-section layout-box">
+            <section id="videos-section" className="videos-section layout-box">
                 <h3>Vídeos</h3>
                 <div className="videos-container">
                     <div className="videos">Vídeo 1</div>
@@ -24,7 +24,7 @@ export default function PodcastsAndVideos() {
             </section>
 
             {/* Sección de Podcasts */}
-            <section className="podcasts-section layout-box">
+            <section id="podcasts-section" className="podcasts-section layout-box">
                 <h3>Podcasts</h3>
                 <div className="podcasts-container">
                     <div className="podcast">Podcast 1</div>
@@ -44,5 +44,5 @@ export default function PodcastsAndVideos() {
                 </div>
             </section>
         </>
-    )
+    );
 }
