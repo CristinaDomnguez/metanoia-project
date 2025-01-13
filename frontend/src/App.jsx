@@ -6,9 +6,9 @@ function App() {
   return (
     /* Contenedor principal de la aplicación */
     <div className="app">
-      {/* Barra de navegación */}
       <NavBar />
       <Home />
+
     </div>
   );
 }
