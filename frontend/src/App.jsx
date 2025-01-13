@@ -1,4 +1,4 @@
-import { Home } from "./components/Home/Home";
+import { Home } from "./pages/Home/Home";
 import "./App.css";
 import { NavBar } from "./components/NavBar/NavBar";
 import { Footer } from "./components/Footer/Footer";
