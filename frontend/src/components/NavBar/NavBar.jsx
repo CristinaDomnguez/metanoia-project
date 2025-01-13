@@ -15,9 +15,11 @@ export function NavBar() {
       </div>
 
       {/* Contenedor del logo central */}
-      <div className="logo-container">
-        <img src="/images/logo_small.png" alt="Logo" className="logo" />
-      </div>
+      <Link to="/" className="nav-link-logo">
+        <div className="logo-container">
+          <img src="/images/logo_small.png" alt="Logo" className="logo" />
+        </div>
+      </Link>
 
       {/* Grupo de enlaces del lado derecho */}
       <div className="nav-group right">

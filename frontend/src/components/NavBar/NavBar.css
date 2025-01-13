@@ -39,6 +39,11 @@
   cursor: pointer;
 }
 
+/* Estilo enlace logo */
+.nav-link-logo {
+  cursor: pointer;
+}
+
 /* Efecto hover de los enlaces */
 .nav-link:hover {
   text-decoration: underline;
