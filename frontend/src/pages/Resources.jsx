@@ -1,29 +1,34 @@
 import React from 'react';
 import { NavBar } from '../components/NavBar/NavBar';
 import './Resources.css';
+import PodcastsAndVideos from '../components/PodcastsAndVideos/PodcastsAndVideos';
 
 export default function Resources() {
     return (
         <>
             <NavBar />
-            <div>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat deleniti, ducimus voluptatibus at natus asperiores vero dolorum officia cum distinctio? Vero autem quos, animi illum ipsum veniam eum distinctio minus voluptates quod quia numquam nobis aliquam, vel aliquid alias exercitationem tempora consequuntur deleniti! Tempora id harum aliquid maiores. Voluptatum dolorem impedit tenetur, quod odio, officia veritatis laudantium exercitationem minima corrupti aspernatur omnis. Tempore tempora, voluptate dignissimos magnam quidem quo eos ab. Quidem ratione non soluta. Molestiae harum vero veniam ipsam. Iure dolor asperiores repellendus, nostrum tempore nemo cumque, corporis velit error expedita eius praesentium et ut necessitatibus. Nesciunt, consectetur eveniet.
-                </p>
-            </div>
-
-            {/* iconos */}
-            <div className='icons'>
-                <div className='spotify-icon'>
-                    <img src="/spotify.svg" alt="Spotify logo" height={70} width={70} />
-                    <h2>Spotify</h2>
+            {/* Sección introductoria */}
+            <section className="intro-section layout-box">
+                <h2 className="title">Recursos</h2>
+                <div className="text-container">
+                    <p className="text">
+                        Tener la opinion de gente versada en la materia siempre es una buena guía
+                        ,por eso, hemos hecho esta seleccion podcast y videos que creemos
+                        te aportaran luz.
+                    </p>
+                    {/* iconos */}
+                    <div className="icons">
+                        <div>
+                            <img className="spotify-icon" src="/spotify.svg" alt="Spotify logo" height={70} width={70} />
+                        </div>
+                        <div>
+                            <img className="youtube-icon" src="/youtube.svg" alt="Youtube logo" height={70} width={70} />
+                        </div>
+                    </div>
                 </div>
+            </section>
 
-                <div className='youtube-icon'>
-                    <img src="/youtube.svg" alt="Youtube logo" height={70} width={70} />
-                    <h2>Youtube</h2>
-                </div>
-            </div>
+            <PodcastsAndVideos />
         </>
     );
 }

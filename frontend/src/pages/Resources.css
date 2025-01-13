@@ -1,13 +1,45 @@
-/* Estilos contenedor de los iconos */
-.icons {
-  margin-top: 100px;
+/* Clases Genéricas */
+.layout-box {
+  max-inline-size: 1250px; /* Limita el ancho máximo para mayor control */
+  margin-inline: auto;
+}
+/* Fin clases genéricas */
+
+/* Estilo título principal */
+.title {
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* Estilos del Contenedor principal del contenido */
+.text-container {
   display: flex;
-  justify-content: center;
-  gap: 50px;
+  justify-content: space-between; /* Centra verticalmente dentro del espacio disponible */
+  margin: 50px auto;
+  padding: 0 10%; /* Respeta los márgenes laterales de la barra de navegación */
+}
+
+/* Estilos del texto*/
+.text {
+  width: 100%; /* Asegura que el texto no se desborde */
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Estilos del contenedor de los iconos */
+.icons {
+  margin: 1rem;
+  width: auto;
 }
 
 /* Estilos de los iconos */
 .spotify-icon,
 .youtube-icon {
   cursor: pointer;
+}
+
+.spotify-icon:hover,
+.youtube-icon:hover {
+  transform: scale(1.1); /* Aumenta ligeramente el tamaño al pasar el mouse */
+  transition: 0.3s;
 }

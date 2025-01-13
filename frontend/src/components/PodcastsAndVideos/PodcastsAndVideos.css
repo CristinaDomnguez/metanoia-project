@@ -1,0 +1,77 @@
+/* Clases Genéricas */
+.layout-box {
+  max-inline-size: 1235px;
+  margin-inline: auto;
+  padding: 0 1rem;
+}
+
+/* Estilos sección de vídeos y podcasts */
+.videos-section,
+.podcasts-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0;
+  width: 100%;
+  text-align: center;
+}
+
+.videos-section h3,
+.podcasts-section h3 {
+  font-size: 2rem;
+  color: #333;
+  font-weight: bold;
+  border-bottom: 2px solid #e4ccef;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Contenedor de videos - 2 por fila */
+.videos-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  width: 100%;
+  max-width: 900px;
+}
+
+.videos {
+  flex: 1 1 40%;
+  padding: 1.5rem;
+  background-color: #e2c1c1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-height: 150px;
+  cursor: pointer;
+}
+
+/* Contenedor de podcasts - 3 por fila */
+.podcasts-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 100%;
+  max-width: 900px; /* Igualado al contenedor de videos */
+}
+
+.podcast {
+  flex: 1 1 15%; /* Reducido para que entren 3 en el mismo ancho que los videos */
+  padding: 0.8rem;
+  background-color: #e2c1c1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-height: 80px;
+}
+
+/* Efectos hover */
+.videos:hover,
+.podcast:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
