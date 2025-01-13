@@ -1,0 +1,13 @@
+/* Estilos contenedor de los iconos */
+.icons {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+/* Estilos de los iconos */
+.spotify-icon,
+.youtube-icon {
+  cursor: pointer;
+}
