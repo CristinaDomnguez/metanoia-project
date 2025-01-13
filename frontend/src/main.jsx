@@ -1,12 +1,25 @@
-import { BrowserRouter } from "react-router-dom";
+import React from "react";
+import ReactDOM from "react-dom/client"; // Asegúrate de importar ReactDOM
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
 import App from "./App.jsx";
+import Resources from "./pages/Resources.jsx";
 
-createRoot(document.getElementById("root")).render(
+// Configuración del enrutador
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+  },
+  {
+    path: "/recursos",
+    element: <Resources />,
+  },
+]);
+
+// Renderizar el enrutador en la raíz
+ReactDOM.createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <RouterProvider router={router} />
   </StrictMode>
 );
