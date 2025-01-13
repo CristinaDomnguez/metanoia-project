@@ -4,7 +4,7 @@ package com.metanoia.backend.models;
 import jakarta.persistence.*;
 
 // Declaración de la clase como una entidad que representa una tabla en la base de datos
-    @Entity
+    @Entity // Recursos
     @Table(name = "resources") // Nombre de la tabla en la base de datos será "resources"
     public class Resources {
 
