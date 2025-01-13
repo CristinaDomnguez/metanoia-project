@@ -19,11 +19,22 @@
   padding: 0 10%; /* Respeta los márgenes laterales de la barra de navegación */
 }
 
+.container {
+  background-color: #f5f5dc;
+  border-radius: 10px;
+  padding: 20px;
+}
+
 /* Estilos del texto*/
 .text {
   width: 100%; /* Asegura que el texto no se desborde */
   font-size: 16px;
   line-height: 1.6;
+}
+
+.container p:nth-child(2) {
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 /* Estilos del contenedor de los iconos */
