@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Sheets.css";
 
 export function Sheets() {
@@ -6,22 +7,22 @@ export function Sheets() {
     {
       image: "/images/Sheets/photo6.avif",
       text: "Recursos",
-      link: "/ruta1",
+      link: "/recursos",
     },
     {
       image: "/images/Sheets/photo5.avif",
       text: "Ayudas",
-      link: "/ruta2",
+      link: "/ayudas",
     },
     {
       image: "/images/Sheets/photo4.avif",
       text: "Centros de atención",
-      link: "/ruta3",
+      link: "/centros",
     },
     {
       image: "/images/Sheets/photo7.avif",
       text: "Eventos",
-      link: "/ruta4",
+      link: "/eventos",
     },
   ];
 
@@ -30,8 +31,7 @@ export function Sheets() {
     <section className="sheets-section">
       <div className="cards-container">
         {cardData.map((card, index) => (
-          // AÑADIR LINK CUANDO LO TENGAMOS
-          <div className="card-link" key={index}>
+          <Link to={card.link} className="card-link" key={index}>
             <div className="card">
               <div className="image-container">
                 <img
@@ -45,7 +45,7 @@ export function Sheets() {
                 <p>{card.text}</p>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </section>
