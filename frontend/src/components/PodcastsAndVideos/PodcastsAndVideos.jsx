@@ -4,7 +4,7 @@ import "./PodcastsAndVideos.css";
 export default function PodcastsAndVideos() {
   const [resources, setResources] = useState({
     videos: [],
-    podcasts: []
+    podcasts: [],
   });
   const [error, setError] = useState(null);
 
@@ -18,12 +18,12 @@ export default function PodcastsAndVideos() {
         const data = await response.json();
 
         // Filtrado de tipo de recursos
-        const videos = data.filter(resource => resource.type === "video");
-        const podcasts = data.filter(resource => resource.type === "podcast");
+        const videos = data.filter((resource) => resource.type === "video");
+        const podcasts = data.filter((resource) => resource.type === "podcast");
 
         setResources({
           videos,
-          podcasts
+          podcasts,
         });
       } catch (error) {
         setError(error.message);
