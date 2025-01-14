@@ -1,13 +1,38 @@
+import { Home } from "./pages/Home/Home";
 import "./App.css";
 import { NavBar } from "./components/NavBar/NavBar";
+import { Footer } from "./components/Footer/Footer";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import Resources from "./pages/Resources/Resources.jsx";
+
+// Configuración del enrutador
+const router = createBrowserRouter([
+  {
+    element: (
+      <>
+        <NavBar />
+        <Outlet />
+        <Footer />
+      </>
+    ),
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/recursos",
+        element: <Resources />,
+      },
+    ],
+  },
+]);
 
 function App() {
   return (
     /* Contenedor principal de la aplicación */
     <div className="app">
-      {/* Barra de navegación */}
-      <NavBar></NavBar>
-
+      <RouterProvider router={router}>ooo</RouterProvider>
     </div>
   );
 }
