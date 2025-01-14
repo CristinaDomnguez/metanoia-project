@@ -32,7 +32,7 @@ export function Slogan() {
         - split('') divide el string en un array de caracteres
         - map crea un span para cada caracter
       */}
-        {text.split(/(?=.)/).map((char, index) => (
+        {text.split("").map((char, index) => (
           <span
             key={index}
             className="char"
