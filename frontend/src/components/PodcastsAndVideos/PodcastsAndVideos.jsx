@@ -6,10 +6,7 @@ export default function PodcastsAndVideos() {
     videos: [],
     podcasts: []
   });
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
-  console.log(resources);
 
   useEffect(() => {
     const fetchResources = async () => {
@@ -20,7 +17,7 @@ export default function PodcastsAndVideos() {
         }
         const data = await response.json();
 
-        // filtrado de tipo de recursos
+        // Filtrado de tipo de recursos
         const videos = data.filter(resource => resource.type === "video");
         const podcasts = data.filter(resource => resource.type === "podcast");
 
@@ -28,19 +25,13 @@ export default function PodcastsAndVideos() {
           videos,
           podcasts
         });
-        setLoading(false);
       } catch (error) {
         setError(error.message);
-        setLoading(false);
       }
     };
 
     fetchResources();
   }, []);
-
-  if (loading) {
-    return <div>Cargando recursos...</div>;
-  }
 
   if (error) {
     return <div>Error: {error}</div>;
@@ -54,7 +45,7 @@ export default function PodcastsAndVideos() {
         <div className="videos-container">
           {resources.videos.map((video) => (
             <div key={video.id} className="videos">
-              <h4>{video.title}</h4>
+              <h4>Título: {video.title}</h4>
               {/* Aquí puedes agregar más propiedades del video según tu API */}
               <p>{video.description}</p>
               {video.url && (
