@@ -1,24 +1,69 @@
+import { useState, useEffect } from "react";
 import "./PodcastsAndVideos.css";
 
 export default function PodcastsAndVideos() {
+  const [resources, setResources] = useState({
+    videos: [],
+    podcasts: []
+  });
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  console.log(resources);
+
+  useEffect(() => {
+    const fetchResources = async () => {
+      try {
+        const response = await fetch("http://localhost:8080/api/resources/");
+        if (!response.ok) {
+          throw new Error("Error al cargar los recursos");
+        }
+        const data = await response.json();
+
+        // filtrado de tipo de recursos
+        const videos = data.filter(resource => resource.type === "video");
+        const podcasts = data.filter(resource => resource.type === "podcast");
+
+        setResources({
+          videos,
+          podcasts
+        });
+        setLoading(false);
+      } catch (error) {
+        setError(error.message);
+        setLoading(false);
+      }
+    };
+
+    fetchResources();
+  }, []);
+
+  if (loading) {
+    return <div>Cargando recursos...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
   return (
     <>
       {/* Sección de Vídeos */}
       <section id="videos-section" className="videos-section layout-box">
         <h3>Vídeos</h3>
         <div className="videos-container">
-          <div className="videos">Vídeo 1</div>
-          <div className="videos">Vídeo 2</div>
-          <div className="videos">Vídeo 3</div>
-          <div className="videos">Vídeo 4</div>
-          <div className="videos">Vídeo 5</div>
-          <div className="videos">Vídeo 6</div>
-          <div className="videos">Vídeo 6</div>
-          <div className="videos">Vídeo 6</div>
-          <div className="videos">Vídeo 6</div>
-          <div className="videos">Vídeo 6</div>
-          <div className="videos">Vídeo 6</div>
-          <div className="videos">Vídeo 6</div>
+          {resources.videos.map((video) => (
+            <div key={video.id} className="videos">
+              <h4>{video.title}</h4>
+              {/* Aquí puedes agregar más propiedades del video según tu API */}
+              <p>{video.description}</p>
+              {video.url && (
+                <a href={video.url} target="_blank" rel="noopener noreferrer">
+                  Ver video
+                </a>
+              )}
+            </div>
+          ))}
         </div>
       </section>
 
@@ -26,20 +71,18 @@ export default function PodcastsAndVideos() {
       <section id="podcasts-section" className="podcasts-section layout-box">
         <h3>Podcasts</h3>
         <div className="podcasts-container">
-          <div className="podcast">Podcast 1</div>
-          <div className="podcast">Podcast 2</div>
-          <div className="podcast">Podcast 3</div>
-          <div className="podcast">Podcast 4</div>
-          <div className="podcast">Podcast 5</div>
-          <div className="podcast">Podcast 6</div>
-          <div className="podcast">Podcast 7</div>
-          <div className="podcast">Podcast 8</div>
-          <div className="podcast">Podcast 9</div>
-          <div className="podcast">Podcast 9</div>
-          <div className="podcast">Podcast 9</div>
-          <div className="podcast">Podcast 9</div>
-          <div className="podcast">Podcast 9</div>
-          <div className="podcast">Podcast 9</div>
+          {resources.podcasts.map((podcast) => (
+            <div key={podcast.id} className="podcast">
+              <h4>{podcast.title}</h4>
+              {/* Aquí puedes agregar más propiedades del podcast según tu API */}
+              <p>{podcast.description}</p>
+              {podcast.url && (
+                <a href={podcast.url} target="_blank" rel="noopener noreferrer">
+                  Escuchar podcast
+                </a>
+              )}
+            </div>
+          ))}
         </div>
       </section>
     </>
