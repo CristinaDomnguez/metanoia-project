@@ -39,6 +39,12 @@
   cursor: pointer;
 }
 
+/* Estilo para el enlace activo */
+.active-link {
+  color: #000000; 
+  font-weight: bold; 
+}
+
 /* Estilo enlace logo */
 .nav-link-logo {
   cursor: pointer;
