@@ -33,7 +33,7 @@ public class Resources {
     @Column(name = "url", nullable = false, unique = true)
     // La columna "url" no puede ser nula y debe tener valores únicos en la tabla
     private String url;
-    @Column(name = "image_url", nullable = false, unique = true) // Columna para almacenar la URL de la imagen
+    @Column(name = "image_url", nullable = false) // Columna para almacenar la URL de la imagen
     private String imageUrl;
 
 }
