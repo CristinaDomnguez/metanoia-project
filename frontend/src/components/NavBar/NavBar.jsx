@@ -1,35 +1,55 @@
 import "./NavBar.css";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 export function NavBar() {
   return (
     <nav className="navbar">
       {/* Grupo de enlaces del lado izquierdo */}
       <div className="nav-group left">
-        <Link to="/recursos" className="nav-link">
+        <NavLink
+          to="/recursos"
+          className={({ isActive }) =>
+            isActive ? "nav-link active-link" : "nav-link"
+          }
+        >
           RECURSOS
-        </Link>
+        </NavLink>
         <span className="separator">|</span>
-        <Link to="/centros" className="nav-link">
+        <NavLink
+          to="/centros"
+          className={({ isActive }) =>
+            isActive ? "nav-link active-link" : "nav-link"
+          }
+        >
           CENTROS
-        </Link>
+        </NavLink>
       </div>
 
       {/* Contenedor del logo central */}
-      <Link to="/" className="nav-link-logo">
+      <NavLink to="/" className="nav-link-logo">
         <div className="logo-container">
           <img src="/images/logo_small.png" alt="Logo" className="logo" />
         </div>
-      </Link>
+      </NavLink>
 
       {/* Grupo de enlaces del lado derecho */}
       <div className="nav-group right">
-        <Link to="/eventos" className="nav-link">
+        <NavLink
+          to="/eventos"
+          className={({ isActive }) =>
+            isActive ? "nav-link active-link" : "nav-link"
+          }
+        >
           EVENTOS
-        </Link>
+        </NavLink>
         <span className="separator">|</span>
-        <Link to="/ayudas" className="nav-link">
+        <NavLink
+          to="/ayudas"
+          className={({ isActive }) =>
+            isActive ? "nav-link active-link" : "nav-link"
+          }
+        >
           AYUDAS
-        </Link>
+        </NavLink>
       </div>
     </nav>
   );

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./Sheets.css";
+import styles from "./Sheets.module.css";
 
 export function Sheets() {
   // Array de objetos con la información de cada tarjeta
@@ -28,24 +28,26 @@ export function Sheets() {
 
   return (
     // Contenedor principal de la sección
-    <section className="sheets-section">
-      <div className="cards-container">
+    <section className={styles.sheetsSection}>
+      <div className={styles.cardsContainer}>
         {cardData.map((card, index) => (
-          <Link to={card.link} className="card-link" key={index}>
-            <div className="card">
-              <div className="image-container">
+          <div className={styles.cardWrapper} key={index}>
+            <div className={styles.card}>
+              <div className={styles.imageContainer}>
                 <img
                   src={card.image}
                   alt={`Card ${index + 1}`}
-                  className="card-image"
+                  className={styles.cardImage}
                 />
               </div>
               {/* Contenedor del texto*/}
-              <div className="text-container">
-                <p>{card.text}</p>
-              </div>
+              <Link to={card.link} className={styles.buttonLink}>
+                <div className={styles.textContainer}>
+                  <p>{card.text}</p>
+                </div>
+              </Link>
             </div>
-          </Link>
+          </div>
         ))}
       </div>
     </section>

@@ -1,0 +1,91 @@
+/* Contenedor principal de la sección */
+.sheetsSection {
+  width: 100%;
+  background-color: #bfe0c9;
+  padding: 5.5rem 0;
+}
+
+/* Contenedor de las tarjetas con márgenes laterales */
+.cardsContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 3rem; /* Espaciado entre tarjetas */
+}
+
+.cardWrapper {
+  flex: 1;
+}
+/* Estilos del enlace */
+.buttonLink {
+  text-decoration: none;
+  color: inherit;
+  flex: 1;
+  cursor: pointer;
+}
+
+/* Contenedor de cada tarjeta */
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+/* Efecto hover del boton */
+.buttonLink:hover .textContainer {
+  background-color: #e4ccef;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Contenedor de la imagen con borde gradiente */
+.imageContainer {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 15px;
+  padding: 3px;
+  background: linear-gradient(45deg, #e4ccef, #ffffff);
+  overflow: hidden;
+}
+
+/* Imagen dentro del contenedor */
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Contenedor del texto */
+.textContainer {
+  margin-top: 1rem;
+  font-family: "Roboto", sans-serif;
+  background-color: white;
+  padding: 0.8rem 2.5rem;
+  border: 3px solid #e4ccef;
+  border-radius: 25px;
+  width: fit-content;
+}
+
+/* Texto dentro del contenedor */
+.textContainer p {
+  margin: 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Media query para responsividad */
+@media (max-width: 768px) {
+  .cardsContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .buttonLink {
+    width: 100%;
+    max-width: 300px;
+  }
+}
