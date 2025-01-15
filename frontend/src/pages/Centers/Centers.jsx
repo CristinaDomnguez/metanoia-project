@@ -1,13 +1,14 @@
 import { ListCenters } from "./ListCenters/ListCenters";
 import { TextInicio } from "./TextInicio/TextInicio";
+import { ButtonCenters } from "./ButtonCenters/ButtonCenters";
+import styles from "./Centers.module.css";
 
 export function Centers() {
   return (
-    <div className="centers">
-      <TextInicio />
-      <ListCenters items={centers} />
-      <ListCenters items={associations} />
-    </div>
+    <div className={styles.mainContainer}>
+    <TextInicio /> 
+    <ButtonCenters centers={centers} associations={associations} />
+  </div>
   );
 }
 

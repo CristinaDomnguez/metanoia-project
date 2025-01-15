@@ -1,0 +1,64 @@
+/* Contenedor principal que envuelve toda la sección de botones */
+/* Asegura que el contenido ocupe el ancho completo con padding en los lados */
+.container {
+    width: 100%;
+    padding: 0 2rem; /* Añade 2rem de padding a los lados */
+  }
+  
+  /* Contenedor flex para los botones */
+  /* Distribuye los botones horizontalmente con espacio entre ellos */
+  .buttonContainer {
+    display: flex;
+    justify-content: space-between; /* Distribuye el espacio entre los botones */
+    margin-bottom: 2rem; /* Espacio debajo del contenedor de botones */
+  }
+  
+  /* Estilos base para ambos botones */
+  .gradientButton {
+    width: 40%; /* Cada botón ocupa el 40% del contenedor */
+    padding: 1.5rem; /* Espaciado interno uniforme */
+    border-radius: 0.5rem; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor a pointer al hover */
+    background: white; /* Fondo base blanco */
+    background-size: 98% 98%; /* Tamaño del fondo ligeramente menor para efecto de borde */
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 2px solid transparent; /* Borde transparente para el gradiente */
+    background-origin: border-box; /* Permite que el gradiente se aplique al borde */
+    background-clip: padding-box, border-box; /* Aplica diferentes fondos al padding y al borde */
+    transition: transform 0.2s; /* Animación suave para el efecto hover */
+  }
+  
+  /* Efecto de escala al hacer hover sobre los botones */
+  .gradientButton:hover {
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño al hover */
+  }
+  
+  /* Gradiente específico para el botón de psicólogos */
+  /* Combina rojo suave (#ff6b6b) con turquesa (#4ecdc4) */
+  .psychologistGradient {
+    background-image: 
+      linear-gradient(white, white), /* Fondo blanco interior */
+      linear-gradient(to right, #ff6b6b, #4ecdc4); /* Gradiente del borde */
+  }
+  
+  /* Gradiente específico para el botón de asociaciones */
+  /* Usa los mismos colores que el botón de psicólogos pero en orden inverso */
+  .associationGradient {
+    background-image: 
+      linear-gradient(white, white), /* Fondo blanco interior */
+      linear-gradient(to right, #4ecdc4, #ff6b6b); /* Gradiente del borde invertido */
+  }
+  
+  /* Estilo para el título principal dentro de los botones */
+  .buttonTitle {
+    font-size: 1.5rem; /* Tamaño de fuente grande */
+    font-weight: bold; /* Texto en negrita */
+    margin-bottom: 0.5rem; /* Espacio debajo del título */
+  }
+  
+  /* Estilo para el subtítulo dentro de los botones */
+  .buttonSubtitle {
+    font-size: 0.875rem; /* Tamaño de fuente más pequeño */
+    color: #4b5563; /* Color gris para menor énfasis */
+  }
