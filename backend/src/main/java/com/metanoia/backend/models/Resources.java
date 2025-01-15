@@ -2,11 +2,13 @@ package com.metanoia.backend.models;
 
 // Importación de anotaciones y clases necesarias para JPA
 import jakarta.persistence.*;
+import lombok.Data;
 
 // Declaración de la clase como una entidad que representa una tabla en la base de datos
-    @Entity
-    @Table(name = "resources") // Nombre de la tabla en la base de datos será "resources"
-    public class Resources {
+@Entity // Recursos
+@Data
+@Table(name = "resources") // Nombre de la tabla en la base de datos será "resources"
+public class Resources {
 
     // Declaración del campo id como clave primaria con generación automática de valores
     @Id
@@ -31,46 +33,7 @@ import jakarta.persistence.*;
     @Column(name = "url", nullable = false, unique = true)
     // La columna "url" no puede ser nula y debe tener valores únicos en la tabla
     private String url;
+    @Column(name = "image_url", nullable = false, unique = true) // Columna para almacenar la URL de la imagen
+    private String imageUrl;
 
-    // Getters y Setters para encapsular los campos y permitir acceso/control a los valores de los atributos
-
-    public Long getId() {
-        return id; // Devuelve el valor del campo id
-    }
-
-    public void setId(Long id) {
-        this.id = id; // Establece un valor para el campo id
-    }
-
-    public String getTitle() {
-        return title; // Devuelve el valor del campo title
-    }
-
-    public void setTitle(String title) {
-        this.title = title; // Establece un valor para el campo title
-    }
-
-    public String getType() {
-        return type; // Devuelve el valor del campo type
-    }
-
-    public void setType(String type) {
-        this.type = type; // Establece un valor para el campo type
-    }
-
-    public String getDescription() {
-        return description; // Devuelve el valor del campo description
-    }
-
-    public void setDescription(String description) {
-        this.description = description; // Establece un valor para el campo description
-    }
-
-    public String getUrl() {
-        return url; // Devuelve el valor del campo url
-    }
-
-    public void setUrl(String url) {
-        this.url = url; // Establece un valor para el campo url
-    }
 }

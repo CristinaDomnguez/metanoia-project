@@ -53,6 +53,41 @@ public class ResourcesController {
         return new ResponseEntity<>(savedResource, HttpStatus.CREATED);
     }
 
+    // PATCH
+    @PatchMapping("/update/{id}")
+    public ResponseEntity<Object> partiallyUpdateResource(@PathVariable Long id, @RequestBody Resources partialResource) {
+        Optional<Resources> existingResource = resourcesRepository.findById(id);
+
+        if (existingResource.isPresent()) {
+            Resources resource = existingResource.get();
+
+            // Actualiza solo los campos proporcionados
+            if (partialResource.getTitle() != null) {
+                resource.setTitle(partialResource.getTitle());
+            }
+            if (partialResource.getType() != null) {
+                resource.setType(partialResource.getType());
+            }
+            if (partialResource.getDescription() != null) {
+                resource.setDescription(partialResource.getDescription());
+            }
+            if (partialResource.getUrl() != null) {
+                resource.setUrl(partialResource.getUrl());
+            }
+            if (partialResource.getImageUrl() != null) { // Campo adicional
+                resource.setImageUrl(partialResource.getImageUrl());
+            }
+
+            Resources savedResource = resourcesRepository.save(resource);
+            return new ResponseEntity<>(savedResource, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("Resource with ID " + id + " not found", HttpStatus.NOT_FOUND);
+        }
+    }
+
+
+
+
     // DELETE
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteResource(@PathVariable Long id) {
