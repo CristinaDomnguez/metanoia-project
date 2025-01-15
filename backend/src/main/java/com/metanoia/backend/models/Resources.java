@@ -7,8 +7,8 @@ import lombok.Data;
 // Declaración de la clase como una entidad que representa una tabla en la base de datos
 @Entity // Recursos
 @Data
-    @Table(name = "resources") // Nombre de la tabla en la base de datos será "resources"
-    public class Resources {
+@Table(name = "resources") // Nombre de la tabla en la base de datos será "resources"
+public class Resources {
 
     // Declaración del campo id como clave primaria con generación automática de valores
     @Id
@@ -33,6 +33,7 @@ import lombok.Data;
     @Column(name = "url", nullable = false, unique = true)
     // La columna "url" no puede ser nula y debe tener valores únicos en la tabla
     private String url;
-    @Column(name = "image_url") // Columna para almacenar la URL de la imagen
+    @Column(name = "image_url", nullable = false, unique = true) // Columna para almacenar la URL de la imagen
     private String imageUrl;
+
 }
