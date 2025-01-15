@@ -1,10 +1,11 @@
 package com.metanoia.backend.repository;
 
-// Importa la clase de entidad Resources y JpaRepository de Spring Data JPA
 import com.metanoia.backend.models.Resources;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-// Definición de la interfaz ResourcesRepository que extiende JpaRepository
+@Repository
 public interface ResourcesRepository extends JpaRepository<Resources, Long> {
-    // Esta interfaz hereda métodos de JpaRepository para realizar operaciones CRUD
+    // Puedes agregar métodos personalizados si necesitas búsquedas específicas
+    //Resources findByUrl(String url); // Ejemplo de un método personalizado para buscar por URL, en casa de emergencia
 }
