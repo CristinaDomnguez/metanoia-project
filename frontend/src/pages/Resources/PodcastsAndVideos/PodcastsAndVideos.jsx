@@ -68,6 +68,7 @@ export default function PodcastsAndVideos() {
               <h4>{podcast.title}</h4>
               {/* Aquí puedes agregar más propiedades del podcast según tu API */}
               <p>{podcast.description}</p>
+              <p>Url Imagen: {podcast.imageUrl}</p>
               {podcast.url && (
                 <a href={podcast.url} target="_blank" rel="noopener noreferrer">
                   Escuchar podcast
