@@ -1,6 +1,6 @@
 .introSection {
     width: 100%;
-    padding: 3rem 0;
+    padding: 1rem 0;
     display: flex;           /* Para centrar el contenedor hijo */
     justify-content: center; /* Centra horizontalmente */
   }
