@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
-import styles from "./PodcastsAndVideos.module.css"; // Importar el CSS Module
+import styles from "./PodcastsAndVideos.module.css";
 
 export default function PodcastsAndVideos() {
   const [resources, setResources] = useState({
     videos: [],
     podcasts: [],
   });
+  const [activeSection, setActiveSection] = useState(null); // Controla qué sección está activa
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -17,14 +18,10 @@ export default function PodcastsAndVideos() {
         }
         const data = await response.json();
 
-        // Filtrado de tipo de recursos
         const videos = data.filter((resource) => resource.type === "video");
         const podcasts = data.filter((resource) => resource.type === "podcast");
 
-        setResources({
-          videos,
-          podcasts,
-        });
+        setResources({ videos, podcasts });
       } catch (error) {
         setError(error.message);
       }
@@ -33,27 +30,53 @@ export default function PodcastsAndVideos() {
     fetchResources();
   }, []);
 
+  const toggleSection = (section) => {
+    setActiveSection(activeSection === section ? null : section); // Alterna entre abrir/cerrar
+  };
+
   if (error) {
     return <div>Error: {error}</div>;
   }
 
   return (
-    <>
-      {/* Sección de Vídeos */}
-      <section
-        id="videos-section"
-        className={`${styles.videosSection} ${styles.layoutBox}`}
-      >
-        <h3 className={styles.heading}>Vídeos</h3>
-        <div className={styles.videosContainer}>
+    <div className={styles.mainContainer}>
+      {/* Botones de sección */}
+      <div className={styles.buttonsContainer}>
+        <div
+          className={`${styles.sectionToggle} ${
+            activeSection === "videos" ? styles.active : ""
+          }`}
+          onClick={() => toggleSection("videos")}
+        >
+          <h3>Vídeos</h3>
+        </div>
+        <div
+          className={`${styles.sectionToggle} ${
+            activeSection === "podcasts" ? styles.active : ""
+          }`}
+          onClick={() => toggleSection("podcasts")}
+        >
+          <h3>Podcasts</h3>
+        </div>
+      </div>
+
+      {/* Contenido dinámico */}
+      {activeSection === "videos" && (
+        <section className={styles.videosContainer}>
           {resources.videos.map((video) => (
             <div key={video.id} className={styles.videos}>
-              <h4 className={styles.title}>Título: {video.title}</h4>
-              <p className={styles.description}>{video.description}</p>
-              <p className={styles.imageUrl}>
-                Url de la Imagen: {video.imageUrl}
-              </p>
-              {video.url && (
+              <img
+                src={video.imageUrl}
+                alt={`Imagen de ${video.title}`}
+                className={styles.image}
+              />
+              <div className={styles.textContent}>
+                <h4 className={styles.title}>{video.title}</h4>
+                <p>
+                  Título: Lorem ipsum dolor, sit amet consectetur adipisicing
+                  elit. Autem, officiis.
+                </p>
+                {/* <p className={styles.description}>{video.description}</p> */}
                 <a
                   href={video.url}
                   target="_blank"
@@ -62,25 +85,28 @@ export default function PodcastsAndVideos() {
                 >
                   Ver video
                 </a>
-              )}
+              </div>
             </div>
           ))}
-        </div>
-      </section>
+        </section>
+      )}
 
-      {/* Sección de Podcasts */}
-      <section
-        id="podcasts-section"
-        className={`${styles.podcastsSection} ${styles.layoutBox}`}
-      >
-        <h3 className={styles.heading}>Podcasts</h3>
-        <div className={styles.podcastsContainer}>
+      {activeSection === "podcasts" && (
+        <section className={styles.podcastsContainer}>
           {resources.podcasts.map((podcast) => (
             <div key={podcast.id} className={styles.podcast}>
-              <h4 className={styles.title}>{podcast.title}</h4>
-              <p className={styles.description}>{podcast.description}</p>
-              <p className={styles.imageUrl}>Url Imagen: {podcast.imageUrl}</p>
-              {podcast.url && (
+              <img
+                src={podcast.imageUrl}
+                alt={`Imagen de ${podcast.title}`}
+                className={styles.image}
+              />
+              <div className={styles.textContent}>
+                <h4 className={styles.title}>{podcast.title}</h4>
+                {/* <p className={styles.description}>{podcast.description}</p> */}
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Blanditiis, mollitia.
+                </p>
                 <a
                   href={podcast.url}
                   target="_blank"
@@ -89,11 +115,11 @@ export default function PodcastsAndVideos() {
                 >
                   Escuchar podcast
                 </a>
-              )}
+              </div>
             </div>
           ))}
-        </div>
-      </section>
-    </>
+        </section>
+      )}
+    </div>
   );
 }
