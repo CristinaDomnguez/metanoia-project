@@ -1,12 +1,12 @@
 /* Clases Genéricas */
-.layout-box {
+.layoutBox {
   max-inline-size: 1250px; /* Limita el ancho máximo para mayor control */
   margin-inline: auto;
 }
 /* Fin clases genéricas */
 
 /* Estilos del Contenedor principal del contenido */
-.text-container {
+.textContainer {
   display: flex;
   justify-content: space-between; /* Centra verticalmente dentro del espacio disponible */
   margin: 50px auto;
@@ -26,25 +26,26 @@
   line-height: 1.6;
 }
 
-.container p:nth-child(2) {
+.secondParagraph {
   margin-top: 5px;
   margin-bottom: 5px;
 }
 
 /* Estilos del contenedor de los iconos */
-.icons {
+/* .icons {
   margin: 1rem;
   width: auto;
-}
+} */
 
 /* Estilos de los iconos */
-.spotify-icon,
+/* .spotify-icon,
 .youtube-icon {
   cursor: pointer;
-}
+} */
 
-.spotify-icon:hover,
+/* Aumenta ligeramente el tamaño al pasar el mouse */
+/* .spotify-icon:hover,
 .youtube-icon:hover {
-  transform: scale(1.1); /* Aumenta ligeramente el tamaño al pasar el mouse */
+  transform: scale(1.1);
   transition: 0.3s;
-}
+} */

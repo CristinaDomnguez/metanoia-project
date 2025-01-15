@@ -1,13 +1,13 @@
 /* Clases Genéricas */
-.layout-box {
+.layoutBox {
   max-inline-size: 1235px;
   margin-inline: auto;
   padding: 0 1rem;
 }
 
 /* Estilos sección de vídeos y podcasts */
-.videos-section,
-.podcasts-section {
+.videosSection,
+.podcastsSection {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,8 +16,7 @@
   text-align: center;
 }
 
-.videos-section h3,
-.podcasts-section h3 {
+.heading {
   font-size: 2rem;
   color: #333;
   font-weight: bold;
@@ -28,7 +27,7 @@
 }
 
 /* Contenedor de videos - 2 por fila */
-.videos-container {
+.videosContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between; /* Espaciado uniforme */
@@ -50,7 +49,7 @@
 }
 
 /* Contenedor de podcasts - 2 por fila */
-.podcasts-container {
+.podcastsContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between; /* Espaciado uniforme */
@@ -76,13 +75,4 @@
   transform: translateY(-5px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   cursor: pointer;
-}
-
-/* Ajuste para scroll suave con encabezado fijo */
-/* Asegura que cuando el navegador haga scroll hacia el elemento objetivo
-se aplique un margen superior, evitando que el encabezado fijo (como el NavBar) lo tape.
-*/
-#videos-section,
-#podcasts-section {
-  scroll-margin-top: 80px;
 }
