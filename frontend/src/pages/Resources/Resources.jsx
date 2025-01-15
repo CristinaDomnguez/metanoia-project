@@ -1,19 +1,11 @@
 import "./Resources.css";
-import PodcastsAndVideos from "../../components/PodcastsAndVideos/PodcastsAndVideos"
+import PodcastsAndVideos from "../../components/PodcastsAndVideos/PodcastsAndVideos";
 
 export default function Resources() {
-  const handleScrollToSection = (sectionId) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
     <>
       {/* Sección introductoria */}
       <section className="intro-section layout-box">
-        <h2 className="title">Recursos</h2>
         <div className="text-container">
           <div className="container">
             <p className="text">
@@ -32,29 +24,6 @@ export default function Resources() {
               Queremos ayudarte a que consigas ver otro color a la vida y que
               puedas superar todos los obstáculos que se presenten en tu camino.
             </p>
-          </div>
-          {/* iconos */}
-          <div className="icons">
-            <div>
-              <img
-                className="spotify-icon"
-                src="/spotify.svg"
-                alt="Spotify logo"
-                height={70}
-                width={70}
-                onClick={() => handleScrollToSection("podcasts-section")}
-              />
-            </div>
-            <div>
-              <img
-                className="youtube-icon"
-                src="/youtube.svg"
-                alt="Youtube logo"
-                height={70}
-                width={70}
-                onClick={() => handleScrollToSection("videos-section")}
-              />
-            </div>
           </div>
         </div>
       </section>
