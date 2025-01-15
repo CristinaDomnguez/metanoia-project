@@ -48,6 +48,7 @@ export default function PodcastsAndVideos() {
               <h4>Título: {video.title}</h4>
               {/* Aquí puedes agregar más propiedades del video según tu API */}
               <p>{video.description}</p>
+              <p>Url de la Imagen: {video.imageUrl}</p>
               {video.url && (
                 <a href={video.url} target="_blank" rel="noopener noreferrer">
                   Ver video
