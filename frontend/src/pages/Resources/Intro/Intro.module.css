@@ -5,47 +5,37 @@
 }
 /* Fin clases genéricas */
 
-/* Estilos del Contenedor principal del contenido */
-.textContainer {
+.introSection {
   display: flex;
-  justify-content: space-between; /* Centra verticalmente dentro del espacio disponible */
-  margin: 50px auto;
-  padding: 0 10%; /* Respeta los márgenes laterales de la barra de navegación */
+  justify-content: center;
 }
 
-.container {
-  background-color: #f5f5dc;
-  border-radius: 10px;
-  padding: 20px;
+.textContainer {
+  width: 50%;
+  padding: 3em 2em;
+  background-color: #f1e6f7;
+  border: 2px solid #d4def0;
 }
 
 /* Estilos del texto*/
 .text {
-  width: 100%; /* Asegura que el texto no se desborde */
-  font-size: 16px;
+  width: 100%;
   line-height: 1.6;
+  color: #000000;
 }
 
-.secondParagraph {
-  margin-top: 5px;
-  margin-bottom: 5px;
+.secondParagraph,
+.thirdParagraph {
+  margin-top: 0.5em;
 }
 
-/* Estilos del contenedor de los iconos */
-/* .icons {
-  margin: 1rem;
-  width: auto;
-} */
+.span {
+  font-weight: bold;
+  color: #b63ee6;
+  border-bottom: 1px transparent;
+}
 
-/* Estilos de los iconos */
-/* .spotify-icon,
-.youtube-icon {
-  cursor: pointer;
-} */
-
-/* Aumenta ligeramente el tamaño al pasar el mouse */
-/* .spotify-icon:hover,
-.youtube-icon:hover {
-  transform: scale(1.1);
+.textContainer:hover .span {
+  border-bottom: 1px solid #b63ee6;
   transition: 0.3s;
-} */
+}
