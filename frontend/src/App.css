@@ -1,9 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap");
 /* Reset para usar con un html al tener ya unas propiedades definidas */
-:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg, symbol *)) {
+
+:where(
+    :not(html, iframe, canvas, img, svg, video, audio, path):not(svg, symbol *)
+  ) {
   all: unset;
   display: revert;
 }
+
 li {
   list-style-type: none;
 }
