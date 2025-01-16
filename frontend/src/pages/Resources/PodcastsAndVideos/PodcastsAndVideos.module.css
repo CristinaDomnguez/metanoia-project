@@ -23,12 +23,16 @@
   max-width: 200px;
   height: 60px;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
 .titleSectionToggle {
   font-weight: bold;
+}
+
+.icon {
+  margin-left: 5px;
 }
 
 .sectionToggle:hover {
@@ -104,13 +108,19 @@
   color: #555;
 }
 
-.link {
-  color: #0066cc;
+.linkVideo,
+.linkPodcast {
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
 }
 
-.link:hover {
-  color: #004c99;
+.linkVideo:hover {
+  color: #ff0000;
+}
+.linkPodcast:hover {
+  color: #00d74b;
 }

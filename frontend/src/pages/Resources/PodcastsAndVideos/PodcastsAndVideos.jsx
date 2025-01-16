@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
 import styles from "./PodcastsAndVideos.module.css";
+import { BiSolidVideos } from "react-icons/bi";
+import { FaMicrophoneLines, FaPlay } from "react-icons/fa6";
+import { FaSpotify } from "react-icons/fa";
 
 export default function PodcastsAndVideos() {
   const [resources, setResources] = useState({
@@ -48,7 +51,10 @@ export default function PodcastsAndVideos() {
           }`}
           onClick={() => toggleSection("videos")}
         >
-          <h3 className={styles.titleSectionToggle}>Vídeos</h3>
+          <h3 className={styles.titleSectionToggle}>
+            Vídeos
+            <BiSolidVideos className={styles.icon} />
+          </h3>
         </div>
         <div
           className={`${styles.sectionToggle} ${
@@ -56,7 +62,10 @@ export default function PodcastsAndVideos() {
           }`}
           onClick={() => toggleSection("podcasts")}
         >
-          <h3 className={styles.titleSectionToggle}>Podcasts</h3>
+          <h3 className={styles.titleSectionToggle}>
+            Podcasts
+            <FaMicrophoneLines className={styles.icon} />
+          </h3>
         </div>
       </div>
 
@@ -78,12 +87,13 @@ export default function PodcastsAndVideos() {
                 </p>
                 {/* <p className={styles.description}>{video.description}</p> */}
                 <a
+                  title="Ir a youtube"
                   href={video.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={styles.link}
+                  className={styles.linkVideo}
                 >
-                  Ver video
+                  <FaPlay />
                 </a>
               </div>
             </div>
@@ -108,12 +118,13 @@ export default function PodcastsAndVideos() {
                   Blanditiis, mollitia.
                 </p>
                 <a
+                  title="Ir a spotify"
                   href={podcast.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={styles.link}
+                  className={styles.linkPodcast}
                 >
-                  Escuchar podcast
+                  <FaSpotify />
                 </a>
               </div>
             </div>
