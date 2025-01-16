@@ -7,9 +7,9 @@ export function Carousel() {
 
   // Array con las rutas de las imágenes
   const images = [
-    "/images/carousel/photo1.avif",
-    "/images/carousel/photo2.avif",
-    "/images/carousel/photo3.avif"
+    "/images/carousel/carousel1.png",
+    "/images/carousel/carousel2.png",
+    "/images/carousel/carousel3.png"
   ];
 
   // Función para ir a la siguiente imagen

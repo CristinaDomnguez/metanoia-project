@@ -4,6 +4,7 @@ import { NavBar } from "./components/NavBar/NavBar";
 import { Footer } from "./components/Footer/Footer";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Resources from "./pages/Resources/Resources.jsx";
+import { Centers } from "./pages/Centers/Centers.jsx";
 
 // Configuración del enrutador
 const router = createBrowserRouter([
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "/recursos",
         element: <Resources />,
+      },
+      {
+        path: "/centros",
+        element: <Centers />,
       },
     ],
   },

@@ -1,0 +1,24 @@
+/* Contenedor principal que centra el contenido y añade padding vertical */
+.mainContainer {
+  width: 100%;
+  max-width: 1200px; /* Equivalente aproximado a container */
+  margin: 0 auto; /* Centra el contenedor horizontalmente */
+  padding: 2rem 0; /* Padding vertical de 2rem (32px) */
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; /* Espacio entre TextInicio y ButtonCenters */
+}
+
+/* Media queries para hacer el contenedor responsivo */
+@media (max-width: 1200px) {
+  .mainContainer {
+    padding: 2rem 1rem; /* Añade padding horizontal en pantallas más pequeñas */
+  }
+}
+
+@media (max-width: 768px) {
+  .mainContainer {
+    padding: 1.5rem 0.5rem; /* Reduce el padding en móviles */
+    gap: 1.5rem; /* Reduce el espacio entre componentes en móviles */
+  }
+}

@@ -5,22 +5,22 @@ export function Sheets() {
   // Array de objetos con la información de cada tarjeta
   const cardData = [
     {
-      image: "/images/Sheets/photo6.avif",
+      image: "/images/Sheets/Sheet1.png",
       text: "Recursos",
       link: "/recursos",
     },
     {
-      image: "/images/Sheets/photo5.avif",
+      image: "/images/Sheets/Sheet2.png",
       text: "Ayudas",
       link: "/ayudas",
     },
     {
-      image: "/images/Sheets/photo4.avif",
+      image: "/images/Sheets/Sheet3.png",
       text: "Centros de atención",
       link: "/centros",
     },
     {
-      image: "/images/Sheets/photo7.avif",
+      image: "/images/Sheets/Sheet2.png",
       text: "Eventos",
       link: "/eventos",
     },
