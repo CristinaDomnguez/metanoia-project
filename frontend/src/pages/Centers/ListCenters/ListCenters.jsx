@@ -24,9 +24,9 @@ export function ListCenters({ items }) {
                 <span>✉️</span> {center.mail}
               </div>
             </div>
-            <div className={styles.userId}>
+            {/* <div className={styles.userId}>
               Registrado por: {center.user_id}
-            </div>
+            </div> */}
           </div>
         ))}
       </div>
