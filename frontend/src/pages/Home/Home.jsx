@@ -3,13 +3,14 @@ import { Slogan } from "./Slogan/Slogan";
 import { Sheets } from "./Sheets/Sheets";
 import "./Home.css";
 
-
 export function Home() {
   return (
-    <div className="home">
+    <div>
       <Carousel />
-      <Slogan />
-      <Sheets />
+      <div className="home">
+        <Slogan />
+        <Sheets />
+      </div>
     </div>
   );
 }
