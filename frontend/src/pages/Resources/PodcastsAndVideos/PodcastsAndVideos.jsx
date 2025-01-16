@@ -81,11 +81,7 @@ export default function PodcastsAndVideos() {
               />
               <div className={styles.textContent}>
                 <h4 className={styles.title}>{video.title}</h4>
-                <p>
-                  Título: Lorem ipsum dolor, sit amet consectetur adipisicing
-                  elit. Autem, officiis.
-                </p>
-                {/* <p className={styles.description}>{video.description}</p> */}
+                <p className={styles.description}>{video.description}</p>
                 <a
                   title="Ir a youtube"
                   href={video.url}
@@ -112,11 +108,7 @@ export default function PodcastsAndVideos() {
               />
               <div className={styles.textContent}>
                 <h4 className={styles.title}>{podcast.title}</h4>
-                {/* <p className={styles.description}>{podcast.description}</p> */}
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Blanditiis, mollitia.
-                </p>
+                <p className={styles.description}>{podcast.description}</p>
                 <a
                   title="Ir a spotify"
                   href={podcast.url}
