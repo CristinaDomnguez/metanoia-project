@@ -48,7 +48,7 @@ export default function PodcastsAndVideos() {
           }`}
           onClick={() => toggleSection("videos")}
         >
-          <h3>Vídeos</h3>
+          <h3 className={styles.titleSectionToggle}>Vídeos</h3>
         </div>
         <div
           className={`${styles.sectionToggle} ${
@@ -56,7 +56,7 @@ export default function PodcastsAndVideos() {
           }`}
           onClick={() => toggleSection("podcasts")}
         >
-          <h3>Podcasts</h3>
+          <h3 className={styles.titleSectionToggle}>Podcasts</h3>
         </div>
       </div>
 
