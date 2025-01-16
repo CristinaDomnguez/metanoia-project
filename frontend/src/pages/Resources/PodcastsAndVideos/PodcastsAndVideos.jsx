@@ -51,10 +51,8 @@ export default function PodcastsAndVideos() {
           }`}
           onClick={() => toggleSection("videos")}
         >
-          <h3 className={styles.titleSectionToggle}>
-            Vídeos
-            <BiSolidVideos className={styles.icon} />
-          </h3>
+          <h3 className={styles.titleSectionToggle}>Vídeos</h3>
+          <BiSolidVideos className={styles.icon} />
         </div>
         <div
           className={`${styles.sectionToggle} ${
@@ -62,10 +60,8 @@ export default function PodcastsAndVideos() {
           }`}
           onClick={() => toggleSection("podcasts")}
         >
-          <h3 className={styles.titleSectionToggle}>
-            Podcasts
-            <FaMicrophoneLines className={styles.icon} />
-          </h3>
+          <h3 className={styles.titleSectionToggle}>Podcasts</h3>
+          <FaMicrophoneLines className={styles.icon} />
         </div>
       </div>
 
@@ -77,7 +73,7 @@ export default function PodcastsAndVideos() {
               <img
                 src={video.imageUrl}
                 alt={`Imagen de ${video.title}`}
-                className={styles.image}
+                className={styles.imageVideos}
               />
               <div className={styles.textContent}>
                 <h4 className={styles.title}>{video.title}</h4>
@@ -89,7 +85,7 @@ export default function PodcastsAndVideos() {
                   rel="noopener noreferrer"
                   className={styles.linkVideo}
                 >
-                  <FaPlay />
+                  <FaPlay className={styles.videosIcon} />
                 </a>
               </div>
             </div>
@@ -104,7 +100,7 @@ export default function PodcastsAndVideos() {
               <img
                 src={podcast.imageUrl}
                 alt={`Imagen de ${podcast.title}`}
-                className={styles.image}
+                className={styles.imagePodcasts}
               />
               <div className={styles.textContent}>
                 <h4 className={styles.title}>{podcast.title}</h4>
@@ -116,7 +112,7 @@ export default function PodcastsAndVideos() {
                   rel="noopener noreferrer"
                   className={styles.linkPodcast}
                 >
-                  <FaSpotify />
+                  <FaSpotify className={styles.spotifyIcon} />
                 </a>
               </div>
             </div>

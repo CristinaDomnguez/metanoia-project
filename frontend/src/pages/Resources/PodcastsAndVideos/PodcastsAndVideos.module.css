@@ -33,6 +33,7 @@
 
 .icon {
   margin-left: 5px;
+  font-size: 1.5em;
 }
 
 .sectionToggle:hover {
@@ -80,7 +81,16 @@
 }
 
 /* Imagen dentro de los elementos */
-.image {
+.imageVideos {
+  flex: 0 0 auto; /* Evita que la imagen cambie de tamaño */
+  width: 130px;
+  height: 120px;
+  border-radius: 8px; /* Bordes redondeados */
+  object-fit: fill; /* Asegura que la imagen mantenga sus proporciones */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.imagePodcasts {
   flex: 0 0 auto; /* Evita que la imagen cambie de tamaño */
   width: 100px;
   height: 100px;
@@ -123,4 +133,9 @@
 }
 .linkPodcast:hover {
   color: #00d74b;
+}
+
+.videosIcon,
+.spotifyIcon {
+  font-size: 1.2em;
 }

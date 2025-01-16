@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Intro.module.css"; // Importa el CSS Module
+import { FaComputer } from "react-icons/fa6";
 
 export default function Intro() {
   return (
@@ -20,6 +21,9 @@ export default function Intro() {
           <p className={`${styles.text} ${styles.thirdParagraph}`}>
             ¡Únete a nuestra comunidad y encuentra el apoyo que necesitas!
           </p>
+          <div className={styles.iconContainer}>
+            <FaComputer className={styles.icon} />
+          </div>
         </div>
       </section>
     </>
