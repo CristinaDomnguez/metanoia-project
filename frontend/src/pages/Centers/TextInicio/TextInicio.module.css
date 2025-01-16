@@ -6,10 +6,10 @@
   }
   
   .textContainer {
-    width: 50%;          /* Ocupa 50% de la pantalla */
+    width: 75%;          /* Ocupa % de la pantalla */
     background-color: #e4ccef; /* Color lila */
     border-radius: 0px;    /* Bordes redondeados */
-    padding: 3.5rem;          /* Espaciado interior */
+    padding: 3rem;          /* Espaciado interior */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
   }
   

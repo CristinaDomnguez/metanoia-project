@@ -37,7 +37,7 @@
   bottom: 0;
   border-radius: 24px;
   padding: 6px; /* Grosor del borde */
-  background: linear-gradient(45deg, #4892bd, #ceaeff);
+  background: linear-gradient(#71afd2, #b28ac3);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: destination-out;
@@ -55,16 +55,6 @@
 .gradientButton:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-/* Gradiente para el botón de psicólogos */
-.psychologistGradient::before {
-  background: linear-gradient(40deg, #4892bd, #ceaeff);
-}
-
-/* Gradiente para el botón de asociaciones */
-.associationGradient::before {
-  background: linear-gradient(40deg, #4892bd, #ceaeff);
 }
 
 /* Título del botón */

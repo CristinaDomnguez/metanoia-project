@@ -8,7 +8,6 @@ export function ListCenters({ items }) {
         {items.map((center) => (
           <div key={center.id} className={styles.centerCard}>
             <h2 className={styles.name}>{center.name}</h2>
-            <div className={styles.type}>{center.type}</div>
             <p className={styles.description}>{center.description}</p>
             <div className={styles.contactInfo}>
               <div className={styles.contactItem}>
@@ -24,6 +23,7 @@ export function ListCenters({ items }) {
                 <span>✉️</span> {center.mail}
               </div>
             </div>
+            <div className={styles.type}>{center.type}</div>
             {/* <div className={styles.userId}>
               Registrado por: {center.user_id}
             </div> */}
