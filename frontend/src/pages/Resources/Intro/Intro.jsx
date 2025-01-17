@@ -5,10 +5,10 @@ export default function Intro() {
   return (
     <>
       {/* Sección introductoria */}
-      <section className={`${styles.introSection} ${styles.layoutBox}`}>
+      <section className={styles.introSection}>
         <div className={styles.textContainer}>
         <div className={styles.container}>
-          <p className={`${styles.text} ${styles.secondText}`}>
+          <p className={styles.text}>
             Tómate tu tiempo y no te agobies. Visualiza la información
             tranquilamente y comienza a inspirarte con las palabras de
             excelentes profesionales.

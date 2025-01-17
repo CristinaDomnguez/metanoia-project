@@ -8,7 +8,6 @@ export function ButtonResources() {
   };
 
   return (
-    /* Botones de sección */
     <div className={styles.container}>
       <div className={styles.buttonsContainer}>
         <div

@@ -1,22 +1,14 @@
-/* Clases Genéricas */
-.layoutBox {
-  max-inline-size: 1250px; /* Limita el ancho máximo para mayor control */
-  margin-inline: auto;
-}
-/* Fin clases genéricas */
-
 .introSection {
   width: 100%;
-  padding: 1rem 0;
+  padding: 3rem 0;
   display: flex;
   justify-content: center;
 }
 
 .textContainer {
   width: 75%;
-  padding: 3em 2em;
-  background-color: #e4ccef;
-  padding: 3rem;         
+  padding: 3rem;
+  background-color: #e4ccef;      
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
   position: relative;
   overflow: visible;

@@ -58,6 +58,11 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+.gradientButton.active {
+  background-color: #e4ccef;
+  border-color: #ffffff;
+}
+
 /* Título del botón */
 .buttonTitle {
   font-size: 1.5rem;
