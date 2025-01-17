@@ -27,21 +27,21 @@ public class Centers{
     @Column(name = "type", nullable = false) // La columna "type" no puede ser nula
     private String type;
 
-    // Declaración del campo description como obligatorio
-    @Column(name = "description", nullable = false, columnDefinition = "TEXT")
+
+    @Column(name = "description", columnDefinition = "TEXT")
     // Especifica que esta columna usará el tipo de datos "TEXT" en la base de datos para almacenar textos largos
     private String description;
 
-    // Declaración del campo dirección como obligatorio
-    @Column(name = "address", nullable = false) // La columna "direccion" no puede ser nula
+
+    @Column(name = "address") // La columna "direccion" no puede ser nula
     private String address;
 
     // Declaración del campo teléfono como opcional
     @Column(name = "phone") // La columna "telefono" es opcional (nullable por defecto es true)
-    private Long telefono;
+    private Long phone;
 
-    // Declaración del campo web como obligatorio
-    @Column(name = "web_url", nullable = false) // La columna "web" no puede ser nula
+
+    @Column(name = "web_url") // La columna "web" no puede ser nula
     private String web_url;
 
     // Declaración del campo mail como opcional
