@@ -8,9 +8,10 @@
   .textContainer {
     width: 75%;          /* Ocupa % de la pantalla */
     background-color: #e4ccef; /* Color lila */
-    border-radius: 0px;    /* Bordes redondeados */
     padding: 3rem;          /* Espaciado interior */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    position: relative;
+    overflow: visible;
   }
   
   .container {
@@ -27,6 +28,15 @@
     color: #000000;
     text-align: center;    /* Centra el texto */
     margin: 0;             /* Elimina márgenes por defecto */
+  }
+
+  .icon {
+    position: absolute; /* Posiciona el ícono de forma absoluta */
+    bottom: -20px;      /* Hace que el ícono sobresalga por debajo del rectángulo */
+    right: -20px;       /* Hace que el ícono sobresalga por la derecha */
+    width: 60px;        /* Ancho del ícono */
+    height: 60px;       /* Alto del ícono */
+    z-index: 1;         /* Asegura que el ícono esté visible por encima de otros elementos */
   }
   
   /* Para asegurar responsividad en pantallas pequeñas */

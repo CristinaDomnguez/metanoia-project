@@ -20,7 +20,7 @@ export function Sheets() {
       link: "/centros",
     },
     {
-      image: "/images/Sheets/Sheet2.png",
+      image: "/images/Sheets/Sheet4.png",
       text: "Eventos",
       link: "/eventos",
     },

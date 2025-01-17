@@ -16,6 +16,12 @@ export function TextInicio() {
             de un profesional adecuado para ti.
           </p>
         </div>
+        {/* Ícono PNG añadido */}
+        <img
+          src="/images/Centers/centerIcon4.png" 
+          alt="Ícono decorativo"
+          className={styles.icon}
+        />
       </div>
     </section>
   );

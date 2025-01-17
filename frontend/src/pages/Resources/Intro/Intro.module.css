@@ -6,27 +6,38 @@
 /* Fin clases genéricas */
 
 .introSection {
+  width: 100%;
+  padding: 1rem 0;
   display: flex;
   justify-content: center;
 }
 
 .textContainer {
-  width: 50%;
+  width: 75%;
   padding: 3em 2em;
-  background-color: #f1e6f7;
-  border: 2px solid #d4def0;
+  background-color: #e4ccef;
+  padding: 3rem;         
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
+  position: relative;
+  overflow: visible;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;           /* Aumentado el espacio entre párrafos */
+  align-items: center;   /* Centra los párrafos horizontalmente */
 }
 
 /* Estilos del texto*/
 .text {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.2rem;  
   width: 100%;
-  line-height: 1.6;
+  line-height: 1.5;
   color: #000000;
-}
-
-.secondParagraph,
-.thirdParagraph {
-  margin-top: 0.5em;
+  text-align: center;    
+  margin: 0;  
 }
 
 .span {
@@ -35,17 +46,11 @@
   border-bottom: 1px transparent;
 }
 
-.textContainer:hover .span {
-  border-bottom: 1px solid #b63ee6;
-  transition: 0.3s;
-}
-
-/* Estilos del icono */
-.iconContainer {
-  display: flex;
-  justify-content: right;
-}
-
 .icon {
-  font-size: 2.5em;
+  position: absolute; /* Posiciona el ícono de forma absoluta */
+    bottom: -20px;      /* Hace que el ícono sobresalga por debajo del rectángulo */
+    right: -20px;       /* Hace que el ícono sobresalga por la derecha */
+    width: 70px;        /* Ancho del ícono */
+    height: 70px;       /* Alto del ícono */
+    z-index: 1; 
 }
