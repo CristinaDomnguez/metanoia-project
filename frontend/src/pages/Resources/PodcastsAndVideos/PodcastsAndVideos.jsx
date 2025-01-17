@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import styles from "./PodcastsAndVideos.module.css";
-import { BiSolidVideos } from "react-icons/bi";
-import { FaMicrophoneLines, FaPlay } from "react-icons/fa6";
+import { FaPlay } from "react-icons/fa6";
 import { FaSpotify } from "react-icons/fa";
 
 export default function PodcastsAndVideos() {
@@ -9,7 +8,7 @@ export default function PodcastsAndVideos() {
     videos: [],
     podcasts: [],
   });
-  const [activeSection, setActiveSection] = useState(null); // Controla qué sección está activa
+  const [activeSection] = useState(null); // Controla qué sección está activa
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -33,38 +32,12 @@ export default function PodcastsAndVideos() {
     fetchResources();
   }, []);
 
-  const toggleSection = (section) => {
-    setActiveSection(activeSection === section ? null : section); // Alterna entre abrir/cerrar
-  };
-
   if (error) {
     return <div>Error: {error}</div>;
   }
 
   return (
     <div className={styles.mainContainer}>
-      {/* Botones de sección */}
-      <div className={styles.buttonsContainer}>
-        <div
-          className={`${styles.sectionToggle} ${
-            activeSection === "videos" ? styles.active : ""
-          }`}
-          onClick={() => toggleSection("videos")}
-        >
-          <h3 className={styles.titleSectionToggle}>Vídeos</h3>
-          <BiSolidVideos className={styles.icon} />
-        </div>
-        <div
-          className={`${styles.sectionToggle} ${
-            activeSection === "podcasts" ? styles.active : ""
-          }`}
-          onClick={() => toggleSection("podcasts")}
-        >
-          <h3 className={styles.titleSectionToggle}>Podcasts</h3>
-          <FaMicrophoneLines className={styles.icon} />
-        </div>
-      </div>
-
       {/* Contenido dinámico */}
       {activeSection === "videos" && (
         <section className={styles.videosContainer}>

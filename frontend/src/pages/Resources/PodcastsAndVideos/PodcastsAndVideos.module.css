@@ -3,49 +3,6 @@
   padding: 2rem;
 }
 
-/* Botones en fila */
-.buttonsContainer {
-  display: flex;
-  justify-content: space-around;
-  gap: 1rem;
-  margin-bottom: 2rem;
-}
-
-/* Botón de sección */
-.sectionToggle {
-  cursor: pointer;
-  padding: 1rem;
-  text-align: center;
-  border: 4px solid #a8c6e7;
-  border-radius: 8px;
-  transition: background-color 0.3s, border-color 0.3s;
-  flex: 1;
-  max-width: 200px;
-  height: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.titleSectionToggle {
-  font-weight: bold;
-}
-
-.icon {
-  margin-left: 5px;
-  font-size: 1.5em;
-}
-
-.sectionToggle:hover {
-  background-color: #e4ccef;
-  border: 4px solid #e4ccef;
-}
-
-.sectionToggle.active {
-  background-color: #d3a4d3;
-  border-color: #a86ca6;
-}
-
 /* Contenedores dinámicos */
 .videosContainer,
 .podcastsContainer {

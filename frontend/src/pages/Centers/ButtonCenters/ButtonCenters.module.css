@@ -65,6 +65,12 @@
   font-family: 'Playfair Display', serif;
 }
 
+.icon {
+  width: 25px;        
+  height: 25px;
+  margin: 20px;
+}
+
 /* Media query para hacer los botones más responsivos en móviles */
 @media (max-width: 768px) {
   .container {
