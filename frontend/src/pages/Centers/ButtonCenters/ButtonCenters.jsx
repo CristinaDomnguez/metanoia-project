@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import { useState, useRef } from "react";
 import { ListCenters } from "../ListCenters/ListCenters";
 import styles from "./ButtonCenters.module.css";
 
@@ -15,9 +15,6 @@ export function ButtonCenters({ centers, associations }) {
     if (nextSection !== "none" && listRef.current) {
       listRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
     }
-    // // Función para manejar los clicks en los botones
-    // const handleSectionClick = (section) => {
-    //   setActiveSection(activeSection === section ? "none" : section);
   };
 
   return (
