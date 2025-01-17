@@ -7,15 +7,16 @@
 /* Contenedor de los botones */
 .buttonContainer {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  gap: 1rem;
   margin-bottom: 2rem;
 }
 
 /* Estilo base para los botones */
 .gradientButton {
-  width: 40%;
-  padding: 3rem;
-  border-radius: 24px;
+  width: 22%;
+  padding: 1rem;
+  border-radius: 20px;
   cursor: pointer;
   background: white;
   position: relative;
@@ -35,8 +36,8 @@
   left: 0;
   right: 0;
   bottom: 0;
-  border-radius: 24px;
-  padding: 6px; /* Grosor del borde */
+  border-radius: 20px;
+  padding: 5px; /* Grosor del borde */
   background: linear-gradient(#71afd2, #b28ac3);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -59,16 +60,16 @@
 
 /* Título del botón */
 .buttonTitle {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: #2d3748;
   font-family: 'Playfair Display', serif;
 }
 
 .icon {
-  width: 25px;        
-  height: 25px;
-  margin: 20px;
+  width: 26px;        
+  height: 26px;
+  margin: 18px;
 }
 
 /* Media query para hacer los botones más responsivos en móviles */

@@ -19,7 +19,7 @@ export function ButtonCenters({ centers, associations }) {
         {/* Botón de Psicólogos */}
         <button
           onClick={() => handleSectionClick("psychologists")}
-          className={`${styles.gradientButton} ${styles.psychologistGradient}`}
+          className={styles.gradientButton}
         >
           <h2 className={styles.buttonTitle}>Psicólogos</h2>
           {/* Ícono PNG añadido */}
@@ -33,7 +33,7 @@ export function ButtonCenters({ centers, associations }) {
         {/* Botón de Asociaciones */}
         <button
           onClick={() => handleSectionClick("associations")}
-          className={`${styles.gradientButton} ${styles.associationGradient}`}
+          className={styles.gradientButton}
         >
           <h2 className={styles.buttonTitle}>Asociaciones</h2>
            {/* Ícono PNG añadido */}
