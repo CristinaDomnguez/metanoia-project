@@ -24,5 +24,7 @@ public class Users {
     @Column(name = "password", nullable = false)
     private String password;
 
+    @Column(name = "email", nullable = false, unique = true) // Nuevo campo 'email', obligatorio y único
+    private String email;
 
 }
