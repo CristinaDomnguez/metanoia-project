@@ -1,23 +1,24 @@
-import "./NavBar.css";
+import styles from "./NavBar.module.css";
 import { NavLink } from "react-router-dom";
+
 export function NavBar() {
   return (
-    <nav className="navbar">
+    <nav className={styles.navbar}>
       {/* Grupo de enlaces del lado izquierdo */}
-      <div className="nav-group left">
+      <div className={`${styles.navGroup} ${styles.navGroupLeft}`}>
         <NavLink
           to="/recursos"
           className={({ isActive }) =>
-            isActive ? "nav-link active-link" : "nav-link"
+            isActive ? `${styles.navLink} ${styles.activeLink}` : styles.navLink
           }
         >
           RECURSOS
         </NavLink>
-        <span className="separator">|</span>
+        <span className={styles.separator}>|</span>
         <NavLink
           to="/centros"
           className={({ isActive }) =>
-            isActive ? "nav-link active-link" : "nav-link"
+            isActive ? `${styles.navLink} ${styles.activeLink}` : styles.navLink
           }
         >
           CENTROS
@@ -25,27 +26,31 @@ export function NavBar() {
       </div>
 
       {/* Contenedor del logo central */}
-      <NavLink to="/" className="nav-link-logo">
-        <div className="logo-container">
-          <img src="/images/logo_small.png" alt="Logo" className="logo" />
+      <NavLink to="/" className={styles.navLinkLogo}>
+        <div className={styles.logoContainer}>
+          <img
+            src="/images/logo_small.png"
+            alt="Logo"
+            className={styles.logo}
+          />
         </div>
       </NavLink>
 
       {/* Grupo de enlaces del lado derecho */}
-      <div className="nav-group right">
+      <div className={`${styles.navGroup} ${styles.navGroupRight}`}>
         <NavLink
           to="/eventos"
           className={({ isActive }) =>
-            isActive ? "nav-link active-link" : "nav-link"
+            isActive ? `${styles.navLink} ${styles.activeLink}` : styles.navLink
           }
         >
           EVENTOS
         </NavLink>
-        <span className="separator">|</span>
+        <span className={styles.separator}>|</span>
         <NavLink
           to="/ayudas"
           className={({ isActive }) =>
-            isActive ? "nav-link active-link" : "nav-link"
+            isActive ? `${styles.navLink} ${styles.activeLink}` : styles.navLink
           }
         >
           AYUDAS
