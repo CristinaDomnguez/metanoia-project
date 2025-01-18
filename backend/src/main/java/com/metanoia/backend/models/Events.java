@@ -12,7 +12,7 @@ public class Events {
     @Column(name = "id") // Especificación del nombre de la columna en la tabla
     private Long id;
 
-    @Column (name = "name", nullable = false)
+    @Column(name = "name", nullable = false)
     private String name;
 
     @Column(name = "description", nullable = false, columnDefinition = "TEXT")
@@ -35,4 +35,14 @@ public class Events {
 
     @Column(name = "organizer")
     private String organizer;
+
+    // Relación con la entidad Users (Muchos eventos pueden ser creados por un usuario)
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false) // Clave foránea que enlaza con la tabla de usuarios
+    private Users user;
+
+    // Relación con la entidad Centers (Cada evento puede estar asociado a un centro)
+    @ManyToOne
+    @JoinColumn(name = "center_id", nullable = false) // Clave foránea que enlaza con la tabla de centros
+    private Centers center;
 }

@@ -34,8 +34,11 @@ public class Resources {
     // La columna "url" no puede ser nula y debe tener valores únicos en la tabla
     private String url;
 
-
     @Column(name = "image_url", nullable = false) // Columna para almacenar la URL de la imagen
     private String imageUrl;
 
+    // Relación con la tabla Users (Muchos recursos pueden pertenecer a un usuario)
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false) // Clave foránea a la tabla Users
+    private Users user;
 }
