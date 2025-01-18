@@ -1,69 +1,133 @@
 import { useState, useEffect } from "react";
-import "./Carousel.css";
+import styles from "./Carousel.module.css";
 
 export function Carousel() {
-  // Estado para controlar qué imagen se muestra
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Array con las rutas de las imágenes
-  const images = [
-    "/images/carousel/carousel1.png",
-    "/images/carousel/carousel2.png",
-    "/images/carousel/carousel3.png"
+  // Array con las rutas de las imágenes y videos
+  const media = [
+    {
+      src: "/images/carousel/Vídeo1.mp4",
+      textTop: "DESCONECTA",
+      textBottom: "Tu mente",
+      duration: 6.5, // Duración del video en segundos
+      type: "video",
+    },
+    {
+      src: "/images/carousel/Vídeo2.mp4",
+      textTop: "RECONECTA",
+      textBottom: "Con lo que quieres ser",
+      duration: 6.5,
+      type: "video",
+    },
+    {
+      src: "/images/carousel/Vídeo3.mp4",
+      textTop: "TRANSFORMA",
+      textBottom: "TU VIDA paso a paso",
+      duration: 6.0,
+      type: "video",
+    },
+    // {
+    //   src: "/images/carousel/carousel2.png",
+    //   type: "imagen",
+    // },
   ];
 
-  // Función para ir a la siguiente imagen
+  // Función para cambiar al siguiente slide
   const nextSlide = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === images.length - 1 ? 0 : prevIndex + 1
+      prevIndex === media.length - 1 ? 0 : prevIndex + 1
     );
   };
 
-  // Función para ir a la imagen anterior
+  // Función para cambiar al slide anterior
   const prevSlide = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+      prevIndex === 0 ? media.length - 1 : prevIndex - 1
     );
   };
 
-  // Avance automático cada 5 segundos
+  // Cambio automático de slide
   useEffect(() => {
-    const timer = setInterval(nextSlide, 5000);
-    return () => clearInterval(timer);
+    const timer = setInterval(nextSlide, 6500);
+    return () => clearInterval(timer); // Limpiar el intervalo cuando el componente se desmonte
   }, []);
 
   return (
-    <div className="carousel-container">
-      {/* Botón para imagen anterior */}
-      <button className="carousel-button prev" onClick={prevSlide}>
+    <div className={styles.carouselContainer}>
+      <button
+        className={`${styles.carouselButton} ${styles.prev}`}
+        onClick={prevSlide}
+      >
         &#8249;
       </button>
-
-      {/* Contenedor de imágenes */}
-      <div className="carousel-content">
-        {images.map((image, index) => (
-          <img
+      <div className={styles.carouselContent}>
+        {media.map((item, index) => (
+          <div
             key={index}
-            src={image}
-            alt={`Slide ${index + 1}`}
-            className={`carousel-image ${
-              index === currentIndex ? "active" : ""
+            className={`${styles.videoContainer} ${
+              index === currentIndex ? styles.active : ""
             }`}
-          />
+          >
+            {/* Video o Imagen */}
+            {item.type === "video" ? (
+              <>
+                <video
+                  key={index}
+                  src={item.src}
+                  className={`${styles.carouselMedia} ${styles.video} ${
+                    index === currentIndex ? styles.active : ""
+                  }`}
+                  autoPlay
+                  loop
+                  muted
+                />
+                {/* Solo mostrar el texto si el video está activo */}
+                <div
+                  className={`${styles.textOverlay} ${
+                    index === currentIndex ? styles.active : ""
+                  }`}
+                >
+                  <h1
+                    className={styles.textTop}
+                    style={{ animationDuration: `${item.duration}s` }}
+                  >
+                    {item.textTop}
+                  </h1>
+                  <h2
+                    className={styles.textBottom}
+                    style={{ animationDuration: `${item.duration}s` }}
+                  >
+                    {item.textBottom}
+                  </h2>
+                </div>
+              </>
+            ) : (
+              <img
+                key={index}
+                src={item.src}
+                alt={`Slide ${index + 1}`}
+                className={`${styles.carouselMedia} ${
+                  index === currentIndex ? styles.active : ""
+                }`}
+              />
+            )}
+          </div>
         ))}
       </div>
-
-      {/* Botón para siguiente imagen */}
-      <button className="carousel-button next" onClick={nextSlide}>
+      <button
+        className={`${styles.carouselButton} ${styles.next}`}
+        onClick={nextSlide}
+      >
         &#8250;
       </button>
-
-      {/* Indicadores de posición */}
-      <div className="carousel-indicators">
-        {images.map((_, index) => (
+      <div className={styles.carouselIndicators}>
+        {media.map((_, index) => (
           <span
             key={index}
-            className={`indicator ${index === currentIndex ? "active" : ""}`}
+            className={`${styles.indicator} ${
+              index === currentIndex ? styles.active : ""
+            }`}
             onClick={() => setCurrentIndex(index)}
           ></span>
         ))}

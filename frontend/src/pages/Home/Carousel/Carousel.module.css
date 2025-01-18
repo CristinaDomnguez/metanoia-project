@@ -1,0 +1,208 @@
+/* Contenedor principal del carrusel */
+.carouselContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* Contenedor de las imágenes y videos */
+.carouselContent {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* Estilo común para imágenes y videos */
+.carouselMedia {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Asegura que tanto las imágenes como los videos cubran el área */
+  opacity: 0; /* Inicialmente no visibles */
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Elemento activo */
+.carouselMedia.active {
+  opacity: 1; /* Visible cuando tiene la clase active */
+}
+
+/* Botón del carrusel */
+.carouselButton {
+  position: absolute;
+  top: 50%;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  z-index: 2;
+  transition: background-color 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+}
+
+/* Hover del botón del carrusel */
+.carouselButton:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+/* Botón anterior */
+.carouselButton.prev {
+  left: 10px;
+}
+
+/* Botón siguiente */
+.carouselButton.next {
+  right: 10px;
+}
+
+/* Indicadores de posición */
+.carouselIndicators {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  z-index: 2;
+}
+
+/* Indicador de posición */
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Indicador activo */
+.indicator.active {
+  background: white;
+}
+
+/* Texto superpuesto */
+.textOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none; /* Ignora clics en el texto */
+  opacity: 0; /* Los textos no son visibles por defecto */
+  transition: opacity 0.5s ease-in-out; /* Transición suave para los textos */
+}
+
+/* Los textos solo serán visibles cuando el video esté activo */
+.videoContainer.active .textOverlay {
+  opacity: 1; /* Los textos solo se muestran cuando el video tiene la clase active */
+}
+
+/* Texto superior */
+.textTop {
+  font-family: "Extenda", sans-serif;
+  font-size: 4rem;
+  color: #f2efeb;
+  font-weight: bold;
+  text-transform: uppercase;
+  position: absolute;
+  top: 15%;
+  left: 3%;
+  animation: moveRight 3s ease-in-out forwards;
+}
+
+/* Texto inferior */
+.textBottom {
+  font-family: "Roboto", sans-serif;
+  font-size: 2rem;
+  color: #f2efeb;
+  position: absolute;
+  top: 24%;
+  left: 23%;
+  animation: moveLeft 3s ease-in-out forwards;
+}
+
+/* Animaciones */
+@keyframes moveRight {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(20px);
+  }
+}
+
+@keyframes moveLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-20px);
+  }
+}
+
+/* Diseño responsive */
+@media (max-width: 768px) {
+  /* Ajuste del contenedor principal */
+  .carouselContainer {
+    aspect-ratio: 4 / 3; /* Cambia la relación de aspecto para dispositivos más pequeños */
+  }
+
+  /* Botón del carrusel */
+  .carouselButton {
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+  }
+
+  /* Indicadores de posición */
+  .carouselIndicators {
+    gap: 8px;
+  }
+
+  /* Indicador de posición */
+  .indicator {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Ajuste del contenedor principal */
+  .carouselContainer {
+    aspect-ratio: 1 / 1; /* Cuadrado en dispositivos muy pequeños */
+  }
+
+  /* Botón del carrusel */
+  .carouselButton {
+    width: 25px;
+    height: 25px;
+    font-size: 16px;
+  }
+
+  /* Indicadores de posición */
+  .carouselIndicators {
+    gap: 6px;
+  }
+
+  /* Indicador de posición */
+  .indicator {
+    width: 8px;
+    height: 8px;
+  }
+}
