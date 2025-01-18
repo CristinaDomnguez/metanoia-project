@@ -4,8 +4,9 @@ import com.metanoia.backend.models.Resources;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public interface ResourcesRepository extends JpaRepository<Resources, Long> {
-    // Puedes agregar métodos personalizados si necesitas búsquedas específicas
-    //Resources findByUrl(String url); // Ejemplo de un método personalizado para buscar por URL, en casa de emergencia
+    Optional<Resources> findByUrl(String url); // Método para buscar recursos por URL
 }

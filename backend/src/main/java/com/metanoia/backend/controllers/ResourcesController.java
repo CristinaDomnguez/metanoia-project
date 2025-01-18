@@ -33,23 +33,14 @@ public class ResourcesController {
     //  POST
     @PostMapping("/create")
     public ResponseEntity<Object> createResource(@RequestBody Resources resource) {
-        // Validación básica de los campos requeridos antes de guardar
-        if (resource.getTitle() == null || resource.getTitle().isEmpty()) {
-            return new ResponseEntity<>("Title is required", HttpStatus.BAD_REQUEST);
-        }
-        if (resource.getType() == null || resource.getType().isEmpty()) {
-            return new ResponseEntity<>("Type is required", HttpStatus.BAD_REQUEST);
-        }
-        if (resource.getDescription() == null || resource.getDescription().isEmpty()) {
-            return new ResponseEntity<>("Description is required", HttpStatus.BAD_REQUEST);
-        }
-        if (resource.getUrl() == null || resource.getUrl().isEmpty()) {
-            return new ResponseEntity<>("URL is required", HttpStatus.BAD_REQUEST);
+        // Verificar si la URL ya existe
+        Optional<Resources> existingResource = resourcesRepository.findByUrl(resource.getUrl());
+        if (existingResource.isPresent()) {
+            return new ResponseEntity<>("Resource with this URL already exists", HttpStatus.BAD_REQUEST);
         }
 
-        // Guarda el recurso en la base de datos
+        // Guardar el recurso si no existe
         Resources savedResource = resourcesRepository.save(resource);
-        // Devuelve el recurso creado con un estado HTTP 201 (CREATED)
         return new ResponseEntity<>(savedResource, HttpStatus.CREATED);
     }
 
