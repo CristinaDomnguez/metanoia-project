@@ -6,23 +6,27 @@ export function Sheets() {
   const cardData = [
     {
       image: "/images/Sheets/Sheet1.png",
-      text: "Recursos",
+      text: "RECURSOS",
       link: "/recursos",
-    },
-    {
-      image: "/images/Sheets/Sheet2.png",
-      text: "Ayudas",
-      link: "/ayudas",
+      icon: "/images/Sheets/RECURSOS.png",
     },
     {
       image: "/images/Sheets/Sheet3.png",
-      text: "Centros de atención",
+      text: "CENTROS",
       link: "/centros",
+      icon: "/images/Sheets/CENTROS.png",
     },
     {
       image: "/images/Sheets/Sheet4.png",
-      text: "Eventos",
+      text: "EVENTOS",
       link: "/eventos",
+      icon: "/images/Sheets/EVENTOS.png",
+    },
+    {
+      image: "/images/Sheets/Sheet2.png",
+      text: "AYUDAS",
+      link: "/ayudas",
+      icon: "/images/Sheets/AYUDAS.png",
     },
   ];
 
@@ -43,6 +47,10 @@ export function Sheets() {
               {/* Contenedor del texto*/}
               <Link to={card.link} className={styles.buttonLink}>
                 <div className={styles.textContainer}>
+                  <img
+                    src={card.icon}
+                    className={styles.icon}
+                  />
                   <p>{card.text}</p>
                 </div>
               </Link>

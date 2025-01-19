@@ -1,7 +1,7 @@
 /* Contenedor principal de la sección */
 .sheetsSection {
   width: 100%;
-  background-color: #bfe0c9;
+  background-color: #e9e6e6;
   padding: 5.5rem 0;
 }
 
@@ -36,7 +36,7 @@
 
 /* Efecto hover del boton */
 .buttonLink:hover .textContainer {
-  background-color: #e4ccef;
+  background-color: #cdcbcc;
   color: white;
   transform: translateY(-2px);
 }
@@ -46,9 +46,21 @@
   width: 100%;
   aspect-ratio: 1;
   border-radius: 15px;
-  padding: 3px;
-  background: linear-gradient(45deg, #e4ccef, #ffffff);
+  padding: 5px;
+  background: linear-gradient(45deg, #787177, #ffffff);
   overflow: hidden;
+  animation: slideUp 0.9s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 /* Imagen dentro del contenedor */
@@ -63,11 +75,13 @@
 .textContainer {
   margin-top: 1rem;
   font-family: "Roboto", sans-serif;
-  background-color: white;
-  padding: 0.8rem 2.5rem;
-  border: 3px solid #e4ccef;
-  border-radius: 25px;
+  background-color: #e4e3e3;
+  padding: 0.5rem 1.5rem;
   width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra horizontalmente */
+  justify-content: center;
 }
 
 /* Texto dentro del contenedor */
@@ -77,9 +91,20 @@
   color: #333;
 }
 
+.icon {
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+}
+
 /* Media query para responsividad */
 @media (max-width: 768px) {
   .cardsContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .textContainer {
     flex-direction: column;
     align-items: center;
   }
