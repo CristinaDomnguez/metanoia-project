@@ -1,11 +1,11 @@
 .introSection {
-  position: relative;
   width: 100%;
   height: 100%;
   overflow: hidden;
 }
 
 .container {
+  position: relative;
   top: 0;
   left: 0;
   width: 100%;
@@ -21,11 +21,10 @@
   left: 40%;
   transform: translate(-35%, -40%);
   z-index: 1;
-  display: flex;          
-  flex-direction: column; 
-  gap: 0rem; 
+  display: flex;
+  flex-direction: column;
+  gap: 0rem;
 }
-
 
 /* Texto superior */
 .textTop {
@@ -46,7 +45,7 @@
   color: #707070;
   animation: moveRight 3s ease-in-out forwards;
   opacity: 0;
-  position: relative; 
+  position: relative;
   left: 270px;
 }
 
@@ -70,4 +69,50 @@
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+.buttonContainer {
+  position: absolute; /* Posición absoluta dentro del contenedor principal */
+  bottom: 0; /* Ajusta la distancia desde la parte superior*/
+  left: 50%; /* Centra horizontalmente */
+  transform: translateX(-50%); /* Compensa el centro */
+  display: flex;
+  z-index: 2;
+}
+
+/* Botón de sección */
+.sectionToggle {
+  margin-top: rem;
+  background-color: rgba(228, 227, 227, 0.4);
+  padding: rem 0.6rem;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 150px;
+  cursor: pointer;
+}
+
+.titleSectionToggle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2d3748;
+  font-family: "Roboto", sans-serif;
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+  margin: 2px;
+}
+
+.sectionToggle:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.sectionToggle.active {
+  background-color: #cdcbcc;
 }

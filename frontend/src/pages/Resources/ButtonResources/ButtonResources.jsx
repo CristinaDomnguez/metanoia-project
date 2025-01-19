@@ -1,9 +1,8 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./ButtonResources.module.css";
 import PodcastsAndVideos from "../PodcastsAndVideos/PodcastsAndVideos";
 
-export function ButtonResources() {
-  const listRef = useRef(null);
+export function ButtonResources({ activeSection, listRef }) {
   const [resources, setResources] = useState({
     videos: [],
     podcasts: [],
@@ -29,14 +28,6 @@ export function ButtonResources() {
 
     fetchResources();
   }, []);
-  const [activeSection, setActiveSection] = useState("none");
-  const toggleSection = (section) => {
-    const nextSection = activeSection === section ? "none" : section;
-    setActiveSection(nextSection);
-    if (nextSection !== "none" && listRef.current) {
-      listRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
 
   if (error) {
     return <div>Error: {error}</div>;
@@ -44,36 +35,6 @@ export function ButtonResources() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.buttonsContainer}>
-        <div
-          className={`${styles.sectionToggle} ${
-            activeSection === "videos" ? styles.active : ""
-          }`}
-          onClick={() => toggleSection("videos")}
-        >
-          <h3 className={styles.titleSectionToggle}>Vídeos</h3>
-          {/* Ícono PNG añadido */}
-          <img
-            src="/images/Resources/resourceIcon1.png"
-            alt="icono video"
-            className={styles.icon}
-          />
-        </div>
-        <div
-          className={`${styles.sectionToggle} ${
-            activeSection === "podcasts" ? styles.active : ""
-          }`}
-          onClick={() => toggleSection("podcasts")}
-        >
-          <h3 className={styles.titleSectionToggle}>Podcasts</h3>
-          {/* Ícono PNG añadido */}
-          <img
-            src="/images/Resources/resourceIcon2.png"
-            alt="icono podcasts"
-            className={styles.icon}
-          />
-        </div>
-      </div>
       <div ref={listRef}>
         {/* Solo se muestra una lista a la vez basado en activeSection */}
         {activeSection === "videos" && (
