@@ -1,48 +1,73 @@
 .introSection {
+  position: relative;
   width: 100%;
-  padding: 3rem 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.container {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
 .textContainer {
-  width: 75%;
-  padding: 3rem;
-  background-color: #e4ccef;      
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
-  position: relative;
-  overflow: visible;
+  position: absolute;
+  top: 20%;
+  left: 40%;
+  transform: translate(-35%, -40%);
+  z-index: 1;
+  display: flex;          
+  flex-direction: column; 
+  gap: 0rem; 
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;           /* Aumentado el espacio entre párrafos */
-  align-items: center;   /* Centra los párrafos horizontalmente */
-}
 
-/* Estilos del texto*/
-.text {
-  font-family: "Roboto", sans-serif;
-  font-size: 1.2rem;  
-  width: 100%;
-  line-height: 1.5;
-  color: #000000;
-  text-align: center;    
-  margin: 0;  
-}
-
-.span {
+/* Texto superior */
+.textTop {
+  font-family: "Extenda", sans-serif;
+  font-size: 1.7rem;
+  color: #707070;
   font-weight: bold;
-  color: #b63ee6;
-  border-bottom: 1px transparent;
+  position: relative;
+  animation: moveLeft 3s ease-in-out forwards;
+  opacity: 0;
+  white-space: nowrap;
 }
 
-.icon {
-  position: absolute; /* Posiciona el ícono de forma absoluta */
-    bottom: -20px;      /* Hace que el ícono sobresalga por debajo del rectángulo */
-    right: -20px;       /* Hace que el ícono sobresalga por la derecha */
-    width: 70px;        /* Ancho del ícono */
-    height: 70px;       /* Alto del ícono */
-    z-index: 1; 
+/* Texto inferior */
+.textBottom {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.2rem;
+  color: #707070;
+  animation: moveRight 3s ease-in-out forwards;
+  opacity: 0;
+  position: relative; 
+  left: 270px;
+}
+
+@keyframes moveRight {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveLeft {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
