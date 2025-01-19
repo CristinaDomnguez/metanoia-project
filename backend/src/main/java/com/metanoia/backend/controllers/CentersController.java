@@ -1,5 +1,6 @@
 package com.metanoia.backend.controllers;
 
+import com.metanoia.backend.dto.CentersDTO;
 import com.metanoia.backend.models.Centers;
 import com.metanoia.backend.repository.CentersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,12 +18,25 @@ public class CentersController {
     @Autowired
     private CentersRepository centersRepository;
 
-    // GET: Obtener todos los centros
     @GetMapping("/")
-    public ResponseEntity<List<Centers>> getAllCenters() {
+    public ResponseEntity<List<CentersDTO>> getAllCenters() {
         List<Centers> centers = centersRepository.findAll();
-        return new ResponseEntity<>(centers, HttpStatus.OK);
+
+        // Convertir a DTO
+        List<CentersDTO> centersDTOs = centers.stream()
+                .map(center -> new CentersDTO(
+                        center.getId(),
+                        center.getName(),
+                        center.getType(),
+                        center.getAddress(),
+                        center.getPhone() != null ? center.getPhone().toString() : "No consta",
+                        center.getWeb_url() != null ? center.getWeb_url() : "No consta"
+                ))
+                .toList();
+
+        return new ResponseEntity<>(centersDTOs, HttpStatus.OK);
     }
+
 
     // POST: Crear un nuevo centro
     @PostMapping("/create")

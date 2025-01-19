@@ -1,5 +1,6 @@
 package com.metanoia.backend.controllers;
 
+import com.metanoia.backend.dto.UsersDTO;
 import com.metanoia.backend.models.Users;
 import com.metanoia.backend.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +20,17 @@ public class UsersController {
 
     // GET: Obtener todos los usuarios
     @GetMapping("/")
-    public ResponseEntity<List<Users>> getAllUsers() {
+    public ResponseEntity<List<UsersDTO>> getAllUsers() {
         List<Users> users = usersRepository.findAll();
-        return new ResponseEntity<>(users, HttpStatus.OK);
+
+        // Convertir a DTO
+        List<UsersDTO> usersDTOs = users.stream()
+                .map(user -> new UsersDTO(user.getId(), user.getUsername(), user.getEmail()))
+                .toList();
+
+        return new ResponseEntity<>(usersDTOs, HttpStatus.OK);
     }
+
 
     // GET: Obtener un usuario por ID
     @GetMapping("/{id}")

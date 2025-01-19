@@ -1,6 +1,7 @@
 package com.metanoia.backend.controllers;
 
 // Importa las clases necesarias para trabajar con entidades, repositorios, solicitudes y respuestas HTTP
+import com.metanoia.backend.dto.ResourcesDTO;
 import com.metanoia.backend.models.Resources;
 import com.metanoia.backend.repository.ResourcesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 // Define esta clase como un controlador REST
 @RestController
@@ -23,11 +25,23 @@ public class ResourcesController {
 
     //  Get
     @GetMapping("/")
-    public ResponseEntity<List<Resources>> getAllResources() {
-        // Obtiene todos los recursos ordenados alfabéticamente por título
-        List<Resources> resources = resourcesRepository.findAll(Sort.by(Sort.Order.asc("title")));
-        // Devuelve la lista de recursos con un estado HTTP 200 (OK)
-        return new ResponseEntity<>(resources, HttpStatus.OK);
+    public ResponseEntity<List<ResourcesDTO>> getAllResources() {
+        List<Resources> resourcesList = resourcesRepository.findAll();
+
+        // Mapear las entidades Resources a ResourcesDTO
+        List<ResourcesDTO> resourcesDTOList = resourcesList.stream()
+                .map(resource -> new ResourcesDTO(
+                        resource.getId(),
+                        resource.getTitle(),
+                        resource.getType(),
+                        resource.getDescription(),
+                        resource.getUrl(),
+                        resource.getImageUrl(), // Incluye la URL de la imagen
+                        resource.getUser().getUsername() // Obtén el nombre del usuario asociado
+                ))
+                .collect(Collectors.toList());
+
+        return new ResponseEntity<>(resourcesDTOList, HttpStatus.OK);
     }
 
     //  POST

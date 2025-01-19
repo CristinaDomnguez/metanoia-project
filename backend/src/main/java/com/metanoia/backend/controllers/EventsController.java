@@ -1,5 +1,6 @@
 package com.metanoia.backend.controllers;
 
+import com.metanoia.backend.dto.EventsDTO;
 import com.metanoia.backend.models.Events;
 import com.metanoia.backend.repository.EventsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +20,25 @@ public class EventsController {
 
     // GET: Obtener todos los eventos
     @GetMapping("/")
-    public ResponseEntity<List<Events>> getAllEvents() {
+    public ResponseEntity<List<EventsDTO>> getAllEvents() {
         List<Events> events = eventsRepository.findAll();
-        return new ResponseEntity<>(events, HttpStatus.OK);
+
+        // Convertir a DTO
+        List<EventsDTO> eventsDTOs = events.stream()
+                .map(event -> new EventsDTO(
+                        event.getId(),
+                        event.getName(),
+                        event.getDescription(),
+                        event.getAddress(),
+                        event.getImage_url() != null ? event.getImage_url() : "No consta",
+                        event.getOrganizer(),
+                        event.getCenter() != null ? event.getCenter().getName() : "No consta"
+                ))
+                .toList();
+
+        return new ResponseEntity<>(eventsDTOs, HttpStatus.OK);
     }
+
 
     // GET: Obtener un evento por ID
     @GetMapping("/{id}")
