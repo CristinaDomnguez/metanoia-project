@@ -8,7 +8,6 @@ export function Home() {
     <div>
       <Carousel />
       <div className="home">
-        {/* <Slogan /> */}
         <Sheets />
       </div>
     </div>

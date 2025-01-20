@@ -1,0 +1,33 @@
+.textContent {
+  background-color: #787177;
+  border: 1px solid #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra horizontalmente el contenido */
+  justify-content: center; /* Centra verticalmente el contenido */
+  width: 70%;
+  height: 150px; /* Ajusta la altura según lo que necesites */
+  text-align: center;
+  margin: 0 auto;
+  padding: -1rem; /* Agrega algo de espacio interno */
+}
+
+.textTop {
+  font-family: "Extenda", sans-serif;
+  font-size: 4rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin: 0;
+  width: 100%;
+  text-align: center; /* Centra el texto */
+}
+
+.textBottom {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin: 0;
+  text-align: right; /* Centra el texto */
+  width: 90%;
+}
