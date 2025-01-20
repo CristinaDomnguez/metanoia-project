@@ -1,0 +1,8 @@
+.mainContainer {
+    display: flex;
+    flex-direction: column; /* Elementos en columna */
+    padding: 0;
+    margin: 0;
+    background-color: #e9e6e6;
+  }
+  

@@ -6,6 +6,8 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Resources from "./pages/Resources/Resources.jsx";
 import { Centers } from "./pages/Centers/Centers.jsx";
 import { Events } from "./pages/Events/Events.jsx";
+import { Helps } from "./pages/Helps/Helps.jsx";
+
 
 // Configuración del enrutador
 const router = createBrowserRouter([
@@ -33,6 +35,10 @@ const router = createBrowserRouter([
       {
         path: "/eventos",
         element: <Events />,
+      },
+      {
+        path: "/ayudas",
+        element: <Helps />,
       },
     ],
   },
