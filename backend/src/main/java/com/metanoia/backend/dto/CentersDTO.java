@@ -11,5 +11,6 @@ public class CentersDTO {
     private String type;
     private String address;
     private String phone;
+    private String mail;
     private String webUrl;
 }

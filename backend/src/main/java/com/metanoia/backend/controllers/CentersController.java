@@ -30,6 +30,7 @@ public class CentersController {
                         center.getType(),
                         center.getAddress(),
                         center.getPhone() != null ? center.getPhone().toString() : "No consta",
+                        center.getMail(),
                         center.getWeb_url() != null ? center.getWeb_url() : "No consta"
                 ))
                 .toList();
