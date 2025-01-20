@@ -10,7 +10,7 @@ public class CentersDTO {
     private String name;
     private String type;
     private String address;
-    private String phone;
+    private String phone; // Este campo es String debido a la conversión
     private String mail;
     private String webUrl;
 }

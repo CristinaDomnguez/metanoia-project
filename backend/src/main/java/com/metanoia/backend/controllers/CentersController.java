@@ -63,11 +63,24 @@ public class CentersController {
             if (updatedCenter.getMail() != null) center.setMail(updatedCenter.getMail());
 
             Centers savedCenter = centersRepository.save(center);
-            return new ResponseEntity<>(savedCenter, HttpStatus.OK);
+
+            // Convertir a DTO
+            CentersDTO centersDTO = new CentersDTO(
+                    savedCenter.getId(),
+                    savedCenter.getName(),
+                    savedCenter.getType(),
+                    savedCenter.getAddress(),
+                    savedCenter.getPhone(),
+                    savedCenter.getMail(),
+                    savedCenter.getWeb_url()
+            );
+
+            return new ResponseEntity<>(centersDTO, HttpStatus.OK);
         } else {
             return new ResponseEntity<>("Center not found", HttpStatus.NOT_FOUND);
         }
     }
+
 
     // DELETE: Eliminar un centro por ID
     @DeleteMapping("/delete/{id}")

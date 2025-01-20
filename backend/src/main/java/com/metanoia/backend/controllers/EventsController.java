@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
@@ -66,19 +67,47 @@ public class EventsController {
         Optional<Events> existingEvent = eventsRepository.findById(id);
         if (existingEvent.isPresent()) {
             Events event = existingEvent.get();
+            HashMap<Object, Object> updatedFields = new HashMap<>();
 
             // Actualiza solo los campos proporcionados
-            if (updatedEvent.getName() != null) event.setName(updatedEvent.getName());
-            if (updatedEvent.getDescription() != null) event.setDescription(updatedEvent.getDescription());
-            if (updatedEvent.getAddress() != null) event.setAddress(updatedEvent.getAddress());
-            if (updatedEvent.getImage_url() != null) event.setImage_url(updatedEvent.getImage_url());
-            if (updatedEvent.getWeb_url() != null) event.setWeb_url(updatedEvent.getWeb_url());
-            if (updatedEvent.getPhone() != null) event.setPhone(updatedEvent.getPhone());
-            if (updatedEvent.getMail() != null) event.setMail(updatedEvent.getMail());
-            if (updatedEvent.getOrganizer() != null) event.setOrganizer(updatedEvent.getOrganizer());
+            if (updatedEvent.getName() != null) {
+                event.setName(updatedEvent.getName());
+                updatedFields.put("name", updatedEvent.getName());
+            }
+            if (updatedEvent.getDescription() != null) {
+                event.setDescription(updatedEvent.getDescription());
+                updatedFields.put("description", updatedEvent.getDescription());
+            }
+            if (updatedEvent.getAddress() != null) {
+                event.setAddress(updatedEvent.getAddress());
+                updatedFields.put("address", updatedEvent.getAddress());
+            }
+            if (updatedEvent.getImage_url() != null) {
+                event.setImage_url(updatedEvent.getImage_url());
+                updatedFields.put("image_url", updatedEvent.getImage_url());
+            }
+            if (updatedEvent.getOrganizer() != null) {
+                event.setOrganizer(updatedEvent.getOrganizer());
+                updatedFields.put("organizer", updatedEvent.getOrganizer());
+            }
+            if (updatedEvent.getPhone() != null) {
+                event.setPhone(updatedEvent.getPhone());
+                updatedFields.put("phone", updatedEvent.getPhone());
+            }
+            if (updatedEvent.getMail() != null) {
+                event.setMail(updatedEvent.getMail());
+                updatedFields.put("mail", updatedEvent.getMail());
+            }
+            if (updatedEvent.getCenter() != null) {
+                event.setCenter(updatedEvent.getCenter());
+                updatedFields.put("center", updatedEvent.getCenter().getName());
+            }
 
-            Events savedEvent = eventsRepository.save(event);
-            return new ResponseEntity<>(savedEvent, HttpStatus.OK);
+            // Guarda los cambios
+            eventsRepository.save(event);
+
+            // Devuelve solo los campos actualizados
+            return new ResponseEntity<>(updatedFields, HttpStatus.OK);
         } else {
             return new ResponseEntity<>("Event not found", HttpStatus.NOT_FOUND);
         }

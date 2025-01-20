@@ -28,7 +28,7 @@ public class Centers {
     private String address;
 
     @Column(name = "phone")
-    private Long phone;
+    private String phone;
 
     @Column(name = "web_url")
     private String web_url;
