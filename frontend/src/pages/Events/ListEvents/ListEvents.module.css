@@ -1,0 +1,57 @@
+/* Contenedor principal */
+.eventsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+  background-color: #f8f9fa;
+}
+
+/* Tarjeta de evento */
+.eventCard {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.eventCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Imagen del evento */
+.eventImage {
+  width: 200px;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* Detalles del evento */
+.eventDetails {
+  flex: 1;
+}
+
+.eventTitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.eventDescription {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.eventOrganizer,
+.eventDate {
+  font-size: 0.9rem;
+  color: #888;
+}

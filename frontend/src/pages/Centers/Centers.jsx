@@ -1,6 +1,4 @@
-// import { ListCenters } from "./ListCenters/ListCenters";
 import { TextInicio } from "./TextInicio/TextInicio";
-// import { ButtonCenters } from "./ButtonCenters/ButtonCenters";
 import styles from "./Centers.module.css";
 
 export function Centers() {
