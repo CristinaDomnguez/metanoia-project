@@ -17,7 +17,6 @@
 /* Estilos para cada tarjeta individual */
 .centerCard {
   background: white; /* Fondo blanco */
-  border-radius: 12px; /* Bordes redondeados */
   padding: 2rem; /* Espaciado interior */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
   display: flex; /* Usa flexbox para ordenar el contenido */
