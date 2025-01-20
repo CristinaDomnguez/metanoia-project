@@ -1,21 +1,17 @@
 package com.metanoia.backend.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Table;
-
+import jakarta.persistence.*;
 import lombok.Data;
 
-@Entity // Centers
+import java.util.List;
+
+@Entity
 @Data
-@Table(name = "users") // Nombre de la tabla en la base de datos será "resources"
+@Table(name = "users")
 public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Estrategia de generación automática basada en identidad
-    @Column(name = "id", nullable = false, unique = true) // Especificación del nombre de la columna en la tabla
+    @Column(name = "id", nullable = false, unique = true)
     private Long id;
 
     @Column(name = "username", nullable = false, unique = true)
@@ -24,5 +20,10 @@ public class Users {
     @Column(name = "password", nullable = false)
     private String password;
 
+    @Column(name = "email", nullable = false, unique = true)
+    private String email;
 
+    // Relación con eventos (Un usuario puede crear muchos eventos)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Events> events;
 }

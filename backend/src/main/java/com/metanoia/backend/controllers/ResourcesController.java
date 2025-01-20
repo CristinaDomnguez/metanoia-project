@@ -1,6 +1,7 @@
 package com.metanoia.backend.controllers;
 
 // Importa las clases necesarias para trabajar con entidades, repositorios, solicitudes y respuestas HTTP
+import com.metanoia.backend.dto.ResourcesDTO;
 import com.metanoia.backend.models.Resources;
 import com.metanoia.backend.repository.ResourcesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +10,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 // Define esta clase como un controlador REST
 @RestController
@@ -23,69 +26,78 @@ public class ResourcesController {
 
     //  Get
     @GetMapping("/")
-    public ResponseEntity<List<Resources>> getAllResources() {
-        // Obtiene todos los recursos ordenados alfabéticamente por título
-        List<Resources> resources = resourcesRepository.findAll(Sort.by(Sort.Order.asc("title")));
-        // Devuelve la lista de recursos con un estado HTTP 200 (OK)
-        return new ResponseEntity<>(resources, HttpStatus.OK);
+    public ResponseEntity<List<ResourcesDTO>> getAllResources() {
+        List<Resources> resourcesList = resourcesRepository.findAll();
+
+        // Mapear las entidades Resources a ResourcesDTO
+        List<ResourcesDTO> resourcesDTOList = resourcesList.stream()
+                .map(resource -> new ResourcesDTO(
+                        resource.getId(),
+                        resource.getTitle(),
+                        resource.getType(),
+                        resource.getDescription(),
+                        resource.getUrl(),
+                        resource.getImageUrl(), // Incluye la URL de la imagen
+                        resource.getUser().getUsername() // Obtén el nombre del usuario asociado
+                ))
+                .collect(Collectors.toList());
+
+        return new ResponseEntity<>(resourcesDTOList, HttpStatus.OK);
     }
 
     //  POST
     @PostMapping("/create")
     public ResponseEntity<Object> createResource(@RequestBody Resources resource) {
-        // Validación básica de los campos requeridos antes de guardar
-        if (resource.getTitle() == null || resource.getTitle().isEmpty()) {
-            return new ResponseEntity<>("Title is required", HttpStatus.BAD_REQUEST);
-        }
-        if (resource.getType() == null || resource.getType().isEmpty()) {
-            return new ResponseEntity<>("Type is required", HttpStatus.BAD_REQUEST);
-        }
-        if (resource.getDescription() == null || resource.getDescription().isEmpty()) {
-            return new ResponseEntity<>("Description is required", HttpStatus.BAD_REQUEST);
-        }
-        if (resource.getUrl() == null || resource.getUrl().isEmpty()) {
-            return new ResponseEntity<>("URL is required", HttpStatus.BAD_REQUEST);
+        // Verificar si la URL ya existe
+        Optional<Resources> existingResource = resourcesRepository.findByUrl(resource.getUrl());
+        if (existingResource.isPresent()) {
+            return new ResponseEntity<>("Resource with this URL already exists", HttpStatus.BAD_REQUEST);
         }
 
-        // Guarda el recurso en la base de datos
+        // Guardar el recurso si no existe
         Resources savedResource = resourcesRepository.save(resource);
-        // Devuelve el recurso creado con un estado HTTP 201 (CREATED)
         return new ResponseEntity<>(savedResource, HttpStatus.CREATED);
     }
 
-    // PATCH
+    // PATCH: Actualizar parcialmente un recurso por ID
     @PatchMapping("/update/{id}")
-    public ResponseEntity<Object> partiallyUpdateResource(@PathVariable Long id, @RequestBody Resources partialResource) {
+    public ResponseEntity<Object> updateResource(@PathVariable Long id, @RequestBody Resources updatedResource) {
         Optional<Resources> existingResource = resourcesRepository.findById(id);
-
         if (existingResource.isPresent()) {
             Resources resource = existingResource.get();
+            HashMap<Object, Object> updatedFields = new HashMap<>();
 
             // Actualiza solo los campos proporcionados
-            if (partialResource.getTitle() != null) {
-                resource.setTitle(partialResource.getTitle());
+            if (updatedResource.getTitle() != null) {
+                resource.setTitle(updatedResource.getTitle());
+                updatedFields.put("title", updatedResource.getTitle());
             }
-            if (partialResource.getType() != null) {
-                resource.setType(partialResource.getType());
+            if (updatedResource.getType() != null) {
+                resource.setType(updatedResource.getType());
+                updatedFields.put("type", updatedResource.getType());
             }
-            if (partialResource.getDescription() != null) {
-                resource.setDescription(partialResource.getDescription());
+            if (updatedResource.getDescription() != null) {
+                resource.setDescription(updatedResource.getDescription());
+                updatedFields.put("description", updatedResource.getDescription());
             }
-            if (partialResource.getUrl() != null) {
-                resource.setUrl(partialResource.getUrl());
+            if (updatedResource.getUrl() != null) {
+                resource.setUrl(updatedResource.getUrl());
+                updatedFields.put("url", updatedResource.getUrl());
             }
-            if (partialResource.getImageUrl() != null) { // Campo adicional
-                resource.setImageUrl(partialResource.getImageUrl());
+            if (updatedResource.getImageUrl() != null) {
+                resource.setImageUrl(updatedResource.getImageUrl());
+                updatedFields.put("imageUrl", updatedResource.getImageUrl());
             }
 
-            Resources savedResource = resourcesRepository.save(resource);
-            return new ResponseEntity<>(savedResource, HttpStatus.OK);
+            // Guarda los cambios
+            resourcesRepository.save(resource);
+
+            // Devuelve solo los campos actualizados
+            return new ResponseEntity<>(updatedFields, HttpStatus.OK);
         } else {
-            return new ResponseEntity<>("Resource with ID " + id + " not found", HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("Resource not found", HttpStatus.NOT_FOUND);
         }
     }
-
-
 
 
     // DELETE
