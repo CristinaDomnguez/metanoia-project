@@ -20,12 +20,12 @@ export function CarouselEvents({ items }) {
 
         if (currentScroll + containerWidth >= scrollWidth) {
           // Si llegamos al final, volvemos al inicio suavemente
-          track.scrollTo({ left: 0, behavior: 'smooth' });
+          track.scrollTo({ left: 0, behavior: "smooth" });
         } else {
           // Desplazamos suavemente
           track.scrollTo({
             left: currentScroll + containerWidth,
-            behavior: 'smooth'
+            behavior: "smooth",
           });
         }
       }, 3000);
@@ -42,13 +42,15 @@ export function CarouselEvents({ items }) {
   const handleScroll = (direction) => {
     const track = trackRef.current;
     const scrollAmount = track.offsetWidth;
-    
+
     // Pausamos el autoscroll temporalmente cuando se hace scroll manual
     setIsAutoScrolling(false);
-    
+
     track.scrollTo({
-      left: track.scrollLeft + (direction === "left" ? -scrollAmount : scrollAmount),
-      behavior: 'smooth'
+      left:
+        track.scrollLeft +
+        (direction === "left" ? -scrollAmount : scrollAmount),
+      behavior: "smooth",
     });
 
     // Reactivamos el autoscroll después de 5 segundos
@@ -66,12 +68,11 @@ export function CarouselEvents({ items }) {
 
       <div className={styles.carouselTrack} ref={trackRef}>
         {items.map((item, index) => (
-          <a
-            href={`#${item.id}`}
-            className={styles.carouselItem}
-            key={index}
-          >
-            <img src={item.image} alt={item.alt} />
+          <a href={`#${item.id}`} className={styles.carouselItem} key={index}>
+            <img
+              src={item.imageUrl || "/images/placeholder.png"} // Usar un placeholder si no hay imagen
+              alt={item.name || "Evento"}
+            />
           </a>
         ))}
       </div>

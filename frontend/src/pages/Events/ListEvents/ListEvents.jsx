@@ -8,7 +8,7 @@ export function ListEvents({ events }) {
           <div key={event.id} id={event.id} className={styles.eventCard}>
             <div className={styles.eventImageContainer}>
               <img
-                src={event.image}
+                src={event.imageUrl}
                 alt={event.name}
                 className={styles.eventImage}
               />
@@ -24,7 +24,7 @@ export function ListEvents({ events }) {
                   <span>📞</span> {event.phone}
                 </div>
                 <div className={styles.contactItem}>
-                  <span>🌐</span> {event.web}
+                  <span>🌐</span> {event.web_url}
                 </div>
                 <div className={styles.contactItem}>
                   <span>✉️</span> {event.mail}
