@@ -2,13 +2,41 @@ import styles from "./Document.module.css";
 
 export function Document() {
   const pdfs = [
-    { title: "Comprendiendo la ansiedad", file: "/pdfs/1comprendiendo_ansiedad.pdf", cover: "/images/Helps/1ansiedad.png" },
-    { title: "Comprendiendo la ansiedad", file: "/pdfs/2consejos_dormir.pdf", cover: "/images/Helps/2dormir.png" },
-    { title: "Comprendiendo la ansiedad", file: "/pdfs/3panico.pdf", cover: "/images/Helps/3panico.png" },
-    { title: "Comprendiendo la ansiedad", file: "/pdfs/4transtorno_ansiedad.pdf", cover: "/images/Helps/4transtorno_ansiedad.png" },
-    { title: "Comprendiendo la ansiedad", file: "/pdfs/5afrontando_estres.pdf", cover: "/images/Helps/5estres.png" },
-    { title: "Comprendiendo la ansiedad", file: "/pdfs/6tranquilizantes.pdf", cover: "/images/Helps/6tranquilizantes.png" },
-    { title: "Comprendiendo la ansiedad", file: "/pdfs/7antidepresivos.pdf", cover: "/images/Helps/7antidepresivos.png" },
+    {
+      title: "Comprendiendo la ansiedad",
+      file: "/pdfs/1comprendiendo_ansiedad.pdf",
+      cover: "/images/Helps/1ansiedad.png",
+    },
+    {
+      title: "Comprendiendo la ansiedad",
+      file: "/pdfs/2consejos_dormir.pdf",
+      cover: "/images/Helps/2dormir.png",
+    },
+    {
+      title: "Comprendiendo la ansiedad",
+      file: "/pdfs/3panico.pdf",
+      cover: "/images/Helps/3panico.png",
+    },
+    {
+      title: "Comprendiendo la ansiedad",
+      file: "/pdfs/4transtorno_ansiedad.pdf",
+      cover: "/images/Helps/4transtorno_ansiedad.png",
+    },
+    {
+      title: "Comprendiendo la ansiedad",
+      file: "/pdfs/5afrontando_estres.pdf",
+      cover: "/images/Helps/5estres.png",
+    },
+    {
+      title: "Comprendiendo la ansiedad",
+      file: "/pdfs/6tranquilizantes.pdf",
+      cover: "/images/Helps/6tranquilizantes.png",
+    },
+    {
+      title: "Comprendiendo la ansiedad",
+      file: "/pdfs/7antidepresivos.pdf",
+      cover: "/images/Helps/7antidepresivos.png",
+    },
   ];
 
   return (
@@ -16,9 +44,9 @@ export function Document() {
       <div className={styles.header}>
         <h2>Documentación de Interés</h2>
         <p>
-          En esta sección hemos hecho una recolección de documentación
-          interesante de la Junta de Andalucía que tal vez te pueda servir de
-          ayuda.
+          En esta sección hemos recopilado documentación de la Junta de
+          Andalucía que puede resultarte interesante. Esperamos que con ella
+          puedas entender mejor algunos conceptos y te sirva de ayuda.
         </p>
       </div>
       <div className={styles.pdfContainer}>
