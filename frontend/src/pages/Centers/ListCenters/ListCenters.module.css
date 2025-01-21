@@ -52,9 +52,8 @@
   margin-bottom: 0.5rem; /* Espacio debajo */
   font-family: sans-serif;
   position: absolute;
-  bottom: 1rem; 
+  bottom: 1rem;
   right: 1rem;
-  
 }
 
 /* Estilo para la descripción */
@@ -82,6 +81,10 @@
   align-items: center; /* Centra elementos verticalmente */
   gap: 0.6rem; /* Espacio entre icono y texto */
   font-family: sans-serif;
+}
+
+.centersLinks {
+  cursor: pointer;
 }
 
 /* Estilo para el ID del usuario */

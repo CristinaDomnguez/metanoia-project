@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 export function Centers() {
   const [centers, setCenters] = useState([]);
   const [associations, setAssociations] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -35,10 +34,6 @@ export function Centers() {
 
     fetchCenters();
   }, []);
-
-  if (loading) {
-    return <div className={styles.mainContainer}>Cargando datos...</div>;
-  }
 
   if (error) {
     return <div className={styles.mainContainer}>Error: {error}</div>;

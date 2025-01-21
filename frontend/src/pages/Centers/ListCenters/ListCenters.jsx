@@ -19,6 +19,7 @@ export function ListCenters({ items }) {
               <div className={styles.contactItem}>
                 <span>🌐</span>{" "}
                 <a
+                  className={styles.centersLinks}
                   href={center.webUrl}
                   target="_blank"
                   rel="noopener noreferrer"
