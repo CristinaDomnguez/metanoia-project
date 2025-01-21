@@ -9,6 +9,7 @@ public class CentersDTO {
     private Long id;
     private String name;
     private String type;
+    private String description;
     private String address;
     private String phone; // Este campo es String debido a la conversión
     private String mail;
