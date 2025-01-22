@@ -21,24 +21,24 @@ export function ListCenters({ items }) {
               <div className={styles.contactItem}>
                 <span>📍</span> {center.address}
               </div>
-              <div className={styles.contactItem}>
+              <a
+                href={`tel:${center.phone}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${styles.contactItem} ${styles.contactItemLink}`}
+              >
                 <span>📞</span> {center.phone}
-              </div>
-              <div className={styles.contactItemWeb}>
-                <span>🌐</span>{" "}
-                <a
-                  href={center.webUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Acceso a Web
-                </a>
-              </div>
+              </a>
+              <a
+                href={center.webUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${styles.contactItem} ${styles.contactItemLink}`}
+              >
+                <span>🌐</span> Acceso a Web
+              </a>
             </div>
             <div className={styles.type}>{decorateCenterType(center.type)}</div>
-            {/* <div className={styles.userId}>
-              Registrado por: {center.user_id}
-            </div> */}
           </div>
         ))}
       </div>
