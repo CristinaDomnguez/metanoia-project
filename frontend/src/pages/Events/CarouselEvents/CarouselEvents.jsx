@@ -7,12 +7,12 @@ export function CarouselEvents() {
 
   // Cargar imágenes dinámicamente desde la carpeta public con sufijo "-logo.png"
   const images = [
-    "/images/Events/federacion-logo.png",
     "/images/Events/junta-logo.png",
-    "/images/Events/uma-logo.png",
     "/images/Events/3Eventos.png",
-    "/images/Events/4Eventos.png",
     "/images/Events/5Eventos.png",
+    "/images/Events/4Eventos.png",
+    "/images/Events/federacion-logo.png",
+    "/images/Events/uma-logo.png",
   ];
 
   // Hook para manejar el desplazamiento automático del carrusel
