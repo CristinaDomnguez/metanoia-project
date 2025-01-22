@@ -19,6 +19,11 @@
 .cardWrapper {
   flex: 1;
 }
+
+.cardWrapper.animate .imageContainer {
+  animation: slideUp 1.5s ease-out forwards;
+}
+
 /* Estilos del enlace */
 .buttonLink {
   text-decoration: none;
@@ -50,7 +55,7 @@
   padding: 5px;
   background: linear-gradient(45deg, #a961c9, #ffffff);
   overflow: hidden;
-  animation: slideUp 0.9s ease-out;
+  opacity: 0;
 }
 
 @keyframes slideUp {

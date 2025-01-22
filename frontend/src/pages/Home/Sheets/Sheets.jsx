@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import styles from "./Sheets.module.css";
+import { useInView } from "../../../hooks/useInView";
 
 export function Sheets() {
+  const [sectionRef, isInView] = useInView();
+
   // Array de objetos con la información de cada tarjeta
   const cardData = [
     {
@@ -32,12 +35,20 @@ export function Sheets() {
 
   return (
     // Contenedor principal de la sección
-    <section className={styles.sheetsSection}>
+    <section ref={sectionRef} className={styles.sheetsSection}>
       <div className={styles.cardsContainer}>
         {cardData.map((card, index) => (
-          <div className={styles.cardWrapper} key={index}>
+          <div
+            className={`${styles.cardWrapper} ${
+              isInView ? styles.animate : ""
+            }`}
+            key={index}
+          >
             <div className={styles.card}>
-              <div className={styles.imageContainer}>
+              <div
+                className={styles.imageContainer}
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
                 <img
                   src={card.image}
                   alt={`Card ${index + 1}`}
@@ -47,10 +58,7 @@ export function Sheets() {
               {/* Contenedor del texto*/}
               <Link to={card.link} className={styles.buttonLink}>
                 <div className={styles.textContainer}>
-                  <img
-                    src={card.icon}
-                    className={styles.icon}
-                  />
+                  <img src={card.icon} className={styles.icon} />
                   <p>{card.text}</p>
                 </div>
               </Link>
