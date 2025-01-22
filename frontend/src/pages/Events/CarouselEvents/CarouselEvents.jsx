@@ -1,9 +1,19 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./CarouselEvents.module.css";
 
-export function CarouselEvents({ items }) {
+export function CarouselEvents() {
   const trackRef = useRef();
   const [isAutoScrolling, setIsAutoScrolling] = useState(true);
+
+  // Cargar imágenes dinámicamente desde la carpeta public con sufijo "-logo.png"
+  const images = [
+    "/images/Events/federacion-logo.png",
+    "/images/Events/junta-logo.png",
+    "/images/Events/uma-logo.png",
+    "/images/Events/3Eventos.png",
+    "/images/Events/4Eventos.png",
+    "/images/Events/5Eventos.png",
+  ];
 
   // Hook para manejar el desplazamiento automático del carrusel
   useEffect(() => {
@@ -67,11 +77,16 @@ export function CarouselEvents({ items }) {
       </button>
 
       <div className={styles.carouselTrack} ref={trackRef}>
-        {items.map((item, index) => (
-          <a href={`#${item.id}`} className={styles.carouselItem} key={index}>
+        {images.map((image, index) => (
+          <a
+            href={`#event${index + 1}`}
+            className={styles.carouselItem}
+            key={index}
+          >
             <img
-              src={item.imageUrl || "/images/placeholder.png"} // Usar un placeholder si no hay imagen
-              alt={item.name || "Evento"}
+              src={image}
+              alt={`Evento ${index + 1}`}
+              onError={(e) => (e.target.src = "/images/placeholder.png")} // Fallback a un placeholder
             />
           </a>
         ))}
