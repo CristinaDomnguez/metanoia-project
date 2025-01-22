@@ -1,11 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap");
 /* Reset para usar con un html al tener ya unas propiedades definidas */
 
-/* @font-face {
+@font-face {
   font-family: "Extenda";
   src: url("./assets/fonts/extenda-30-deca.otf") format("opentype");
   font-weight: bold;
-} */
+}
 
 :where(
     :not(html, iframe, canvas, img, svg, video, audio, path):not(svg, symbol *)

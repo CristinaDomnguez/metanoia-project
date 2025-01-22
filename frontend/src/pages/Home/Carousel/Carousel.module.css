@@ -116,13 +116,13 @@
 /* Texto superior */
 .textTop {
   font-family: "Extenda", sans-serif;
-  font-size: 4rem;
+  font-size: 8rem;
   color: #f2efeb;
   font-weight: bold;
   text-transform: uppercase;
   position: absolute;
   top: 15%;
-  left: 3%;
+  left: 5%;
   animation: moveRight 3s ease-in-out forwards;
 }
 
@@ -132,8 +132,8 @@
   font-size: 2rem;
   color: #f2efeb;
   position: absolute;
-  top: 24%;
-  left: 23%;
+  top: 33%;
+  left: 20%;
   animation: moveLeft 3s ease-in-out forwards;
 }
 
