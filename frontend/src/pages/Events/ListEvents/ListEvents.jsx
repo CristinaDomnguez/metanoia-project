@@ -21,14 +21,24 @@ export function ListEvents({ events }) {
                   <span>📍</span> {event.address}
                 </div>
                 <div className={styles.contactItem}>
-                  <span>📞</span> {event.phone}
+                  <span>📞</span>(+34) {event.phone}
                 </div>
                 <div className={styles.contactItem}>
-                  <span>🌐</span> {event.web_url}
+                  <span>🌐</span>
+                  <a
+                    className={styles.linkWeb}
+                    href={event.web_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Acceso a Web
+                  </a>
                 </div>
-                <div className={styles.contactItem}>
-                  <span>✉️</span> {event.mail}
-                </div>
+                {event.mail && ( // Renderiza el bloque solo si `event.mail` existe
+                  <div className={styles.contactItem}>
+                    <span>✉️</span> {event.mail}
+                  </div>
+                )}
               </div>
               <div className={styles.organizerInfo}>
                 Organizado por: {event.centerName}
