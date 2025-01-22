@@ -1,11 +1,13 @@
 import styles from "./Call.module.css";
+import { LiaPhoneVolumeSolid } from "react-icons/lia";
 
 export function Call() {
   return (
     <div>
       <div className={styles.textContent}>
         <p className={styles.textTop}>UNA LLAMADA</p>
-        <p className={styles.textBottom}>PUEDE CAMBIARLO TODO</p>
+        <p className={styles.textBottom}>PUEDE CAMBIARLO TODO <LiaPhoneVolumeSolid className={styles.icon} /></p>
+        
       </div>
       <div className={styles.circlesContainer}>
         <div className={styles.circle}>

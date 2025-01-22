@@ -27,10 +27,6 @@ export function Carousel() {
       duration: 6.0,
       type: "video",
     },
-    // {
-    //   src: "/images/carousel/carousel2.png",
-    //   type: "imagen",
-    // },
   ];
 
   // Función para cambiar al siguiente slide

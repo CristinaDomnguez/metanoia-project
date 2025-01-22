@@ -1,8 +1,8 @@
 /* Contenedor principal de la sección */
 .sheetsSection {
   width: 100%;
-  background-color: #e9e6e6;
-  padding: 5.5rem 0;
+  background-color: #f8f9fa;
+  padding: 5rem 3rem;
 }
 
 /* Contenedor de las tarjetas con márgenes laterales */
@@ -47,7 +47,7 @@
   aspect-ratio: 1;
   border-radius: 15px;
   padding: 5px;
-  background: linear-gradient(45deg, #787177, #ffffff);
+  background: linear-gradient(45deg, #a961c9, #ffffff);
   overflow: hidden;
   animation: slideUp 0.9s ease-out;
 }
