@@ -85,6 +85,7 @@
 
 .centersLinks {
   cursor: pointer;
+  font-weight: bold;
 }
 
 /* Estilo para el ID del usuario */

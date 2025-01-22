@@ -18,7 +18,7 @@ export function Centers() {
         const data = await response.json();
         // Dividir los datos en psicólogos y asociaciones
         const psychologists = data.filter(
-          (center) => center.type === "psicologo"
+          (center) => center.type === "psicologo/a"
         );
         const associations = data.filter(
           (center) => center.type === "asociacion"

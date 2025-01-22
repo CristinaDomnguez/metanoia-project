@@ -14,7 +14,7 @@ export function ListCenters({ items }) {
                 <span>📍</span> {center.address}
               </div>
               <div className={styles.contactItem}>
-                <span>📞</span> {center.phone}
+                <span>📞</span> (+34) {center.phone}
               </div>
               <div className={styles.contactItem}>
                 <span>🌐</span>{" "}
