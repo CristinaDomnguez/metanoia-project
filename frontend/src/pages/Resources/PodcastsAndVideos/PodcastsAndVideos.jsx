@@ -1,34 +1,47 @@
 import styles from "./PodcastsAndVideos.module.css";
-import { FaPlay } from "react-icons/fa6";
+
+function extractYoutubeId(url) {
+  if (!url || typeof url !== "string") {
+    return null;
+  }
+  const match = url.match(/^(?:[^/]+:\/\/)?[^/]+\/([^/?]+)/);
+
+  return match?.[1];
+}
+
+function getIframeSrc(type, url) {
+  if (type === "video") {
+    return `https://www.youtube.com/embed/${extractYoutubeId(url)}`;
+  } else {
+    return url;
+  }
+}
 
 export default function PodcastsAndVideos({ items }) {
   return (
-  
-    <div className={styles.mainContainer}>
-      <section className={` ${styles.videosContainer}, ${styles.podcastsContainer}`}>
-        {items.map((item) => (
-          <div key={item.id} className={` ${styles.videos}, ${styles.podcast}`}>
-            <img
-              src={item.imageUrl}
-              alt={`Imagen de ${item.title}`}
-              className={` ${styles.imageVideos}, ${styles.imagePodcasts}`}
-            />
-            <div className={styles.textContent}>
-              <h4 className={styles.title}>{item.title}</h4>
-              <p className={styles.description}>{item.description}</p>
-              <a
-                title="Ir a youtube"
-                href={item.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={item.type == "video" ? styles.linkVideo : styles.linkPodcast}
-              >
-                <FaPlay className={` ${styles.videosIcon}, ${styles.spotifyIcon}`} />
-              </a>
-            </div>
+    <section className={styles.container}>
+      {items.map((item) => (
+        <div
+          key={item.id}
+          className={`${styles.item} ${
+            item.type === "video" ? styles.youtube : styles.podcast
+          }`}
+        >
+          <iframe
+            className={styles.iframe}
+            key={item.id}
+            src={getIframeSrc(item.type, item.url)}
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          />
+          <div className={styles.textContainer}>
+            <h4 className={styles.title}>{item.title}</h4>
+            <p className={styles.description}>{item.description}</p>
           </div>
-        ))}
-      </section>
-    </div>
+        </div>
+      ))}
+    </section>
   );
 }

@@ -1,71 +1,54 @@
 /* Contenedor principal */
-.mainContainer {
-  padding: 2rem;
-  background-color: #f8f9fa;
+.container {
+  padding: 3rem;
+  background-color: #fff;
+  font-family: sans-serif;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
 }
 
-/* Contenedores dinámicos */
-.videosContainer,
-.podcastsContainer {
-  display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    padding: 20px;
+.podcast {
+  border-radius: 12px;
 }
 
 /* Elementos de video */
-.videos,
-.podcast {
+.item {
   display: flex; /* Alineación horizontal del contenido */
-  flex-direction: row; /* Coloca imagen y texto en fila */
-  align-items: center; /* Alinea verticalmente los elementos */
-  gap: 1rem;
-  background-color: #ffffff;
-  padding: 1.5rem;
-  text-align: left; /* Alinea el texto a la izquierda */
+  flex-direction: column; /* Coloca imagen y texto en fila */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  flex: 1 1 calc(50% - 1rem); /* Ocupa el 50% del ancho (2 por fila) */
-  max-width: auto; /* Ancho máximo para mantener el diseño */
 }
 
 /* Hover para los elementos de video y podcast */
-.videos:hover,
-.podcast:hover {
+.item:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Imagen dentro de los elementos */
-.imageVideos {
-  flex: 0 0 auto; /* Evita que la imagen cambie de tamaño */
-  width: 130px;
-  height: 120px;
-  object-fit: fill; /* Asegura que la imagen mantenga sus proporciones */
+.iframe {
+  width: 100%;
+  border: none;
 }
 
-.imagePodcasts {
-  flex: 0 0 auto; /* Evita que la imagen cambie de tamaño */
-  width: 100px;
-  height: 100px;
-  border-radius: 8px; /* Bordes redondeados */
-  object-fit: cover; /* Asegura que la imagen mantenga sus proporciones */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.youtube .iframe {
+  height: 280px;
 }
 
-/* Contenido textual dentro de los elementos */
-.textContent {
+.podcast .iframe {
+  height: 152px;
+}
+
+.textContainer {
   display: flex;
-  font-family: sans-serif;
-  flex-direction: column; /* El texto y los enlaces se organizan en columna */
-  flex: 1; /* Toma el espacio restante del contenedor */
-  gap: 0.5rem; /* Espaciado entre el título, descripción y enlace */
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
 }
 
 .title {
   font-size: 1.2rem;
-  font-style: italic;
-  color: #444;
+  color: #1e1d1d;
   margin-bottom: 0.3rem;
   font-weight: bold;
 }
@@ -74,37 +57,4 @@
   font-size: 0.9rem;
   color: #555;
   margin-bottom: 0.3rem;
-}
-
-.linkVideo,
-.linkPodcast {
-  text-decoration: dashed;
-  font-weight: bold;
-  transition: color 0.3s ease;
-  cursor: pointer;
-  display: flex;
-  justify-content: right;
-  padding: 1px;
-  transition: transform 0.5s ease;
-  
-}
-
-.linkPodcast {
-  color: #00d74b;
-}
-
-.linkVideo {
-  color: #ff0000;
-}
-
-.linkVideo:hover {
-  transform: translateY(-5px);
-}
-.linkPodcast:hover {
-  transform: translateY(-5px);
-}
-
-.videosIcon,
-.spotifyIcon {
-  font-size: 1.2em;
 }
