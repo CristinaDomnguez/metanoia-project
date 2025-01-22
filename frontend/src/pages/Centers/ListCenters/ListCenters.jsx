@@ -1,5 +1,13 @@
 import styles from "./ListCenters.module.css";
 
+function decorateCenterType(type) {
+  if (type === "psicologo") {
+    return "Psicólogo";
+  } else if (type === "asociacion") {
+    return "Asociación";
+  }
+}
+
 export function ListCenters({ items }) {
   return (
     // Contenedor principal de la sección
@@ -27,7 +35,7 @@ export function ListCenters({ items }) {
                 </a>
               </div>
             </div>
-            <div className={styles.type}>{center.type}</div>
+            <div className={styles.type}>{decorateCenterType(center.type)}</div>
             {/* <div className={styles.userId}>
               Registrado por: {center.user_id}
             </div> */}
