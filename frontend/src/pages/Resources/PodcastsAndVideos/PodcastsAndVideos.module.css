@@ -1,16 +1,16 @@
 /* Contenedor principal */
 .mainContainer {
   padding: 2rem;
+  background-color: #f8f9fa;
 }
 
 /* Contenedores dinámicos */
 .videosContainer,
 .podcastsContainer {
-  display: flex;
-  flex-wrap: wrap; /* Permite que los elementos salten a la siguiente fila */
-  gap: 1.5rem; /* Espaciado entre los elementos */
-  justify-content: center; /* Centra las filas horizontalmente */
-  margin-top: 1rem;
+  display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    padding: 20px;
 }
 
 /* Elementos de video */
@@ -20,20 +20,19 @@
   flex-direction: row; /* Coloca imagen y texto en fila */
   align-items: center; /* Alinea verticalmente los elementos */
   gap: 1rem;
-  background-color: #f5f5dc;
-  border-radius: 8px;
+  background-color: #ffffff;
   padding: 1.5rem;
   text-align: left; /* Alinea el texto a la izquierda */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   flex: 1 1 calc(50% - 1rem); /* Ocupa el 50% del ancho (2 por fila) */
-  max-width: 450px; /* Ancho máximo para mantener el diseño */
+  max-width: auto; /* Ancho máximo para mantener el diseño */
 }
 
 /* Hover para los elementos de video y podcast */
 .videos:hover,
 .podcast:hover {
-  transform: translateY(-5px);
+  transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -42,9 +41,7 @@
   flex: 0 0 auto; /* Evita que la imagen cambie de tamaño */
   width: 130px;
   height: 120px;
-  border-radius: 8px; /* Bordes redondeados */
   object-fit: fill; /* Asegura que la imagen mantenga sus proporciones */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .imagePodcasts {
@@ -59,6 +56,7 @@
 /* Contenido textual dentro de los elementos */
 .textContent {
   display: flex;
+  font-family: sans-serif;
   flex-direction: column; /* El texto y los enlaces se organizan en columna */
   flex: 1; /* Toma el espacio restante del contenedor */
   gap: 0.5rem; /* Espaciado entre el título, descripción y enlace */
@@ -66,30 +64,44 @@
 
 .title {
   font-size: 1.2rem;
+  font-style: italic;
   color: #444;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
+  font-weight: bold;
 }
 
 .description {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #555;
+  margin-bottom: 0.3rem;
 }
 
 .linkVideo,
 .linkPodcast {
-  text-decoration: none;
+  text-decoration: dashed;
   font-weight: bold;
   transition: color 0.3s ease;
   cursor: pointer;
   display: flex;
-  justify-content: center;
+  justify-content: right;
+  padding: 1px;
+  transition: transform 0.5s ease;
+  
+}
+
+.linkPodcast {
+  color: #00d74b;
+}
+
+.linkVideo {
+  color: #ff0000;
 }
 
 .linkVideo:hover {
-  color: #ff0000;
+  transform: translateY(-5px);
 }
 .linkPodcast:hover {
-  color: #00d74b;
+  transform: translateY(-5px);
 }
 
 .videosIcon,
