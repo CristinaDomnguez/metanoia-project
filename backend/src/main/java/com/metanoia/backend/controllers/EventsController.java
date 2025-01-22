@@ -36,7 +36,7 @@ public class EventsController {
                         event.getOrganizer(),
                         event.getCenter() != null ? event.getCenter().getName() : "No consta",
                         event.getPhone() != null ? event.getPhone().toString() : "No consta",
-                        event.getMail() != null ? event.getMail() : "No consta"
+                        event.getMail() != null ? event.getMail() : ""
                 ))
                 .toList();
 
