@@ -1,7 +1,7 @@
 import "./Slogan.css";
 
 export function Slogan() {
-  const text = "Desconecta, reconecta y transforma.";
+  const text = "Descubre diferentes formas de cambiar tu mente";
   return (
     // Contenedor principal para centrar el slogan
     <div className="slogan-container">

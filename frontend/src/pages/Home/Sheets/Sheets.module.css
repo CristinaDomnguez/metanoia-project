@@ -2,14 +2,15 @@
 .sheetsSection {
   width: 100%;
   background-color: #f8f9fa;
-  padding: 5rem 3rem;
+  padding: 1rem 3rem;
+  margin-bottom: 3rem;
 }
 
 /* Contenedor de las tarjetas con márgenes laterales */
 .cardsContainer {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 3rem;
   display: flex;
   justify-content: space-between;
   gap: 3rem; /* Espaciado entre tarjetas */

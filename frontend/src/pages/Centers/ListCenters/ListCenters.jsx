@@ -16,7 +16,7 @@ export function ListCenters({ items }) {
               <div className={styles.contactItem}>
                 <span>📞</span> {center.phone}
               </div>
-              <div className={styles.contactItem}>
+              <div className={styles.contactItemWeb}>
                 <span>🌐</span>{" "}
                 <a
                   href={center.webUrl}
