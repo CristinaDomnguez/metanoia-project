@@ -6,33 +6,52 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Resources from "./pages/Resources/Resources.jsx";
 import { Centers } from "./pages/Centers/Centers.jsx";
 import { Events } from "./pages/Events/Events.jsx";
+import { Helps } from "./pages/Helps/Helps.jsx";
+import { Admin } from "./pages/Admin/Admin.jsx";
 
 // Configuración del enrutador
 const router = createBrowserRouter([
   {
     element: (
       <>
-        <NavBar />
         <Outlet />
-        <Footer />
       </>
     ),
     children: [
       {
-        path: "/",
-        element: <Home />,
+        path: "/admin",
+        element: <Admin />,
       },
       {
-        path: "/recursos",
-        element: <Resources />,
-      },
-      {
-        path: "/centros",
-        element: <Centers />,
-      },
-      {
-        path: "/eventos",
-        element: <Events />,
+        element: (
+          <>
+            <NavBar />
+            <Outlet />
+            <Footer />
+          </>
+        ),
+        children: [
+          {
+            path: "/",
+            element: <Home />,
+          },
+          {
+            path: "/recursos",
+            element: <Resources />,
+          },
+          {
+            path: "/centros",
+            element: <Centers />,
+          },
+          {
+            path: "/eventos",
+            element: <Events />,
+          },
+          {
+            path: "/ayudas",
+            element: <Helps />,
+          },
+        ],
       },
     ],
   },

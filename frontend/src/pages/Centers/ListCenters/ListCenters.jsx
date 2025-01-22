@@ -17,10 +17,14 @@ export function ListCenters({ items }) {
                 <span>📞</span> {center.phone}
               </div>
               <div className={styles.contactItem}>
-                <span>🌐</span> {center.web_url}
-              </div>
-              <div className={styles.contactItem}>
-                <span>✉️</span> {center.mail}
+                <span>🌐</span>{" "}
+                <a
+                  href={center.webUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Acceso a Web
+                </a>
               </div>
             </div>
             <div className={styles.type}>{center.type}</div>

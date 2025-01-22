@@ -1,104 +1,52 @@
 import { TextInicio } from "./TextInicio/TextInicio";
 import styles from "./Centers.module.css";
+import { useEffect, useState } from "react";
 
 export function Centers() {
+  const [centers, setCenters] = useState([]);
+  const [associations, setAssociations] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    // Llamada al backend para obtener los datos
+    const fetchCenters = async () => {
+      try {
+        const response = await fetch("http://localhost:8080/api/centers/");
+        if (!response.ok) {
+          throw new Error("Error al obtener los datos");
+        }
+        const data = await response.json();
+        // Dividir los datos en psicólogos y asociaciones
+        const psychologists = data.filter(
+          (center) => center.type === "psicologo"
+        );
+        const associations = data.filter(
+          (center) => center.type === "asociacion"
+        );
+        setCenters(psychologists);
+        setAssociations(associations);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCenters();
+  }, []);
+
+  if (loading) {
+    return <div className={styles.mainContainer}>Cargando datos...</div>;
+  }
+
+  if (error) {
+    return <div className={styles.mainContainer}>Error: {error}</div>;
+  }
+
   return (
     <div className={styles.mainContainer}>
-    <TextInicio centers={centers} associations={associations}/> 
-  </div>
+      <TextInicio centers={centers} associations={associations} />
+    </div>
   );
 }
-
-const centers = [
-  {
-    id: 1,
-    name: "Centro 1",
-    type: "psycology",
-    description: "especialista en traumas",
-    address: "Calle Ave del Paraiso",
-    phone: 53495393409,
-    web_url: "www.ayudatumente.com",
-    mail: "ayudatumente@gmail.com",
-    user_id: "cristina",
-  },
-  {
-    id: 2,
-    name: "Centro 2",
-    type: "psycology",
-    description: "especialista en traumas",
-    address: "Calle Ave del Paraiso",
-    phone: 53495393409,
-    web_url: "www.ayudatumente.com",
-    mail: "ayudatumente@gmail.com",
-    user_id: "cristina",
-  },
-  {
-    id: 3,
-    name: "Centro 3",
-    type: "psycology",
-    description: "especialista en traumas",
-    address: "Calle Ave del Paraiso",
-    phone: 53495393409,
-    web_url: "www.ayudatumente.com",
-    mail: "ayudatumente@gmail.com",
-    user_id: "cristina",
-  },
-  {
-    id: 4,
-    name: "Centro 4",
-    type: "psycology",
-    description: "especialista en traumas",
-    address: "Calle Ave del Paraiso",
-    phone: 53495393409,
-    web_url: "www.ayudatumente.com",
-    mail: "ayudatumente@gmail.com",
-    user_id: "cristina",
-  },
-];
-
-const associations = [
-  {
-    id: 1,
-    name: "Asociacion 1",
-    type: "asociacion",
-    description: "especialista en traumas",
-    address: "Calle Ave del Paraiso",
-    phone: 53495393409,
-    web_url: "www.ayudatumente.com",
-    mail: "ayudatumente@gmail.com",
-    user_id: "cristina",
-  },
-  {
-    id: 2,
-    name: "Asociacion 2",
-    type: "asociacion",
-    description: "especialista en traumas",
-    address: "Calle Ave del Paraiso",
-    phone: 53495393409,
-    web_url: "www.ayudatumente.com",
-    mail: "ayudatumente@gmail.com",
-    user_id: "cristina",
-  },
-  {
-    id: 3,
-    name: "Asociacion 3",
-    type: "asociacion",
-    description: "especialista en traumas",
-    address: "Calle Ave del Paraiso",
-    phone: 53495393409,
-    web_url: "www.ayudatumente.com",
-    mail: "ayudatumente@gmail.com",
-    user_id: "cristina",
-  },
-  {
-    id: 4,
-    name: "Asociacion 4",
-    type: "asociacion",
-    description: "especialista en traumas",
-    address: "Calle Ave del Paraiso",
-    phone: 53495393409,
-    web_url: "www.ayudatumente.com",
-    mail: "ayudatumente@gmail.com",
-    user_id: "cristina",
-  },
-];
