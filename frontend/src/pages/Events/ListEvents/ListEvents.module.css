@@ -80,11 +80,7 @@
 
 .linkWeb {
   cursor: pointer;
-}
-
-.linkWeb:hover {
   font-weight: bold;
-  transition: 0.3s;
 }
 
 .organizerInfo {
