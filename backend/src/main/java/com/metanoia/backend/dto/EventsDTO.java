@@ -13,6 +13,7 @@ public class EventsDTO {
     private String description;
     private String address;
     private String imageUrl;   // Nombre ajustado a camelCase
+    private String web_url;
     private String organizer;
     private String centerName; // Nombre del centro asociado
     private String phone;      // Teléfono
