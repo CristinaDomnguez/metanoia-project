@@ -22,6 +22,14 @@
 
 .cardWrapper.animate .imageContainer {
   animation: slideUp 1.5s ease-out forwards;
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.cardWrapper.animate .imageContainer:hover {
+  transform: translateY(-10px);
+  transition: 0.3s;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* Estilos del enlace */
@@ -30,6 +38,8 @@
   color: inherit;
   flex: 1;
   cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 /* Contenedor de cada tarjeta */
@@ -43,8 +53,10 @@
 /* Efecto hover del boton */
 .buttonLink:hover .textContainer {
   background-color: #cdcbcc;
-  color: white;
-  transform: translateY(-2px);
+  color: #ffffff;
+  transform: translateY(-10px);
+  transition: 0.3s;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* Contenedor de la imagen con borde gradiente */
@@ -77,6 +89,12 @@
   border-radius: 12px;
 }
 
+/* Contenerdor de la imagen y el nombre de las páginas */
+.flexTextContainer {
+  display: flex;
+  justify-content: center;
+}
+
 /* Contenedor del texto */
 .textContainer {
   margin-top: 1rem;
@@ -88,6 +106,8 @@
   flex-direction: column;
   align-items: center; /* Centra horizontalmente */
   justify-content: center;
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 /* Texto dentro del contenedor */
