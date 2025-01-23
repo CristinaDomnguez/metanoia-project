@@ -4,7 +4,7 @@ function decorateCenterType(type) {
   // Redefine types. Sometimes is psicologo, others psicologo/a
   type = type.toLowerCase();
   if (type.startsWith("psicologo")) {
-    return "Psicólogo";
+    return "Psicólogo/a";
   } else if (type === "asociacion") {
     return "Asociación";
   }
