@@ -62,6 +62,10 @@
   gap: 15px;
 }
 
+.phoneLink {
+  cursor: pointer;
+}
+
 .circle {
   background-color: #e9e6e6;
   border: 2px solid #ffffff;
