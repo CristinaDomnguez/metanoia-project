@@ -1,74 +1,76 @@
 /* Contenedor principal del carrusel */
 .carousel {
-    width: 100%;
-    position: relative;
-    padding: 2rem 60px; /* Padding para los botones */
-    margin: 0;
-    overflow: hidden;
-  }
-  
-  /* Pista del carrusel */
-  .carouselTrack {
-    display: flex;
-    gap: 1rem;
-    transition: transform 0.5s ease-in-out;
-    will-change: transform;
-    scroll-behavior: smooth;
-    overflow-x: auto;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE and Edge */
-  }
-  
-  /* Ocultar scrollbar para Chrome/Safari/Opera */
-  .carouselTrack::-webkit-scrollbar {
-    display: none;
-  }
-  
-  /* Elementos individuales del carrusel */
-  .carouselItem {
-    flex: 0 0 auto;
-    width: 220px;
-  }
-  
-  .carouselItem img {
-    width: 100%;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    transition: transform 0.3s ease;
-  }
-  
-  .carouselItem img:hover {
-    transform: scale(1.05);
-  }
-  
-  /* Botones de desplazamiento */
-  .carouselButton {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    z-index: 10;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  }
-  
-  .carouselButton:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-  }
-  
-  .carouselButtonLeft {
-    left: 10px;
-  }
-  
-  .carouselButtonRight {
-    right: 10px;
-  }
+  width: 100%;
+  position: relative;
+  padding: 2rem 60px; /* Padding para los botones */
+  margin: 0;
+  overflow: hidden;
+}
+
+/* Pista del carrusel */
+.carouselTrack {
+  display: flex;
+  gap: 1rem;
+  transition: transform 0.5s ease-in-out;
+  will-change: transform;
+  scroll-behavior: smooth;
+  overflow-x: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+/* Ocultar scrollbar para Chrome/Safari/Opera */
+.carouselTrack::-webkit-scrollbar {
+  display: none;
+}
+
+/* Elementos individuales del carrusel */
+.carouselItem {
+  flex: 0 0 auto;
+  width: 220px;
+}
+
+.carouselItem img {
+  width: 100%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.carouselItem img:hover {
+  transform: scale(1.05);
+}
+
+/* Botones de desplazamiento */
+.carouselButton {
+  position: absolute;
+  top: 50%;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  z-index: 2;
+  transition: background-color 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+}
+
+.carouselButton:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.carouselButtonLeft {
+  left: 10px;
+}
+
+.carouselButtonRight {
+  right: 10px;
+}

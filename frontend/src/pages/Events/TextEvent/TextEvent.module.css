@@ -1,23 +1,24 @@
 .textContent {
-  background-color: #787177;
-  border: 1px solid #ffffff;
+  background-color: white;
+  border: 3px solid #b97fd1;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
   align-items: center; /* Centra horizontalmente el contenido */
   justify-content: center; /* Centra verticalmente el contenido */
-  width: 70%;
-  height: 150px; /* Ajusta la altura según lo que necesites */
+  width: 60%;
+  height: auto; /* Ajusta la altura según lo que necesites */
   text-align: center;
-  margin: 0 auto;
-  padding: -1rem; /* Agrega algo de espacio interno */
+  margin: auto;
+  line-height: 0.8;
+  padding: 25px;
 }
 
 .textTop {
   font-family: "Extenda", sans-serif;
-  font-size: 4rem;
+  font-size: 8rem;
   font-weight: bold;
-  color: #ffffff;
+  color: black;
   margin: 0;
   width: 100%;
   text-align: center; /* Centra el texto */
@@ -25,9 +26,9 @@
 
 .textBottom {
   font-family: "Roboto", sans-serif;
-  font-size: 1.5rem;
-  color: #ffffff;
+  font-size: 1.2rem;
+  color: black;
   margin: 0;
   text-align: right; /* Centra el texto */
-  width: 90%;
+  width: 77%;
 }

@@ -32,10 +32,11 @@ public class EventsController {
                         event.getDescription(),
                         event.getAddress(),
                         event.getImage_url() != null ? event.getImage_url() : "No consta",
+                        event.getWeb_url(),
                         event.getOrganizer(),
                         event.getCenter() != null ? event.getCenter().getName() : "No consta",
                         event.getPhone() != null ? event.getPhone().toString() : "No consta",
-                        event.getMail() != null ? event.getMail() : "No consta"
+                        event.getMail() != null ? event.getMail() : ""
                 ))
                 .toList();
 

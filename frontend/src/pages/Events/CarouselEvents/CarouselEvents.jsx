@@ -1,9 +1,19 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./CarouselEvents.module.css";
 
-export function CarouselEvents({ items }) {
+export function CarouselEvents() {
   const trackRef = useRef();
   const [isAutoScrolling, setIsAutoScrolling] = useState(true);
+
+  // Cargar imágenes dinámicamente desde la carpeta public con sufijo "-logo.png"
+  const images = [
+    "/images/Events/junta-logo.png",
+    "/images/Events/3Eventos.png",
+    "/images/Events/5Eventos.png",
+    "/images/Events/4Eventos.png",
+    "/images/Events/federacion-logo.png",
+    "/images/Events/uma-logo.png",
+  ];
 
   // Hook para manejar el desplazamiento automático del carrusel
   useEffect(() => {
@@ -20,12 +30,12 @@ export function CarouselEvents({ items }) {
 
         if (currentScroll + containerWidth >= scrollWidth) {
           // Si llegamos al final, volvemos al inicio suavemente
-          track.scrollTo({ left: 0, behavior: 'smooth' });
+          track.scrollTo({ left: 0, behavior: "smooth" });
         } else {
           // Desplazamos suavemente
           track.scrollTo({
             left: currentScroll + containerWidth,
-            behavior: 'smooth'
+            behavior: "smooth",
           });
         }
       }, 3000);
@@ -42,13 +52,15 @@ export function CarouselEvents({ items }) {
   const handleScroll = (direction) => {
     const track = trackRef.current;
     const scrollAmount = track.offsetWidth;
-    
+
     // Pausamos el autoscroll temporalmente cuando se hace scroll manual
     setIsAutoScrolling(false);
-    
+
     track.scrollTo({
-      left: track.scrollLeft + (direction === "left" ? -scrollAmount : scrollAmount),
-      behavior: 'smooth'
+      left:
+        track.scrollLeft +
+        (direction === "left" ? -scrollAmount : scrollAmount),
+      behavior: "smooth",
     });
 
     // Reactivamos el autoscroll después de 5 segundos
@@ -65,13 +77,17 @@ export function CarouselEvents({ items }) {
       </button>
 
       <div className={styles.carouselTrack} ref={trackRef}>
-        {items.map((item, index) => (
+        {images.map((image, index) => (
           <a
-            href={`#${item.id}`}
+            href={`#event${index + 1}`}
             className={styles.carouselItem}
             key={index}
           >
-            <img src={item.image} alt={item.alt} />
+            <img
+              src={image}
+              alt={`Evento ${index + 1}`}
+              onError={(e) => (e.target.src = "/images/placeholder.png")} // Fallback a un placeholder
+            />
           </a>
         ))}
       </div>

@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 export function Centers() {
   const [centers, setCenters] = useState([]);
   const [associations, setAssociations] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -18,8 +17,8 @@ export function Centers() {
         }
         const data = await response.json();
         // Dividir los datos en psicólogos y asociaciones
-        const psychologists = data.filter(
-          (center) => center.type === "psicologo"
+        const psychologists = data.filter((center) =>
+          center.type.toLowerCase().startsWith("psicologo")
         );
         const associations = data.filter(
           (center) => center.type === "asociacion"
@@ -28,17 +27,11 @@ export function Centers() {
         setAssociations(associations);
       } catch (err) {
         setError(err.message);
-      } finally {
-        setLoading(false);
       }
     };
 
     fetchCenters();
   }, []);
-
-  if (loading) {
-    return <div className={styles.mainContainer}>Cargando datos...</div>;
-  }
 
   if (error) {
     return <div className={styles.mainContainer}>Error: {error}</div>;

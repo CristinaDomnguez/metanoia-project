@@ -1,57 +1,64 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import styles from "./Carousel.module.css";
 
 export function Carousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const timeoutRef = useRef(null);
 
-  // Array con las rutas de las imágenes y videos
   const media = [
     {
       src: "/images/carousel/Vídeo1.mp4",
       textTop: "DESCONECTA",
       textBottom: "Tu mente",
-      duration: 6.5, // Duración del video en segundos
+      duration: 6500, // Convertido a milisegundos
       type: "video",
     },
     {
       src: "/images/carousel/Vídeo2.mp4",
       textTop: "RECONECTA",
       textBottom: "Con lo que quieres ser",
-      duration: 6.5,
+      duration: 6500,
       type: "video",
     },
     {
       src: "/images/carousel/Vídeo3.mp4",
       textTop: "TRANSFORMA",
       textBottom: "TU VIDA paso a paso",
-      duration: 6.0,
+      duration: 6000,
       type: "video",
     },
-    // {
-    //   src: "/images/carousel/carousel2.png",
-    //   type: "imagen",
-    // },
   ];
 
-  // Función para cambiar al siguiente slide
   const nextSlide = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex === media.length - 1 ? 0 : prevIndex + 1
     );
   };
 
-  // Función para cambiar al slide anterior
   const prevSlide = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? media.length - 1 : prevIndex - 1
     );
   };
 
-  // Cambio automático de slide
   useEffect(() => {
-    const timer = setInterval(nextSlide, 6500);
-    return () => clearInterval(timer); // Limpiar el intervalo cuando el componente se desmonte
-  }, []);
+    // Limpiar el timeout anterior
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+
+    // Establecer el nuevo timeout
+    timeoutRef.current = setTimeout(() => {
+      nextSlide();
+    }, media[currentIndex].duration);
+
+    // Cleanup function
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, [currentIndex]);
 
   return (
     <div className={styles.carouselContainer}>
@@ -69,34 +76,34 @@ export function Carousel() {
               index === currentIndex ? styles.active : ""
             }`}
           >
-            {/* Video o Imagen */}
             {item.type === "video" ? (
               <>
                 <video
-                  key={index}
+                  key={item.src} // Cambiado para forzar el reinicio del video
                   src={item.src}
                   className={`${styles.carouselMedia} ${styles.video} ${
                     index === currentIndex ? styles.active : ""
                   }`}
                   autoPlay
-                  loop
                   muted
+                  playsInline // Añadido para mejor compatibilidad móvil
                 />
-                {/* Solo mostrar el texto si el video está activo */}
                 <div
                   className={`${styles.textOverlay} ${
                     index === currentIndex ? styles.active : ""
                   }`}
                 >
                   <h1
+                    key={`top-${currentIndex}`} // Añade esta key
                     className={styles.textTop}
-                    style={{ animationDuration: `${item.duration}s` }}
+                    style={{ animationDuration: `${item.duration / 1000}s` }}
                   >
                     {item.textTop}
                   </h1>
                   <h2
+                    key={`bottom-${currentIndex}`} // Añade esta key
                     className={styles.textBottom}
-                    style={{ animationDuration: `${item.duration}s` }}
+                    style={{ animationDuration: `${item.duration / 1000}s` }}
                   >
                     {item.textBottom}
                   </h2>
@@ -104,7 +111,6 @@ export function Carousel() {
               </>
             ) : (
               <img
-                key={index}
                 src={item.src}
                 alt={`Slide ${index + 1}`}
                 className={`${styles.carouselMedia} ${

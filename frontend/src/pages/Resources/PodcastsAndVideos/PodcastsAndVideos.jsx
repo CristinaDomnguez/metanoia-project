@@ -4,13 +4,15 @@ import { FaPlay } from "react-icons/fa6";
 export default function PodcastsAndVideos({ items }) {
   return (
     <div className={styles.mainContainer}>
-      <section className={styles.videosContainer}>
+      <section
+        className={` ${styles.videosContainer}, ${styles.podcastsContainer}`}
+      >
         {items.map((item) => (
-          <div key={item.id} className={styles.videos}>
+          <div key={item.id} className={` ${styles.videos}, ${styles.podcast}`}>
             <img
               src={item.imageUrl}
               alt={`Imagen de ${item.title}`}
-              className={styles.imageVideos}
+              className={` ${styles.imageVideos}, ${styles.imagePodcasts}`}
             />
             <div className={styles.textContent}>
               <h4 className={styles.title}>{item.title}</h4>
@@ -20,9 +22,13 @@ export default function PodcastsAndVideos({ items }) {
                 href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={styles.linkVideo}
+                className={
+                  item.type == "video" ? styles.linkVideo : styles.linkPodcast
+                }
               >
-                <FaPlay className={styles.videosIcon} />
+                <FaPlay
+                  className={` ${styles.videosIcon}, ${styles.spotifyIcon}`}
+                />
               </a>
             </div>
           </div>

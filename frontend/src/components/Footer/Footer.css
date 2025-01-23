@@ -1,18 +1,17 @@
 /* Estilos para el pie de página */
 .footer {
-    background-color: #f0f0f0; 
-    padding: 3rem 1rem; 
-    text-align: center; 
-  }
-  
-  /* Estilos para el texto dentro del pie de página */
-  .footer-text {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 300; 
-    font-size: 1rem; 
-    line-height: 1.5; 
-    color: #555; 
-    margin: 0; 
-    font-style: italic;
-  }
-  
+  background-color: #f0f0f0;
+  padding: 2.5rem 1rem;
+  text-align: center;
+}
+
+/* Estilos para el texto dentro del pie de página */
+.footer-text {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #555;
+  margin: 0;
+  font-style: italic;
+}

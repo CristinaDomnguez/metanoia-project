@@ -1,5 +1,16 @@
 import styles from "./ListCenters.module.css";
 
+function decorateCenterType(type) {
+  // Redefine types. Sometimes is psicologo, others psicologo/a
+  type = type.toLowerCase();
+  if (type.startsWith("psicologo")) {
+    return "Psicólogo/a";
+  } else if (type === "asociacion") {
+    return "Asociación";
+  }
+  return "Desconocido";
+}
+
 export function ListCenters({ items }) {
   return (
     // Contenedor principal de la sección
@@ -13,24 +24,24 @@ export function ListCenters({ items }) {
               <div className={styles.contactItem}>
                 <span>📍</span> {center.address}
               </div>
-              <div className={styles.contactItem}>
+              <a
+                href={`tel:+34${center.phone}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${styles.contactItem} ${styles.contactItemLink}`}
+              >
                 <span>📞</span> {center.phone}
-              </div>
-              <div className={styles.contactItem}>
-                <span>🌐</span>{" "}
-                <a
-                  href={center.webUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Acceso a Web
-                </a>
-              </div>
+              </a>
+              <a
+                href={center.webUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${styles.contactItem} ${styles.contactItemLink}`}
+              >
+                <span>🌐</span> Acceso a Web
+              </a>
             </div>
-            <div className={styles.type}>{center.type}</div>
-            {/* <div className={styles.userId}>
-              Registrado por: {center.user_id}
-            </div> */}
+            <div className={styles.type}>{decorateCenterType(center.type)}</div>
           </div>
         ))}
       </div>

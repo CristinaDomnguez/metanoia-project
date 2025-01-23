@@ -23,14 +23,14 @@
   z-index: 1;
   display: flex;
   flex-direction: column;
-  gap: 0rem;
+  line-height: 0.9;
 }
 
 /* Texto superior */
 .textTop {
   font-family: "Extenda", sans-serif;
-  font-size: 1.7rem;
-  color: #707070;
+  font-size: 4rem;
+  color: #7c7b81;
   font-weight: bold;
   position: relative;
   animation: moveLeft 3s ease-in-out forwards;
@@ -40,13 +40,13 @@
 
 /* Texto inferior */
 .textBottom {
-  font-family: "Roboto", sans-serif;
-  font-size: 1.2rem;
-  color: #707070;
+  font-family: "Extenda", sans-serif;
+  font-size: 4rem;
+  color: #7c7b81;
   animation: moveRight 3s ease-in-out forwards;
   opacity: 0;
   position: relative;
-  left: 270px;
+  left: 230px;
 }
 
 @keyframes moveRight {
