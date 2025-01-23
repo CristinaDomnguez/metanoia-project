@@ -1,11 +1,14 @@
 import styles from "./ListCenters.module.css";
 
 function decorateCenterType(type) {
-  if (type === "psicologo") {
+  // Redefine types. Sometimes is psicologo, others psicologo/a
+  type = type.toLowerCase();
+  if (type.startsWith("psicologo")) {
     return "Psicólogo";
   } else if (type === "asociacion") {
     return "Asociación";
   }
+  return "Desconocido";
 }
 
 export function ListCenters({ items }) {
@@ -22,7 +25,7 @@ export function ListCenters({ items }) {
                 <span>📍</span> {center.address}
               </div>
               <a
-                href={`tel:${center.phone}`}
+                href={`tel:+34${center.phone}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${styles.contactItem} ${styles.contactItemLink}`}
