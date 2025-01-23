@@ -8,12 +8,15 @@ import { Centers } from "./pages/Centers/Centers.jsx";
 import { Events } from "./pages/Events/Events.jsx";
 import { Helps } from "./pages/Helps/Helps.jsx";
 import { Admin } from "./pages/Admin/Admin.jsx";
+import { NavBarLogin } from "./components/NavBarLogin/NavBarLogin.jsx";
+
 
 // Configuración del enrutador
 const router = createBrowserRouter([
   {
     element: (
       <>
+        <NavBarLogin />
         <Outlet />
       </>
     ),

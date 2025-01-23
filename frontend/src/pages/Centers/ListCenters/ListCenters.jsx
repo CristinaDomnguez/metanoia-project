@@ -11,7 +11,9 @@ function decorateCenterType(type) {
   return "Desconocido";
 }
 
-export function ListCenters({ items }) {
+export function ListCenters({ items = [] }) {
+
+
   return (
     // Contenedor principal de la sección
     <section className={styles.sheetsSection}>

@@ -1,0 +1,74 @@
+/* Barra de navegación principal */
+.navbar {
+    background: linear-gradient(130deg, #a2a0a2, white, #a2a0a2);
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  
+  /* Grupos de navegación (contenedores de links) */
+  .navGroup {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+  }
+  
+  /* Alineación del grupo izquierdo */
+  .navGroupLeft {
+    justify-content: flex-end;
+  }
+  
+  /* Alineación del grupo derecho */
+  .navGroupRight {
+    justify-content: flex-start;
+  }
+  
+  /* Estilo de los enlaces de navegación */
+  .navLink {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    cursor: pointer;
+  }
+  
+  /* Estilo para el enlace activo */
+  .activeLink {
+    color: #000000;
+    font-weight: bold;
+  }
+  
+  /* Estilo enlace logo */
+  .navLinkLogo {
+    cursor: pointer;
+  }
+  
+  /* Efecto hover de los enlaces */
+  .navLink:hover {
+    text-decoration: underline;
+  }
+  
+  /* Separador vertical entre enlaces */
+  .separator {
+    color: rgb(0, 0, 0);
+    font-weight: 100;
+    font-size: 40px;
+  }
+  
+  /* Contenedor del logo */
+  .logoContainer {
+    padding: 0 5rem;
+  }
+  
+  /* Dimensiones del logo */
+  .logo {
+    height: 50px;
+    width: auto;
+  }
+  
