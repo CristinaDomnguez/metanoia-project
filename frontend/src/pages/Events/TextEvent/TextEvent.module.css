@@ -22,14 +22,13 @@
   margin: 0;
   width: 100%;
   text-align: center; /* Centra el texto */
-  
 }
 
 .textBottom {
   font-family: "Roboto", sans-serif;
   font-size: 1.2rem;
   color: black;
-  margin: 0;
+  margin: 1.5rem 0 0 0;
   text-align: right; /* Centra el texto */
   width: 77%;
 }
