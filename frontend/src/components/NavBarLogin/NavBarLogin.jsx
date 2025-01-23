@@ -23,7 +23,7 @@ export function NavBarLogin() {
           <span className={styles.separator}>|</span>
 
           <NavLink
-            to="/recursos"
+            to="/admin/recursos"
             className={({ isActive }) =>
               isActive
                 ? `${styles.navLink} ${styles.activeLink}`
@@ -36,7 +36,7 @@ export function NavBarLogin() {
           <span className={styles.separator}>|</span>
 
           <NavLink
-            to="/centros"
+            to="/admin/centros"
             className={({ isActive }) =>
               isActive
                 ? `${styles.navLink} ${styles.activeLink}`
@@ -49,7 +49,7 @@ export function NavBarLogin() {
           <span className={styles.separator}>|</span>
 
           <NavLink
-            to="/eventos"
+            to="/admin/eventos"
             className={({ isActive }) =>
               isActive
                 ? `${styles.navLink} ${styles.activeLink}`
@@ -69,7 +69,8 @@ export function NavBarLogin() {
                 : styles.navLink
             }
           >
-            LOGIN<VscAccount />
+            LOGIN
+            <VscAccount />
           </NavLink>
         </div>
       </div>
