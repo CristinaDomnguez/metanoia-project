@@ -28,6 +28,7 @@ export function FormCenters() {
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
+      <h1>Formulario de Centros</h1>
       <div className={styles.formGroup}>
         <label htmlFor="name">Name:</label>
         <input

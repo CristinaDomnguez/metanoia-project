@@ -36,6 +36,7 @@ export function IntroCenters() {
 
   return (
     <>
+      <h1>Lista de Centros</h1>
       <ListCenters items={[...centers, ...associations]} />
       <FormCenters />
     </>

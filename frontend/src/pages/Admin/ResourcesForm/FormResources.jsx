@@ -29,7 +29,9 @@ export function FormResources() {
   };
 
   return (
+    
     <form className={styles.form} onSubmit={handleSubmit}>
+      <h1>Formulario de Recursos</h1>
       <label>
         Name:
         <input type="text" name="name" value={formData.name} onChange={handleChange} />
