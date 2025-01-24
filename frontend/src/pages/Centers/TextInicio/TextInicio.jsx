@@ -17,7 +17,13 @@ export function TextInicio({ centers, associations }) {
     /* Sección introductoria */
     <section className={styles.introSection}>
       <div className={styles.container}>
-        <img src="/images/Centers/Malagaphoto.png" className={styles.image} />
+        <img
+          src="/images/Centers/Malagaphoto.png"
+          // Las dimensiones están en css también escritas
+          height={568}
+          width={1356}
+          className={styles.image}
+        />
         <div className={styles.textContainer}>
           <h1 className={styles.textTop}>
             {" "}
