@@ -20,9 +20,16 @@ export function ListEvents({ events }) {
                 <div className={styles.contactItem}>
                   <span>📍</span> {event.address}
                 </div>
-                <div className={styles.contactItem}>
-                  <span>📞</span>(+34) {event.phone}
-                </div>
+                <a
+                  className={styles.linkPhone}
+                  href={`tel:+34${event.phone}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <div className={styles.contactItem}>
+                    <span>📞</span> {event.phone}
+                  </div>
+                </a>
                 <div className={styles.contactItem}>
                   <span>🌐</span>
                   <a
