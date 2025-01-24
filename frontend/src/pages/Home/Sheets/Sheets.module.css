@@ -51,11 +51,17 @@
 
 /* Efecto hover del boton */
 .buttonLink:hover .textContainer {
-  background-color: #cdcbcc;
+  /*background-color: #cdcbcc;*/
   color: #ffffff;
-  transform: translateY(-10px);
+  /*transform: translateY(-10px);
   transition: 0.3s;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);*/
+  p {
+    text-shadow: 0.5px 0.5px 1px black;
+  }
+  img {
+    filter: brightness(0.5);
+  }
 }
 
 /* Contenedor de la imagen con borde gradiente */
@@ -98,7 +104,7 @@
 .textContainer {
   margin-top: 1rem;
   font-family: "Roboto", sans-serif;
-  background-color: #e4e3e3;
+  /*background-color: #e4e3e3;*/
   padding: 0.5rem 1.5rem;
   width: fit-content;
   display: flex;
