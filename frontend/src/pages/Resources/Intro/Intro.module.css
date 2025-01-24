@@ -82,8 +82,7 @@
 
 /* Botón de sección */
 .sectionToggle {
-  margin-top: rem;
-  background-color: rgba(228, 227, 227, 0.4);
+  background-color: #f5f5f566;
   padding: rem 0.6rem;
   width: fit-content;
   display: flex;
@@ -93,6 +92,9 @@
   width: 150px;
   height: 150px;
   cursor: pointer;
+  transform: translateY(0);
+  transition: transform 0.3s ease, box-shadow 0.3s ease,
+    background-color 0.3s ease;
 }
 
 .titleSectionToggle {
@@ -109,7 +111,8 @@
 }
 
 .sectionToggle:hover {
-  transform: translateY(-5px);
+  transform: translateY(-10px);
+  transition: 0.3s;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
