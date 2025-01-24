@@ -3,11 +3,9 @@ import { FormResources } from "./FormResources";
 import { useEffect, useState } from "react";
 import PodcastsAndVideos from "../../Resources/PodcastsAndVideos/PodcastsAndVideos";
 
-export function IntroResources({ activeSection, listRef }) {
-  // const [activeSection, setActiveSection] = useState("none");
-  //const listRef = useRef(null);
+export function IntroResources() {
   const [resources, setResources] = useState([]);
-  const [error, setError] = useState(null);
+  const [setError] = useState(null);
 
   useEffect(() => {
     const fetchResources = async () => {
@@ -29,6 +27,7 @@ export function IntroResources({ activeSection, listRef }) {
 
     fetchResources();
   }, []);
+
   return (
     <>
       <h1>Listado de Recursos</h1>
