@@ -8,7 +8,6 @@ export function Events() {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    // Fetch events from backend
     fetch("http://localhost:8080/api/events/")
       .then((response) => {
         if (!response.ok) {
@@ -22,7 +21,7 @@ export function Events() {
 
   return (
     <div className={styles.mainContainer}>
-      <CarouselEvents items={events} />
+      <CarouselEvents events={events} /> {/* Pasa los eventos al carrusel */}
       <TextEvent />
       <ListEvents events={events} />
     </div>
