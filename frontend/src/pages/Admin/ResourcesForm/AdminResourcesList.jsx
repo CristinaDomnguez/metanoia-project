@@ -51,16 +51,6 @@ export default function AdminResourcesList({ items, onDelete, onEdit, onAdd }) {
       <section className={styles.container}>
         {items.map((item) => (
           <div key={item.id} className={styles.resourceCard}>
-            <div className={styles.resourceActions}>
-              <FaEdit
-                className={styles.editIcon}
-                onClick={() => handleEdit(item)}
-              />
-              <FaTrash
-                className={styles.deleteIcon}
-                onClick={() => handleDelete(item)}
-              />
-            </div>
             <iframe
               className={styles.resourceFrame}
               src={getIframeSrc(item.type, item.url)}
@@ -73,10 +63,17 @@ export default function AdminResourcesList({ items, onDelete, onEdit, onAdd }) {
               <h4>{item.title}</h4>
               <p>{item.description}</p>
             </div>
+            <div className={styles.resourceActions}>
+              <button onClick={() => handleEdit(item)}>
+                <FaEdit className={styles.actionIcon} />
+              </button>
+              <button onClick={() => handleDelete(item)}>
+                <FaTrash className={styles.actionIcon} />
+              </button>
+            </div>
           </div>
         ))}
 
-        {/* Modal de Eliminación */}
         {deleteModal && (
           <div className={styles.modal}>
             <div className={styles.modalContent}>
@@ -100,7 +97,6 @@ export default function AdminResourcesList({ items, onDelete, onEdit, onAdd }) {
           </div>
         )}
 
-        {/* Modal de Edición */}
         {editModal && (
           <div className={styles.modal}>
             <div className={styles.modalContent}>
@@ -116,7 +112,6 @@ export default function AdminResourcesList({ items, onDelete, onEdit, onAdd }) {
           </div>
         )}
 
-        {/* Modal de Añadir */}
         {addModal && (
           <div className={styles.modal}>
             <div className={styles.modalContent}>
