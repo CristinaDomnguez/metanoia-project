@@ -56,13 +56,6 @@ body {
   margin-top: 0;
 }
 
-.resourceActions {
-  justify-content: flex-end;
-  display: flex;
-  gap: 10px;
-  margin-top: 15px;
-}
-
 .editIcon,
 .deleteIcon {
   font-size: 1.5rem;

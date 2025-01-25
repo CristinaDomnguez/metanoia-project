@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "./ButtonResources.module.css";
-import PodcastsAndVideos from "../PodcastsAndVideos/PodcastsAndVideos";
+import { CardResources } from "../CardResources/CardResources";
 
 export function ButtonResources({ activeSection, listRef }) {
   const [resources, setResources] = useState({
@@ -36,12 +36,18 @@ export function ButtonResources({ activeSection, listRef }) {
   return (
     <div className={styles.container}>
       <div ref={listRef}>
-        {/* Solo se muestra una lista a la vez basado en activeSection */}
-        {activeSection === "videos" && (
-          <PodcastsAndVideos items={resources.videos} />
-        )}
-        {activeSection === "podcasts" && (
-          <PodcastsAndVideos items={resources.podcasts} />
+        {/* Solo se muestra una lista a la vez basado en activeSection */}{" "}
+        {activeSection !== "none" && (
+          <section className={styles.videosContainer}>
+            {activeSection === "videos" &&
+              resources.videos.map((item) => (
+                <CardResources key={item.id} item={item} />
+              ))}
+            {activeSection === "podcasts" &&
+              resources.podcasts.map((item) => (
+                <CardResources key={item.id} item={item} />
+              ))}
+          </section>
         )}
       </div>
     </div>

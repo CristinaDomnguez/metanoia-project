@@ -1,11 +1,12 @@
-import style from "./IntroEvents.module.css";
+import styles from "./IntroEvents.module.css";
 import { FormEvents } from "./FormEvents";
 import { useEffect, useState } from "react";
-import { ListEvents } from "../../Events/ListEvents/ListEvents";
 import { Header } from "../Header/Header";
+import { ItemButtons } from "../ItemButtons/ItemButtons";
+import { CardEvents } from "../../Events/CardEvents/CardEvents";
 
 export function IntroEvents() {
-  const [events, setEvents] = useState([]);
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
     // Fetch events from backend
@@ -16,14 +17,22 @@ export function IntroEvents() {
         }
         return response.json();
       })
-      .then((data) => setEvents(data))
+      .then((data) => setItems(data))
       .catch((error) => console.error("Error fetching events:", error));
   }, []);
 
   return (
     <>
       <Header title="Lista de eventos" />
-      <ListEvents events={events} />
+      <section className={styles.eventsSection}>
+        <div className={styles.eventsContainer}>
+          {items.map((event) => (
+            <ItemButtons key={event.id}>
+              <CardEvents event={event} />
+            </ItemButtons>
+          ))}
+        </div>
+      </section>
       <FormEvents />
     </>
   );

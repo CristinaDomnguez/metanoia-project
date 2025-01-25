@@ -3,6 +3,7 @@ import { FaTrash, FaEdit, FaPlus } from "react-icons/fa";
 import styles from "./AdminResourcesList.module.css";
 import { FormResources } from "./FormResources";
 import { Header } from "../Header/Header";
+import { ItemButtons } from "../ItemButtons/ItemButtons";
 
 function extractYoutubeId(url) {
   if (!url || typeof url !== "string") {
@@ -42,31 +43,29 @@ export default function AdminResourcesList({ items, onDelete, onEdit, onAdd }) {
 
   return (
     <>
-      <Header title="Lista de recursos" onClick={() => setAddModal(true)}/>
+      <Header title="Lista de recursos" onClick={() => setAddModal(true)} />
       <section className={styles.container}>
         {items.map((item) => (
-          <div key={item.id} className={styles.resourceCard}>
-            <iframe
-              className={styles.resourceFrame}
-              src={getIframeSrc(item.type, item.url)}
-              title={item.title}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
-              allowFullScreen
-            />
-            <div className={styles.resourceInfo}>
-              <h4>{item.title}</h4>
-              <p>{item.description}</p>
-              <div className={styles.resourceActions}>
-                <button onClick={() => handleEdit(item)}>
-                  <FaEdit className={styles.actionIcon} />
-                </button>
-                <button onClick={() => handleDelete(item)}>
-                  <FaTrash className={styles.actionIcon} />
-                </button>
+          <ItemButtons
+            onEdit={() => setEditModal(item)}
+            onDelete={() => setDeleteModal(item)}
+            key={item.id}
+          >
+            <div className={styles.resourceCard}>
+              <iframe
+                className={styles.resourceFrame}
+                src={getIframeSrc(item.type, item.url)}
+                title={item.title}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              />
+              <div className={styles.resourceInfo}>
+                <h4>{item.title}</h4>
+                <p>{item.description}</p>
               </div>
             </div>
-          </div>
+          </ItemButtons>
         ))}
 
         {deleteModal && (

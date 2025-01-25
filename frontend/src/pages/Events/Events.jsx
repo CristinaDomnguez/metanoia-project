@@ -24,7 +24,7 @@ export function Events() {
     <div className={styles.mainContainer}>
       <CarouselEvents items={events} />
       <TextEvent />
-      <ListEvents events={events} />
+      <ListEvents items={events} />
     </div>
   );
 }

@@ -1,13 +1,15 @@
-import style from "./IntroCenters.module.css";
+import styles from "./IntroCenters.module.css";
 import { FormCenters } from "./FormCenters";
-import { ListCenters } from "../../Centers/ListCenters/ListCenters.jsx";
 import { useEffect, useState } from "react";
 import { Header } from "../Header/Header.jsx";
+import { CardCenter } from "../../Centers/CardCenter/CardCenter.jsx";
+import { ItemButtons } from "../ItemButtons/ItemButtons.jsx";
 
 export function IntroCenters() {
   const [centers, setCenters] = useState([]);
   const [associations, setAssociations] = useState([]);
   const [setError] = useState(null);
+  const items = [...centers, ...associations];
 
   useEffect(() => {
     // Llamada al backend para obtener los datos
@@ -38,7 +40,15 @@ export function IntroCenters() {
   return (
     <>
       <Header title="Lista de centros" />
-      <ListCenters items={[...centers, ...associations]} />
+      <section className={styles.sheetsSection}>
+        <div className={styles.cardsContainer}>
+          {items.map((center) => (
+            <ItemButtons key={center.id}>
+              <CardCenter center={center} />
+            </ItemButtons>
+          ))}
+        </div>
+      </section>
       <FormCenters />
     </>
   );
