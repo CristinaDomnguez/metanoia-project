@@ -42,7 +42,7 @@ export default function AdminResourcesList({ items, onDelete, onEdit, onAdd }) {
   return (
     <>
       <div className={styles.headerContainer}>
-        <h1>Administración de Recursos</h1>
+        <h1>Lista de recursos</h1>
         <button className={styles.addButton} onClick={() => setAddModal(true)}>
           <FaPlus /> Añadir Recurso
         </button>
@@ -62,14 +62,14 @@ export default function AdminResourcesList({ items, onDelete, onEdit, onAdd }) {
             <div className={styles.resourceInfo}>
               <h4>{item.title}</h4>
               <p>{item.description}</p>
-            </div>
-            <div className={styles.resourceActions}>
-              <button onClick={() => handleEdit(item)}>
-                <FaEdit className={styles.actionIcon} />
-              </button>
-              <button onClick={() => handleDelete(item)}>
-                <FaTrash className={styles.actionIcon} />
-              </button>
+              <div className={styles.resourceActions}>
+                <button onClick={() => handleEdit(item)}>
+                  <FaEdit className={styles.actionIcon} />
+                </button>
+                <button onClick={() => handleDelete(item)}>
+                  <FaTrash className={styles.actionIcon} />
+                </button>
+              </div>
             </div>
           </div>
         ))}
