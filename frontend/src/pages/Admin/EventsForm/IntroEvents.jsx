@@ -2,6 +2,7 @@ import style from "./IntroEvents.module.css";
 import { FormEvents } from "./FormEvents";
 import { useEffect, useState } from "react";
 import { ListEvents } from "../../Events/ListEvents/ListEvents";
+import { Header } from "../Header/Header";
 
 export function IntroEvents() {
   const [events, setEvents] = useState([]);
@@ -21,7 +22,7 @@ export function IntroEvents() {
 
   return (
     <>
-      <h1>Listado de Eventos</h1>
+      <Header title="Lista de eventos" />
       <ListEvents events={events} />
       <FormEvents />
     </>

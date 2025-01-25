@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FaTrash, FaEdit, FaPlus } from "react-icons/fa";
 import styles from "./AdminResourcesList.module.css";
 import { FormResources } from "./FormResources";
+import { Header } from "../Header/Header";
 
 function extractYoutubeId(url) {
   if (!url || typeof url !== "string") {
@@ -41,13 +42,7 @@ export default function AdminResourcesList({ items, onDelete, onEdit, onAdd }) {
 
   return (
     <>
-      <div className={styles.headerContainer}>
-        <h1>Lista de recursos</h1>
-        <button className={styles.addButton} onClick={() => setAddModal(true)}>
-          <FaPlus /> Añadir Recurso
-        </button>
-      </div>
-
+      <Header title="Lista de recursos" onClick={() => setAddModal(true)}/>
       <section className={styles.container}>
         {items.map((item) => (
           <div key={item.id} className={styles.resourceCard}>

@@ -2,6 +2,7 @@ import style from "./IntroCenters.module.css";
 import { FormCenters } from "./FormCenters";
 import { ListCenters } from "../../Centers/ListCenters/ListCenters.jsx";
 import { useEffect, useState } from "react";
+import { Header } from "../Header/Header.jsx";
 
 export function IntroCenters() {
   const [centers, setCenters] = useState([]);
@@ -36,7 +37,7 @@ export function IntroCenters() {
 
   return (
     <>
-      <h1>Lista de Centros</h1>
+      <Header title="Lista de centros" />
       <ListCenters items={[...centers, ...associations]} />
       <FormCenters />
     </>
