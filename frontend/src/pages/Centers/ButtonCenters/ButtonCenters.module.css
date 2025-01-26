@@ -17,11 +17,11 @@
   width: 22%;
   padding: 1rem;
   border-radius: 20px;
-  cursor: pointer;
-  background: white;
+  /* cursor: pointer; */
+  /* background: white; */
   position: relative;
-  transition: transform 0.2s ease, box-shadow 0.2s ease,
-    background-color 0.2s ease;
+  /* transition: transform 0.2s ease, box-shadow 0.2s ease,
+    background-color 0.2s ease; */
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -52,12 +52,6 @@
   z-index: 1;
 }
 
-/* Efecto hover común para ambos botones */
-.gradientButton:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
 .gradientButton.active {
   background-color: #e4ccef;
   border-color: #ffffff;
@@ -68,11 +62,11 @@
   font-size: 1.5rem;
   font-weight: 700;
   color: #2d3748;
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
 }
 
 .icon {
-  width: 26px;        
+  width: 26px;
   height: 26px;
   margin: 18px;
 }

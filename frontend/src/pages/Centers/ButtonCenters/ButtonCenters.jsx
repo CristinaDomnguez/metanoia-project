@@ -1,6 +1,6 @@
+import styles from "./ButtonCenters.module.css";
 import { useState, useRef } from "react";
 import { ListCenters } from "../ListCenters/ListCenters";
-import styles from "./ButtonCenters.module.css";
 
 export function ButtonCenters({ centers, associations }) {
   const [activeSection, setActiveSection] = useState("none");
