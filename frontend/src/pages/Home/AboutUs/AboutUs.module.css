@@ -1,0 +1,91 @@
+/* Contenedor principal */
+.section {
+  background-color: #f8f9fa;
+  padding: 1rem 10% 0;
+}
+
+/* Estilos del título */
+.title {
+  color: #333;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 2.5rem;
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem; /* Espacio entre la imagen y las palabras */
+}
+
+/* Palabras individuales */
+.word {
+  display: inline-block;
+  opacity: 0; /* Ocultar antes de la animación */
+  transform: translateX(-40px); /* Posición inicial desde la izquierda */
+}
+
+/* Animación para las palabras del título */
+.animateWord {
+  animation: slideInFromLeft 1s forwards; /* Animación desde la izquierda */
+}
+
+/* Icono dentro del título */
+.icon {
+  height: 1.5em;
+  width: auto;
+  object-fit: contain;
+  vertical-align: middle;
+  opacity: 0; /* Ocultar antes de la animación */
+  transform: translateX(-40px); /* Posición inicial desde la izquierda */
+  animation: slideInFromLeft 1.2s forwards;
+  animation-delay: 0s; /* Sin retraso para el ícono */
+}
+
+/* Animación para el párrafo */
+.text {
+  font-size: 1rem;
+  text-align: justify;
+  line-height: 1.6;
+  color: #555;
+  opacity: 0; /* Ocultar antes de la animación */
+  transform: translateY(20px); /* Posición inicial desde abajo */
+}
+
+.text:nth-of-type(2) {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.importantWord {
+  font-weight: bold;
+}
+
+.animateText {
+  animation: slideInFromBottom 1.5s forwards; /* Animación desde abajo */
+  animation-delay: 0.6s; /* Retraso para sincronizar con el título */
+}
+
+/* Definición de la animación para las palabras del título */
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-40px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Definición de la animación para el párrafo */
+@keyframes slideInFromBottom {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
