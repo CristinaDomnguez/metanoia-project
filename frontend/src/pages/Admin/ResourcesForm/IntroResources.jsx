@@ -1,5 +1,9 @@
 import { useState, useEffect } from "react";
-import AdminResourcesList from "./AdminResourcesList";
+import styles from "./IntroResources.module.css";
+import { Header } from "../Header/Header";
+import { CardResources } from "../../Resources/CardResources/CardResources";
+import { FormResources } from "./FormResources";
+import { ItemButtons } from "../ItemButtons/ItemButtons";
 
 export function IntroResources() {
   const [resources, setResources] = useState([]);
@@ -80,15 +84,82 @@ export function IntroResources() {
       console.error("Error al añadir recurso:", error);
     }
   };
+  const [deleteModal, setDeleteModal] = useState(null);
+  const [editModal, setEditModal] = useState(null);
+  const [addModal, setAddModal] = useState(false);
 
+  const confirmDelete = () => {
+    if (deleteModal) {
+      handleDelete(deleteModal.id);
+      setDeleteModal(null);
+    }
+  };
   return (
     <>
-      <AdminResourcesList
-        items={resources}
-        onDelete={handleDelete}
-        onEdit={handleEdit}
-        onAdd={handleAdd}
-      />
+      <Header title="Lista de recursos" onClick={() => setAddModal(true)} />
+      <section className={styles.container}>
+        {resources.map((item) => (
+          <ItemButtons
+            onEdit={() => setEditModal(item)}
+            onDelete={() => setDeleteModal(item)}
+            key={item.id}
+          >
+            <CardResources item={item} />
+          </ItemButtons>
+        ))}
+
+        {deleteModal && (
+          <div className={styles.modal}>
+            <div className={styles.modalContent}>
+              <h2>Confirmar Eliminación</h2>
+              <p>¿Estás seguro de eliminar este recurso?</p>
+              <div className={styles.modalActions}>
+                <button
+                  onClick={confirmDelete}
+                  className={styles.confirmButton}
+                >
+                  Eliminar
+                </button>
+                <button
+                  onClick={() => setDeleteModal(null)}
+                  className={styles.cancelButton}
+                >
+                  Cancelar
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {editModal && (
+          <div className={styles.modal}>
+            <div className={styles.modalContent}>
+              <FormResources
+                initialData={editModal}
+                onCancel={() => setEditModal(null)}
+                onSubmit={(updatedData) => {
+                  handleEdit(updatedData);
+                  setEditModal(null);
+                }}
+              />
+            </div>
+          </div>
+        )}
+
+        {addModal && (
+          <div className={styles.modal}>
+            <div className={styles.modalContent}>
+              <FormResources
+                onCancel={() => setAddModal(false)}
+                onSubmit={(newData) => {
+                  handleAdd(newData);
+                  setAddModal(false);
+                }}
+              />
+            </div>
+          </div>
+        )}
+      </section>
     </>
   );
 }
