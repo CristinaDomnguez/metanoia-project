@@ -1,0 +1,126 @@
+/* General */
+body {
+  font-family: "Roboto", sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Una tarjeta por fila */
+  gap: 40px; /* Aumentamos el espacio entre las tarjetas */
+  padding: 30px 40px;
+}
+
+.resourceCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.resourceCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.resourceFrame {
+  width: 100%;
+  height: 200px;
+  border: none;
+  margin-bottom: 5px; /* Reducimos el espacio entre el iframe y el título */
+}
+
+.resourceInfo {
+  padding: 15px;
+  text-align: left;
+}
+
+.resourceInfo h4 {
+  font-size: 1.2rem;
+  font-family: "Roboto", sans-serif;
+  color: #000;
+  font-weight: bold;
+  margin-top: 5px; /* Compactamos más */
+  margin-bottom: 8px;
+}
+
+.resourceInfo p {
+  font-size: 1rem;
+  color: #555;
+  margin-top: 0;
+}
+
+.editIcon,
+.deleteIcon {
+  font-size: 1.5rem;
+  color: white;
+  background-color: #4a90e2;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.deleteIcon {
+  background-color: #dc3545;
+}
+
+.editIcon:hover {
+  background-color: #6c63ff;
+}
+
+.deleteIcon:hover {
+  background-color: #ff6b6b;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background-color: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+}
+
+.modalActions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.confirmButton,
+.cancelButton {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.confirmButton {
+  background-color: #dc3545;
+  color: white;
+}
+
+.cancelButton {
+  background-color: #6c757d;
+  color: white;
+}

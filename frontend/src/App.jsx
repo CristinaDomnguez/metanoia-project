@@ -8,19 +8,42 @@ import { Centers } from "./pages/Centers/Centers.jsx";
 import { Events } from "./pages/Events/Events.jsx";
 import { Helps } from "./pages/Helps/Helps.jsx";
 import { Admin } from "./pages/Admin/Admin.jsx";
+import { NavBarLogin } from "./components/NavBarLogin/NavBarLogin.jsx";
+import { IntroResources } from "./pages/Admin/ResourcesForm/IntroResources.jsx";
+import { IntroCenters } from "./pages/Admin/CentersForm/IntroCenters.jsx";
+import { IntroEvents } from "./pages/Admin/EventsForm/IntroEvents.jsx";
 
 // Configuración del enrutador
 const router = createBrowserRouter([
   {
-    element: (
-      <>
-        <Outlet />
-      </>
-    ),
+    element: <Outlet />,
     children: [
       {
         path: "/admin",
-        element: <Admin />,
+        element: (
+          <>
+            <NavBarLogin />
+            <Outlet />
+          </>
+        ),
+        children: [
+          {
+            path: "/admin",
+            element: <Admin />,
+          },
+          {
+            path: "/admin/recursos",
+            element: <IntroResources />,
+          },
+          {
+            path: "/admin/centros",
+            element: <IntroCenters />,
+          },
+          {
+            path: "/admin/eventos",
+            element: <IntroEvents />,
+          },
+        ],
       },
       {
         element: (

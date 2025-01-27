@@ -2,3 +2,12 @@
 .container {
   width: 100%;
 }
+
+.videosContainer {
+  padding: 3rem;
+  background-color: #fff;
+  font-family: sans-serif;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}

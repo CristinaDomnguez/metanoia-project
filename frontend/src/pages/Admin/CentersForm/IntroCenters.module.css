@@ -1,0 +1,50 @@
+/* Contenedor principal que envuelve toda la sección */
+.sheetsSection {
+  width: 100%; /* Ocupa todo el ancho disponible */
+  padding: 4rem 2rem; /* Espaciado interior: 4rem arriba/abajo, 2rem izquierda/derecha */
+  background-color: #f8f9fa; /* Color de fondo gris muy claro */
+}
+
+/* Contenedor de las tarjetas con diseño de grid */
+.cardsContainer {
+  max-width: 1200px; /* Ancho máximo del contenedor */
+  margin: 0 auto; /* Centra el contenedor horizontalmente */
+  display: grid; /* Usa CSS Grid para el layout */
+  grid-template-columns: repeat(2, 1fr); /* Crea 2 columnas de igual tamaño */
+  gap: 2rem; /* Espacio entre las tarjetas */
+}
+
+.itemContainer {
+  position: relative;
+  display: flex;
+}
+
+.footer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.itemContainer:hover .footer {
+  display: block;
+  backdrop-filter: blur(3px);
+}
+
+/* Estilos para pantallas medianas (tablets) */
+@media (max-width: 992px) {
+  .cardsContainer {
+    grid-template-columns: 1fr; /* Cambia a una sola columna */
+    max-width: 600px; /* Reduce el ancho máximo */
+  }
+}
+
+/* Estilos para pantallas pequeñas (móviles) */
+@media (max-width: 576px) {
+  .sheetsSection {
+    padding: 2rem 1rem; /* Reduce el padding */
+  }
+}
