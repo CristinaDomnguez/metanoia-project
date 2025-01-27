@@ -6,6 +6,7 @@
   gap: 1rem;
   transition: transform 0.2s ease;
   position: relative;
+  width: 100%;
 }
 
 .eventCard:hover {
@@ -83,27 +84,25 @@
   right: 1rem;
 }
 
-
 /* Estilos para pantallas medianas */
 @media (max-width: 992px) {
-    .eventCard {
-      flex-direction: column;
-    }
-  
-    .eventImageContainer {
-      flex: 0 0 auto;
-      width: 100%; /* Ocupa todo el ancho en móvil */
-    }
-  
-    .eventImage {
-      max-height: 400px; /* Permite una altura máxima mayor en móvil */
-    }
+  .eventCard {
+    flex-direction: column;
   }
-  
-  /* Estilos para pantallas pequeñas */
-  @media (max-width: 576px) {
-  
-    .eventCard {
-      padding: 1.5rem;
-    }
+
+  .eventImageContainer {
+    flex: 0 0 auto;
+    width: 100%; /* Ocupa todo el ancho en móvil */
   }
+
+  .eventImage {
+    max-height: 400px; /* Permite una altura máxima mayor en móvil */
+  }
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 576px) {
+  .eventCard {
+    padding: 1.5rem;
+  }
+}

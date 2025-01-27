@@ -1,55 +1,79 @@
 import styles from "./IntroCenters.module.css";
 import { FormCenters } from "./FormCenters";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Header } from "../Header/Header.jsx";
 import { CardCenter } from "../../Centers/CardCenter/CardCenter.jsx";
 import { ItemButtons } from "../ItemButtons/ItemButtons.jsx";
+import { ModalDelete } from "../../../components/Modal/Delete/ModalDelete.jsx";
+import { Modal } from "../../../components/Modal/Modal.jsx";
+import { useData } from "../../../hooks/useData.js";
 
 export function IntroCenters() {
-  const [centers, setCenters] = useState([]);
-  const [associations, setAssociations] = useState([]);
-  const [setError] = useState(null);
-  const items = [...centers, ...associations];
+  const {
+    data: items,
+    handleAdd,
+    handleDelete,
+    handleEdit,
+  } = useData("centers");
 
-  useEffect(() => {
-    // Llamada al backend para obtener los datos
-    const fetchCenters = async () => {
-      try {
-        const response = await fetch("http://localhost:8080/api/centers/");
-        if (!response.ok) {
-          throw new Error("Error al obtener los datos");
-        }
-        const data = await response.json();
-        // Dividir los datos en psicólogos y asociaciones
-        const psychologists = data.filter((center) =>
-          center.type.toLowerCase().startsWith("psicologo")
-        );
-        const associations = data.filter(
-          (center) => center.type === "asociacion"
-        );
-        setCenters(psychologists);
-        setAssociations(associations);
-      } catch (err) {
-        setError(err.message);
-      }
-    };
+  const [deleteModal, setDeleteModal] = useState(null);
+  const [editModal, setEditModal] = useState(null);
+  const [addModal, setAddModal] = useState(false);
 
-    fetchCenters();
-  }, []);
-
+  const confirmDelete = () => {
+    if (deleteModal) {
+      handleDelete(deleteModal.id);
+      setDeleteModal(null);
+    }
+  };
   return (
     <>
-      <Header title="Lista de centros" />
+      <Header title="Lista de centros" onClick={() => setAddModal(true)} />
       <section className={styles.sheetsSection}>
         <div className={styles.cardsContainer}>
           {items.map((center) => (
-            <ItemButtons key={center.id}>
+            <ItemButtons
+              key={center.id}
+              onEdit={() => setEditModal(center)}
+              onDelete={() => setDeleteModal(center)}
+            >
               <CardCenter center={center} />
             </ItemButtons>
           ))}
         </div>
+
+        {deleteModal && (
+          <ModalDelete
+            onCancel={() => setDeleteModal(null)}
+            onDelete={confirmDelete}
+          />
+        )}
+
+        {editModal && (
+          <Modal>
+            <FormCenters
+              initialData={editModal}
+              onCancel={() => setEditModal(null)}
+              onSubmit={(updatedData) => {
+                handleEdit(updatedData);
+                setEditModal(null);
+              }}
+            />
+          </Modal>
+        )}
+
+        {addModal && (
+          <Modal>
+            <FormCenters
+              onCancel={() => setAddModal(false)}
+              onSubmit={(newData) => {
+                handleAdd(newData);
+                setAddModal(false);
+              }}
+            />
+          </Modal>
+        )}
       </section>
-      <FormCenters />
     </>
   );
 }
