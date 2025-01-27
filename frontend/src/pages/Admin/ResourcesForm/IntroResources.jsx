@@ -4,6 +4,7 @@ import { Header } from "../Header/Header";
 import { CardResources } from "../../Resources/CardResources/CardResources";
 import { FormResources } from "./FormResources";
 import { ItemButtons } from "../ItemButtons/ItemButtons";
+import { Modal } from "../../../components/Modal/Modal";
 
 export function IntroResources() {
   const [resources, setResources] = useState([]);
@@ -109,41 +110,34 @@ export function IntroResources() {
         ))}
 
         {deleteModal && (
-          <div className={styles.modal}>
-            <div className={styles.modalContent}>
-              <h2>Confirmar Eliminación</h2>
-              <p>¿Estás seguro de eliminar este recurso?</p>
-              <div className={styles.modalActions}>
-                <button
-                  onClick={confirmDelete}
-                  className={styles.confirmButton}
-                >
-                  Eliminar
-                </button>
-                <button
-                  onClick={() => setDeleteModal(null)}
-                  className={styles.cancelButton}
-                >
-                  Cancelar
-                </button>
-              </div>
+          <Modal>
+            <h2>Confirmar Eliminación</h2>
+            <p>¿Estás seguro de eliminar este recurso?</p>
+            <div className={styles.modalActions}>
+              <button onClick={confirmDelete} className={styles.confirmButton}>
+                Eliminar
+              </button>
+              <button
+                onClick={() => setDeleteModal(null)}
+                className={styles.cancelButton}
+              >
+                Cancelar
+              </button>
             </div>
-          </div>
+          </Modal>
         )}
 
         {editModal && (
-          <div className={styles.modal}>
-            <div className={styles.modalContent}>
-              <FormResources
-                initialData={editModal}
-                onCancel={() => setEditModal(null)}
-                onSubmit={(updatedData) => {
-                  handleEdit(updatedData);
-                  setEditModal(null);
-                }}
-              />
-            </div>
-          </div>
+          <Modal>
+            <FormResources
+              initialData={editModal}
+              onCancel={() => setEditModal(null)}
+              onSubmit={(updatedData) => {
+                handleEdit(updatedData);
+                setEditModal(null);
+              }}
+            />
+          </Modal>
         )}
 
         {addModal && (

@@ -4,6 +4,7 @@
 
 /* Elementos de video */
 .item {
+  width: 100%;
   display: flex; /* Alineación horizontal del contenido */
   flex-direction: column; /* Coloca imagen y texto en fila */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
