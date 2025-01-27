@@ -3,7 +3,7 @@ import "./Slogan.css";
 
 export function Slogan() {
   const [ref, isInView] = useInView();
-  const text = "Descubre diferentes formas de cambiar tu mente";
+  const text = "Un lugar para quienes buscan sentirse mejor";
   return (
     // Contenedor principal para centrar el slogan
     <div ref={ref} className={`slogan-container ${isInView ? 'inView' : ''}`}>
