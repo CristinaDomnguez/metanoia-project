@@ -8,6 +8,7 @@ export function CarouselEvents() {
   // Cargar imágenes dinámicamente desde la carpeta public con sufijo "-logo.png"
   const images = [
     "/images/Events/junta-logo.png",
+    "/images/Events/junta-logo.png",
     "/images/Events/3Eventos.png",
     "/images/Events/5Eventos.png",
     "/images/Events/4Eventos.png",

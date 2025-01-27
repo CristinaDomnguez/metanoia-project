@@ -5,7 +5,7 @@ export function ListEvents({ events }) {
     <section className={styles.eventsSection}>
       <div className={styles.eventsContainer}>
         {events.map((event) => (
-          <div key={event.id} id={event.id} className={styles.eventCard}>
+          <div key={event.id} id={`event${event.id}`} className={styles.eventCard}>
             <div className={styles.eventImageContainer}>
               <img
                 src={event.imageUrl}
