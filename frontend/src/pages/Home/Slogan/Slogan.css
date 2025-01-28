@@ -17,9 +17,8 @@
   font-size: 2.5rem;
   color: #333;
   margin: 0;
-  font-family: "Playfair Display", serif;
-  font-weight: 700;
-  /* text-shadow: 2px 2px 4px rgba(168, 66, 212, 0.8); */
+  font-family: "Roboto", sans-serif;
+  font-weight: 450;
 }
 
 /* Estilos para cada caracter individual */

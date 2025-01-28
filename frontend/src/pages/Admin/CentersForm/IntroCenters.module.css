@@ -2,7 +2,6 @@
 .sheetsSection {
   width: 100%; /* Ocupa todo el ancho disponible */
   padding: 4rem 2rem; /* Espaciado interior: 4rem arriba/abajo, 2rem izquierda/derecha */
-  background-color: #f8f9fa; /* Color de fondo gris muy claro */
 }
 
 /* Contenedor de las tarjetas con diseño de grid */
