@@ -84,11 +84,13 @@
 .submitButton {
   background-color: #0ec94f;
   color: white;
+  text-align: center;
 }
 
 .cancelButton {
   background-color: #e51212;
   color: white;
+  text-align: center;
 }
 
 .submitButton:hover,
