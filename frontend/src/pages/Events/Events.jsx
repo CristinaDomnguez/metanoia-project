@@ -23,7 +23,7 @@ export function Events() {
     <div className={styles.mainContainer}>
       <CarouselEvents events={events} /> {/* Pasa los eventos al carrusel */}
       <TextEvent />
-      <ListEvents events={events} />
+      <ListEvents items={events} />
     </div>
   );
 }

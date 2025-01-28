@@ -79,7 +79,7 @@ export function Carousel() {
             {item.type === "video" ? (
               <>
                 <video
-                  key={item.src} // Cambiado para forzar el reinicio del video
+                  key={`video-${currentIndex}`} // Cambiado para forzar el reinicio del video
                   src={item.src}
                   className={`${styles.carouselMedia} ${styles.video} ${
                     index === currentIndex ? styles.active : ""
