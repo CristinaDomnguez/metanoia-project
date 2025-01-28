@@ -12,6 +12,7 @@ import { NavBarLogin } from "./components/NavBarLogin/NavBarLogin.jsx";
 import { IntroResources } from "./pages/Admin/ResourcesForm/IntroResources.jsx";
 import { IntroCenters } from "./pages/Admin/CentersForm/IntroCenters.jsx";
 import { IntroEvents } from "./pages/Admin/EventsForm/IntroEvents.jsx";
+import { ContextAdmin } from "./context/ContextAdmin.jsx";
 
 // Configuración del enrutador
 const router = createBrowserRouter([
@@ -21,10 +22,10 @@ const router = createBrowserRouter([
       {
         path: "/admin",
         element: (
-          <>
+          <ContextAdmin>
             <NavBarLogin />
             <Outlet />
-          </>
+          </ContextAdmin>
         ),
         children: [
           {

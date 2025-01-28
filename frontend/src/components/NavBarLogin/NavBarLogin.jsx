@@ -1,8 +1,11 @@
 import styles from "./NavBarLogin.module.css";
 import { NavLink } from "react-router-dom";
 import { VscAccount } from "react-icons/vsc";
+import { useContextAdmin } from "../../context/ContextAdmin";
 
 export function NavBarLogin() {
+  const { admin } = useContextAdmin();
+
   return (
     <nav className={styles.navbar}>
       {/* Grupo de enlaces del lado izquierdo */}
@@ -10,16 +13,16 @@ export function NavBarLogin() {
         {/* Contenedor del logo central */}
         <NavLink to="/admin" className={styles.navLinkLogo}>
           <div className={styles.logoContainer}>
-            <img
-              src="/images/logo_small.png"
-              alt="Logo"
-              className={styles.logo}
-            />
+            <img src="/public/favicon.png" alt="Logo" className={styles.logo} />
           </div>
         </NavLink>
 
         {/* Grupo de enlaces del lado derecho */}
-        <div className={`${styles.navGroup} ${styles.navGroupRight}`}>
+        <div
+          className={`${styles.navGroup} ${styles.navGroupRight} ${
+            admin ? "" : styles.noAdmin
+          }`}
+        >
           <span className={styles.separator}>|</span>
 
           <NavLink
@@ -62,15 +65,16 @@ export function NavBarLogin() {
           <span className={styles.separator}>|</span>
 
           <NavLink
-            to="/login"
+            to="/admin"
+            end
             className={({ isActive }) =>
               isActive
                 ? `${styles.navLink} ${styles.activeLink}`
                 : styles.navLink
             }
           >
-            LOGIN
             <VscAccount />
+            {admin || "ACCESO"}
           </NavLink>
         </div>
       </div>

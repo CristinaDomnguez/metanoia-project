@@ -25,6 +25,8 @@ li {
 .app {
   background-color: white;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Estilo de títulos principales */
