@@ -46,17 +46,17 @@ export function Sheets() {
           >
             <div className={styles.card}>
               {/* Contenedor del texto*/}
+              <div
+                className={styles.imageContainer}
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
+                <img
+                  src={card.image}
+                  alt={`Card ${index + 1}`}
+                  className={styles.cardImage}
+                />
+              </div>
               <Link to={card.link} className={styles.buttonLink}>
-                <div
-                  className={styles.imageContainer}
-                  style={{ animationDelay: `${index * 0.2}s` }}
-                >
-                  <img
-                    src={card.image}
-                    alt={`Card ${index + 1}`}
-                    className={styles.cardImage}
-                  />
-                </div>
                 <div className={styles.flexTextContainer}>
                   <div className={styles.textContainer}>
                     <img src={card.icon} className={styles.icon} />
