@@ -6,7 +6,7 @@ export function Slogan() {
   const text = "Un lugar para quienes buscan sentirse mejor";
   return (
     // Contenedor principal para centrar el slogan
-    <div ref={ref} className={`slogan-container ${isInView ? 'inView' : ''}`}>
+    <div ref={ref} className={`slogan-container ${isInView ? "inView" : ""}`}>
       <h1 className="slogan">
         {/* Contenedor de la imagen con su propia animación */}
         <span className="icon-container" style={{ animationDelay: "0s" }}>

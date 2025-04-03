@@ -1,0 +1,89 @@
+/* Estilos para cada tarjeta individual */
+.centerCard {
+  background: white; /* Fondo blanco */
+  padding: 2rem; /* Espaciado interior */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  display: flex; /* Usa flexbox para ordenar el contenido */
+  flex-direction: column; /* Apila los elementos verticalmente */
+  gap: 1rem; /* Espacio entre elementos internos */
+  transition: transform 0.2s ease; /* Animación suave al hacer hover */
+  position: relative;
+  width: 100%;
+}
+
+/* Efecto al pasar el mouse por encima de la tarjeta */
+.centerCard:hover {
+  transform: translateY(-4px); /* Eleva la tarjeta 4px */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+}
+
+/* Estilo para el nombre del centro */
+.name {
+  font-size: 1.5rem; /* Tamaño de fuente grande */
+  font-weight: 600; /* Fuente semi-negrita */
+  color: #2c3e50; /* Color azul oscuro */
+  margin-bottom: 0.5rem; /* Espacio debajo */
+  font-family: sans-serif;
+}
+
+/* Estilo para el tipo de centro (etiqueta) */
+.type {
+  background-color: #e4ccef; /* Fondo morado claro */
+  color: #333; /* Color de texto oscuro */
+  padding: 0.3rem 1rem; /* Espaciado interior */
+  border-radius: 20px; /* Bordes muy redondeados */
+  font-size: 0.9rem; /* Texto ligeramente más pequeño */
+  width: fit-content; /* El ancho se ajusta al contenido */
+  margin-bottom: 0.5rem; /* Espacio debajo */
+  font-family: sans-serif;
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+/* Estilo para la descripción */
+.description {
+  color: #666; /* Color de texto gris */
+  font-size: 1rem; /* Tamaño de fuente normal */
+  line-height: 1rem; /* Altura de línea para mejor legibilidad */
+  margin-bottom: 1rem; /* Espacio debajo */
+  font-family: sans-serif;
+}
+
+/* Contenedor de la información de contacto */
+.contactInfo {
+  display: flex; /* Usa flexbox */
+  flex-direction: column; /* Apila elementos verticalmente */
+  gap: 0.6rem; /* Espacio entre elementos */
+  color: #555; /* Color de texto gris */
+  font-size: 0.95rem; /* Tamaño de fuente ligeramente menor */
+  font-family: sans-serif;
+}
+
+/* Estilo para cada ítem de contacto */
+.contactItem {
+  display: flex; /* Usa flexbox */
+  align-items: center; /* Centra elementos verticalmente */
+  gap: 0.6rem; /* Espacio entre icono y texto */
+  font-family: sans-serif;
+}
+
+.contactItemLink {
+  cursor: pointer;
+}
+
+/* Estilo para el ID del usuario */
+.userId {
+  margin-top: 1rem; /* Espacio arriba */
+  font-size: 0.9rem; /* Texto pequeño */
+  color: #888; /* Color gris claro */
+  font-style: italic; /* Texto en cursiva */
+  font-family: sans-serif;
+}
+
+/* Estilos para pantallas pequeñas (móviles) */
+@media (max-width: 576px) {
+  .centerCard {
+    padding: 1.5rem; /* Reduce el padding de las tarjetas */
+  }
+}

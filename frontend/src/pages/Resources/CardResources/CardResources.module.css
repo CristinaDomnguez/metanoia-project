@@ -1,19 +1,10 @@
-/* Contenedor principal */
-.container {
-  padding: 3rem;
-  background-color: #fff;
-  font-family: sans-serif;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
-}
-
 .podcast {
   border-radius: 12px;
 }
 
 /* Elementos de video */
 .item {
+  width: 100%;
   display: flex; /* Alineación horizontal del contenido */
   flex-direction: column; /* Coloca imagen y texto en fila */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);

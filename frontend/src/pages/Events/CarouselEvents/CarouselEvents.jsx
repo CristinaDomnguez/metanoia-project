@@ -1,20 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./CarouselEvents.module.css";
 
-export function CarouselEvents() {
+export function CarouselEvents({ items = [] }) {
   const trackRef = useRef();
   const [isAutoScrolling, setIsAutoScrolling] = useState(true);
 
   // Cargar imágenes dinámicamente desde la carpeta public con sufijo "-logo.png"
-  const images = [
-    "/images/Events/junta-logo.png",
-    "/images/Events/junta-logo.png",
-    "/images/Events/3Eventos.png",
-    "/images/Events/5Eventos.png",
-    "/images/Events/4Eventos.png",
-    "/images/Events/federacion-logo.png",
-    "/images/Events/uma-logo.png",
-  ];
+  const images = items.map((image) => image.imageUrl);
 
   // Hook para manejar el desplazamiento automático del carrusel
   useEffect(() => {
